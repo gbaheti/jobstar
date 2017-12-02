@@ -42,7 +42,7 @@ img {
 p.made-in-india{
   position: relative;
   top: 30px;
-  left: 15px;
+  left: 20px;
   font-size: 12px;
   text-transform: uppercase;
   color: rgba(0,0,0,0.5);
@@ -160,7 +160,7 @@ footer a{
   opacity: 0.8;
 }
 .background-photo{
-  background: url(../images/salesman.jpg) center center no-repeat;
+  background: url(../images/brand.jpg) center center no-repeat;
   height: 100%;
   background-size: cover;
 }
@@ -173,9 +173,9 @@ footer a{
   height:100%;
   display: block;
   z-index:0;
-  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 32%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 32%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 5%, rgba(0,0,0,0.8) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 5%,rgba(0,0,0,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 5%,rgba(0,0,0,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 }
 .background-photo p{
@@ -185,10 +185,16 @@ footer a{
   font-weight: 100;
   width: 80%;
   left: 10%;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 15px;
+}
+.background-photo p>span{
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  letter-spacing: 1px;
 }
 
 /* APPLY PAGE */
@@ -260,7 +266,9 @@ footer a{
         height: 40%;
     }
     .background-photo p{
-      bottom: 12%;
+      bottom: 10px;
+      font-size: 16px;
+      line-height: 24px;
     }
 }
 @media only screen and (max-width:480px) {
@@ -276,7 +284,7 @@ footer a{
   }
   .content>p{
     font-size: 12px;
-    margin-left: 10px;
+    margin-left: 2px;
   }
   .email_button{
     margin-top: 10px;
