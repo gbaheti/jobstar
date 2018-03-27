@@ -1,0 +1,153 @@
+.container {
+  margin: auto;
+  width: 62%;
+  margin-left: 38%;
+}
+
+.logo {
+  float: left;
+  width: 140px;
+  margin-top: 20px;
+}
+
+.logoText {
+  position: relative;
+  top: 30px;
+  left: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.flag {
+  font-size: 15px;
+  color: black;
+  position: relative;
+  top: 2px;
+}
+
+.main {
+  clear: both;
+  margin: 15% auto 0;
+  z-index: 1;
+}
+
+.content {
+  border-radius: 10px;
+}
+
+.head {
+  color: #000000;
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 48px;
+  max-width: 600px;
+  width: 85%;
+}
+
+.featuresList {
+  margin-top: 2rem;
+}
+
+.featuresList>li {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.featuresList>li>p {
+  float: left;
+  font-size: 32px;
+}
+
+.featuresDesc {
+  margin-left: 1rem;
+  display: inline-block;
+}
+
+.featuresDesc>h4 {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.featuresDesc>p {
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 0.3rem;
+}
+
+.btn {
+  position: relative;
+  background-color: #566EE6;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 18px 24px 21px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 30px;
+  box-shadow: 0px 8px 24px rgba(86, 110, 230, .3);
+  cursor: pointer;
+  transition: all 0.075s ease-in;
+}
+
+.btn:hover {
+  background-color: #7656E6;
+  box-shadow: 0px 8px 32px rgba(86, 110, 230, .3);
+  transform: scale(1.03);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.arrowRight {
+  margin-left: 6px;
+  position: relative;
+  top: 2px;
+  width: 16px;
+}
+
+.note {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #F74E4E;
+  display: inline-block;
+  margin-left: 24px;
+  letter-spacing: 1px;
+}
+
+@media only screen and (max-width:480px) {
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+  .main {
+    margin: 20% auto 0;
+  }
+  .featuresDesc>h4 {
+    font-size: 18px;
+  }
+  .featuresDesc>p {
+    font-size: 12px;
+  }
+  .head {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .content>p {
+    font-size: 12px;
+    margin-left: 2px;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+  .featuresList {
+    margin-top: 1.5rem;
+  }
+}

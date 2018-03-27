@@ -1,0 +1,66 @@
+.gallery {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+  top: 0;
+  left: 0;
+}
+
+.background {
+  position: relative;
+  background: url(../../assets/business.jpg) center center no-repeat;
+  height: 100%;
+  background-size: cover;
+}
+
+.overlay::before {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  /* background: rgba(0, 0, 0, 0.8); */
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.8) 100%);
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.description {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 80%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 18px;
+  line-height: 32px;
+  color: white;
+  font-weight: 100;
+}
+
+.title {
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+@media only screen and (max-width:480px) {
+  .overlay::before {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@media only screen and (max-width:760px) {
+  .gallery {
+    display: block;
+    top: auto;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 5rem;
+    height: 40%;
+  }
+}
