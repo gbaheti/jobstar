@@ -1,0 +1,19 @@
+.wrapper {
+  margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  color: #313131;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.check {
+  margin-top: 20px;
+  height: 80px;
+  width: 80px;
+}

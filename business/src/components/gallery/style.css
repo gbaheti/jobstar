@@ -63,4 +63,7 @@
     margin-top: 5rem;
     height: 40%;
   }
+  .overlay::before {
+    background: rgba(0, 0, 0, 0.8);
+  }
 }

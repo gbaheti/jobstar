@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
-import style from './style';
 import cx from 'classnames';
+
+import style from './style';
 
 export default class Gallery extends Component {
 	render() {
