@@ -4,32 +4,9 @@
   margin-left: 38%;
 }
 
-.logo {
-  float: left;
-  width: 140px;
-  margin-top: 20px;
-}
-
-.logoText {
-  position: relative;
-  top: 30px;
-  left: 20px;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
-  letter-spacing: 1px;
-}
-
-.flag {
-  font-size: 15px;
-  color: black;
-  position: relative;
-  top: 2px;
-}
-
 .main {
   clear: both;
-  margin: 15% auto 0;
+  margin: 5% auto 0;
   z-index: 1;
 }
 
@@ -51,8 +28,10 @@
 }
 
 .featuresList>li {
+  display: inline-block;
   list-style: none;
   margin-bottom: 1.5rem;
+  margin-right: 3rem; 
 }
 
 .featuresList>li>p {

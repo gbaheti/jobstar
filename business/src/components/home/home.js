@@ -1,7 +1,6 @@
 import { h, Component } from 'preact';
 
 import style from './style';
-import logo from '../../assets/logo.svg';
 import arrowRight from '../../assets/arrow-right.svg';
 
 export default class Home extends Component {
@@ -23,10 +22,6 @@ export default class Home extends Component {
 
 		return (
       <div class={style.container}>
-        <img src={logo} class={style.logo} alt="" />
-        <p class={style.logoText}>
-          <span class={style.flag}>🇮🇳 </span>Made in India
-        </p>
         <div class={style.main}>
           <div class={style.content}>
             <h1 class={style.head}>Hire part-time/temp workers who get the job done.</h1>
