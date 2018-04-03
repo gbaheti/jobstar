@@ -1,9 +1,11 @@
 .wrapper {
-  margin: 20px 10px;
+  padding: 1rem 0;
 }
 
 .title {
-  margin: 10px 0;
+  margin: 10px 2rem;
+  font-size: 20px;
+  color: rgba(0,0,0,0.85);
 }
 
 .list {
@@ -12,9 +14,21 @@
 }
 
 .listItem {
-  margin: 10px 0;
+  cursor: pointer;
+  /* margin: 8px 0; */
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+}
+
+.listItem:hover {
+  background: #f7f8fa;
 }
 
 .listItem > input {
-  margin: 0 5px;
+  margin: 0 10px;
+}
+
+.listItem > label {
+  font-size: 18px;
+  color: rgba(0,0,0,0.85);
 }

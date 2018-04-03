@@ -65,7 +65,7 @@ export default class Modal extends Component {
         question: 'What is the age of Naruto?',
         answers: {
           type: 'radioList',
-          options: ['12-15', '8-10', '14-17', '20-22']
+          options: ['12 - 15', '8 - 10', '14 - 17', '20 - 22']
         }
       },
       'paint': {
@@ -80,7 +80,7 @@ export default class Modal extends Component {
 
     if(category === 'audit') {
       return response['audit'];
-    } else if(category === '12-15') {
+    } else if(category === response.audit.answers.options[0]) {
       return response['paint'];
     } else {
       return false;
@@ -115,7 +115,7 @@ export default class Modal extends Component {
 		return (
       <div class={style.modal}>
         <div class={style.header}>
-          <h1>{this.props.title}</h1>
+          <p>{this.props.title}</p>
           <button class={cx(style.btn, style.btnCircle)} onClick={this.props.onClose}>
             <img src={crossIcon} />
           </button>

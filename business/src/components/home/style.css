@@ -2,6 +2,7 @@
   margin: auto;
   width: 62%;
   margin-left: 38%;
+  padding-right: 5%;
 }
 
 .main {
@@ -31,7 +32,11 @@
   display: inline-block;
   list-style: none;
   margin-bottom: 1.5rem;
-  margin-right: 3rem; 
+  margin-right: 2rem;
+}
+
+.featuresList>li:last-child {
+  margin-right: 0;
 }
 
 .featuresList>li>p {
@@ -54,6 +59,52 @@
   margin-top: 0.3rem;
 }
 
+.cardWrapper {
+  margin: 2rem 0;
+}
+
+.cardListWrapper {
+  display: grid;
+}
+
+.cardList {
+  list-style: none;
+  display: grid;
+}
+
+.cardListLeft {
+  grid-column: 1;
+}
+
+.cardListRight {
+  grid-column: 2;
+}
+
+.card {
+  width: 300px;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.card > img {
+  cursor: pointer;
+  height: auto;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: none;
+  margin-bottom: 1rem;
+  transition:  cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+}
+
+.card>img:hover {
+  box-shadow: 0px 8px 32px rgba(136, 138, 148, 0.3);
+}
+
+.card > p{
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .btn {
   position: relative;
   background-color: #566EE6;
@@ -67,7 +118,7 @@
   display: inline-block;
   text-transform: uppercase;
   font-size: 14px;
-  margin-top: 30px;
+  margin-bottom: 30px;
   box-shadow: 0px 8px 24px rgba(86, 110, 230, .3);
   cursor: pointer;
   transition: all 0.075s ease-in;
@@ -99,13 +150,22 @@
   letter-spacing: 1px;
 }
 
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 60%;
+    margin-left: 40%;
+    /* padding-right: 5%; */
+  }
+}
+
 @media only screen and (max-width:480px) {
   .container {
     width: 90%;
     margin: auto;
+    padding-right: 0;
   }
   .main {
-    margin: 20% auto 0;
+    margin: 5% auto 0;
   }
   .featuresDesc>h4 {
     font-size: 18px;
@@ -128,5 +188,8 @@
   }
   .featuresList {
     margin-top: 1.5rem;
+  }
+  .cardWrapper {
+    margin: 5% 0px;
   }
 }

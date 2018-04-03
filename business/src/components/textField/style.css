@@ -1,9 +1,11 @@
 .wrapper {
-  margin: 20px 10px;
+  padding: 1rem 2rem;
 }
 
 .title {
   margin: 10px 0;
+  font-size: 20px;
+  color: rgba(0,0,0,0.85);
 }
 
 .list {
@@ -16,5 +18,10 @@
 }
 
 .listItem > input {
-  margin: 0 5px;
+  margin: 0 10px;
+}
+
+.listItem > label {
+  font-size: 18px;
+  color: rgba(0,0,0,0.85);
 }
