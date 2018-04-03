@@ -19,8 +19,10 @@ export default class RadioList extends Component {
             this.props.options.map(option => {
               return (
                 <li class={style.listItem}>
-                  <input type='radio' name='radio' value={option} onChange={this.handleChange}/>
-                  <label>{option}</label>
+                  <label class={style.label}>
+                    <input type='radio' name='radio' value={option} onChange={this.handleChange}/>
+                    <p>{option}</p>
+                  </label>
                 </li>
               )
             })

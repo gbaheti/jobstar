@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import style from './style';
 import crossIcon from '../../assets/cross.svg';
+import arrowRight from '../../assets/arrow-right.svg';
 
 export default class Modal extends Component {
   constructor(props) {
@@ -124,10 +125,11 @@ export default class Modal extends Component {
           this.state.module ? <DynamicComponent {...this.state.moduleProps} updateChange={this.updateChange}/> : null
         }
         <div class={style.footer}> 
-          <button class={cx(style.btn, style.btnRectangle)} onClick={this.nextState}>
+          <button type="button" class={cx(style.btn, style.btnRectangle)} onClick={this.nextState}>
             {
               this.state.isOver ? 'Finish' : 'Next'
             }
+            <img src={arrowRight} alt="arrow-right" class={style.arrowRight} />
           </button>
         </div>
       </div>
