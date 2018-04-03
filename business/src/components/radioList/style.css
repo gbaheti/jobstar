@@ -44,8 +44,32 @@
 
 .label > input[type='radio'] {
   margin-right: 20px;
+  opacity: 0;
+  position: absolute;
 }
 
-.label > input:checked + p {
-  color: rgba(0, 0, 0, 1);
+.label > input[type='radio'] + p::before {
+  height: 16px;
+  margin-right: 20px;
+  content: " ";
+  display: inline-block;
+  vertical-align: baseline;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: none;
+  background: #fff;
+}
+
+input[type='radio'] + p::before{
+  border-radius: 50%;
+  width: 16px;
+}
+
+input[type='radio']:checked + p::before{
+  box-shadow: inset 0 0 0 4px #3E00F8;
+}
+
+input[type='radio']:checked + p {
+  color: #000000;
 }

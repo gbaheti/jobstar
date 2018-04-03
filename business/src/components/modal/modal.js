@@ -114,23 +114,25 @@ export default class Modal extends Component {
     const {module: DynamicComponent} = this.state;
 
 		return (
-      <div class={style.modal}>
-        <div class={style.header}>
-          <p>{this.props.title}</p>
-          <button class={cx(style.btn, style.btnCircle)} onClick={this.props.onClose}>
-            <img src={crossIcon} />
-          </button>
-        </div>
-        {
-          this.state.module ? <DynamicComponent {...this.state.moduleProps} updateChange={this.updateChange}/> : null
-        }
-        <div class={style.footer}> 
-          <button type="button" class={cx(style.btn, style.btnRectangle)} onClick={this.nextState}>
-            {
-              this.state.isOver ? 'Finish' : 'Next'
-            }
-            <img src={arrowRight} alt="arrow-right" class={style.arrowRight} />
-          </button>
+      <div class={style.overlay}>
+        <div class={style.modal}>
+          <div class={style.header}>
+            <p>{this.props.title}</p>
+            <button class={cx(style.btn, style.btnCircle)} onClick={this.props.onClose}>
+              <img src={crossIcon} />
+            </button>
+          </div>
+          {
+            this.state.module ? <DynamicComponent {...this.state.moduleProps} updateChange={this.updateChange}/> : null
+          }
+          <div class={style.footer}> 
+            <button type="button" class={cx(style.btn, style.btnRectangle)} onClick={this.nextState}>
+              {
+                this.state.isOver ? 'Finish' : 'Next'
+              }
+              <img src={arrowRight} alt="arrow-right" class={style.arrowRight} />
+            </button>
+          </div>
         </div>
       </div>
 		);
