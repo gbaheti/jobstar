@@ -118,9 +118,6 @@ export default class Modal extends Component {
       <div class={style.overlay}>
         <div class={style.modal}>
           <div class={style.header}>
-            <button class={cx(style.btn, style.btnCircle, style.btnBack)} onClick={this.props.onClose}>
-              <img src={arrowLeft} />
-            </button>
             <p>{this.props.title}</p>
             <button class={cx(style.btn, style.btnCircle)} onClick={this.props.onClose}>
               <img src={crossIcon} />
@@ -130,6 +127,9 @@ export default class Modal extends Component {
             this.state.module ? <DynamicComponent {...this.state.moduleProps} updateChange={this.updateChange}/> : null
           }
           <div class={style.footer}> 
+            <button class={cx(style.btn, style.btnCircle, style.btnBack)} onClick={this.props.onClose}>
+              <img src={arrowLeft} />
+            </button>
             <button type="button" class={cx(style.btn, style.btnRectangle)} onClick={this.nextState}>
               {
                 this.state.isOver ? 'Finish' : 'Next'
