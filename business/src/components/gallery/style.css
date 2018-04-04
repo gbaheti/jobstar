@@ -91,6 +91,9 @@
 }
 
 @media only screen and (max-width:480px) {
+  .logoWrapper {
+    display: none;
+  }
   .gallery {
     position: relative;
     display: block;

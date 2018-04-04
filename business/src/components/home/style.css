@@ -5,6 +5,34 @@
   padding-right: 5%;
 }
 
+.logoWrapper {
+  display: none;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logo {
+  float: left;
+  width: 140px;
+}
+
+.logoText {
+  position: relative;
+  left: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #000000;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.flag {
+  font-size: 15px;
+  color: black;
+  position: relative;
+  top: 2px;
+}
+
 .main {
   clear: both;
   margin: 5% auto 0;
@@ -162,6 +190,9 @@
     width: 90%;
     margin: auto;
     padding-right: 0;
+  }
+  .logoWrapper {
+    display: flex;
   }
   .main {
     margin: 5% auto 0;
