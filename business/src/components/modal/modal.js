@@ -4,6 +4,7 @@ import cx from 'classnames';
 import style from './style';
 import crossIcon from '../../assets/cross.svg';
 import arrowRight from '../../assets/arrow-right.svg';
+import arrowLeft from '../../assets/arrow-left.svg';
 
 export default class Modal extends Component {
   constructor(props) {
@@ -117,6 +118,9 @@ export default class Modal extends Component {
       <div class={style.overlay}>
         <div class={style.modal}>
           <div class={style.header}>
+            <button class={cx(style.btn, style.btnCircle, style.btnBack)} onClick={this.props.onClose}>
+              <img src={arrowLeft} />
+            </button>
             <p>{this.props.title}</p>
             <button class={cx(style.btn, style.btnCircle)} onClick={this.props.onClose}>
               <img src={crossIcon} />
