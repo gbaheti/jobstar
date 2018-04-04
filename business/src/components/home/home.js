@@ -7,7 +7,7 @@ import arrowRight from '../../assets/arrow-right.svg';
 
 export default class Home extends Component {
   redirect = (e) => {
-    window.location.href = '/hire'; 
+    window.location.href = 'mailto:info@jobstar.in'; 
   }
 
 	render() {
@@ -80,10 +80,9 @@ export default class Home extends Component {
                 </ul>
               </div>
             </div>
-            <button class={style.btn} type="button" onClick={this.redirect}>start hiring
+            <button class={style.btn} type="button" onClick={this.redirect}>contact us
               <img src={arrowRight} alt="arrow-right" class={style.arrowRight} />
             </button>
-            <p class={style.note}>only in delhi ncr</p>
           </div>
         </div>
       </div>
