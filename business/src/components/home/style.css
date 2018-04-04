@@ -69,7 +69,6 @@
 
 .cardList {
   list-style: none;
-  display: grid;
 }
 
 .cardListLeft {
@@ -167,6 +166,9 @@
   .main {
     margin: 5% auto 0;
   }
+  .featuresList>li {
+    display: block;
+  }
   .featuresDesc>h4 {
     font-size: 18px;
   }
@@ -179,17 +181,25 @@
     font-size: 26px;
     line-height: 32px;
   }
-  .content>p {
-    font-size: 12px;
-    margin-left: 2px;
-  }
   .btn {
     margin-top: 10px;
+  }
+  .note {
+    margin-left: 12px;
   }
   .featuresList {
     margin-top: 1.5rem;
   }
   .cardWrapper {
-    margin: 5% 0px;
+    margin: 12% 0px;
+  }
+  .cardListWrapper {
+    display: block;
+  }  
+  .card {
+    margin-bottom: 1rem;
+  }
+  .card > img {
+    margin-bottom: 0.5rem;
   }
 }

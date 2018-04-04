@@ -6,49 +6,14 @@
   left: 0;
 }
 
-.logoWrapper {
-  position: absolute;
-  top: 5%;
-  left: 10%;
-  width: 80%;
-  z-index: 1;
-  /* background: #eee; */
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  float: left;
-  width: 140px;
-  /* margin-top: 20px; */
-}
-
-.logoText {
-  position: relative;
-  /* top: 30px; */
-  left: 20px;
-  font-size: 12px;
-  text-transform: uppercase;
-  /* color: rgba(0, 0, 0, 0.5); */
-  color: #FFFFFF;
-  text-shadow: 1px 1px #000000;
-  letter-spacing: 1px;
-  z-index: 1;
-}
-
-.flag {
-  font-size: 15px;
-  color: black;
-  position: relative;
-  top: 2px;
-}
-
-
 .background {
   position: relative;
   background: url(../../assets/business.jpg) center center no-repeat;
   height: 100%;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .overlay::before {
@@ -66,11 +31,50 @@
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-.description {
-  position: absolute;
-  bottom: 5%;
-  left: 10%;
+.logoWrapper, .description {
+  position: relative;
+  z-index: 2;
+}
+
+.logoWrapper {
+  /* position: absolute;
+  top: 5%;
+  left: 10%; */
   width: 80%;
+  z-index: 1;
+  /* background: #eee; */
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  float: left;
+  width: 140px;
+  /* margin-top: 20px; */
+}
+
+.logoText {
+  position: relative;
+  left: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 1px 1px #000000;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.flag {
+  font-size: 15px;
+  color: black;
+  position: relative;
+  top: 2px;
+}
+
+.description {
+  width: 80%;
+  margin: 2rem auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 18px;
   line-height: 32px;
@@ -96,8 +100,8 @@
     position: relative;
     display: block;
     width: 100%;
-    margin-top: 5rem;
-    height: 50%;
+    margin-top: 1.5rem;
+    height: auto;
   }
   .overlay::before {
     background: rgba(0, 0, 0, 0.8);
