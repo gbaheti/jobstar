@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import cx from 'classnames';
 
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo-mobile.svg';
 import style from './style';
 import arrowRight from '../../assets/arrow-right.svg';
 
