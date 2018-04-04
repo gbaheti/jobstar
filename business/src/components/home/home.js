@@ -3,7 +3,6 @@ import cx from 'classnames';
 
 import logo from '../../assets/logo-mobile.svg';
 import style from './style';
-import arrowRight from '../../assets/arrow-right.svg';
 
 export default class Home extends Component {
   redirect = (e) => {
@@ -81,7 +80,6 @@ export default class Home extends Component {
               </div>
             </div>
             <button class={style.btn} type="button" onClick={this.redirect}>contact us
-              <img src={arrowRight} alt="arrow-right" class={style.arrowRight} />
             </button>
           </div>
         </div>
