@@ -1,0 +1,23 @@
+.filter {
+  background-color: #f3f3f3;
+  padding: 8px;
+  height: 52px;
+}
+
+.Select {
+  display: inline-block;
+}
+
+.Select:last-child {
+  float: right;
+}
+
+.Select-control {
+  border: none;
+  width: 120px;
+  background: transparent;
+}
+
+.Select-control:hover {
+  box-shadow: none;
+}
