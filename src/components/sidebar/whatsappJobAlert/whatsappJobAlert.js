@@ -9,7 +9,7 @@ class WhatsappJobAlert extends Component {
   render() {
     return (
       <div className="job-alert card">
-        <img className="job-alert__logo img-responsive" src={whatsappLogo} />
+        <img className="job-alert__logo img-responsive" src={whatsappLogo} alt="whatsapp-logo" />
         <h3 className="job-alert__title">Get Job Alerts on Whatsapp for Free</h3>
         <div className="job-alert__form">
           <input type="tel" name="phone" placeholder="Enter whatsapp number" required />

@@ -24,10 +24,10 @@ function ListTab(props) {
 function PromotionalPost(props) {
   return (
     <div className="post card">
-      <img className="post__media img-responsive" src={props.media}/>
+      <img className="post__media img-responsive" src={props.media} alt="post-bg"/>
       <div className="post__content">
         <p>{props.text}</p>
-        <img src={chevronRight} />
+        <img src={chevronRight} alt=""/>
       </div>
     </div>
   );

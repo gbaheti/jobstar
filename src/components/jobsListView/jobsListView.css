@@ -1,8 +1,170 @@
+.jobs-list h4,
+.jobs-list h3,
+.jobs-list p {
+  margin: 0;
+}
+
 .jobs-list,
 .jobs-list__item {
   margin-top: 16px;
 }
 
 .jobs-list__item {
-  padding: 12px 16px;
+  padding: 20px;
+}
+
+.jobs-list__head {
+  outline: none;
+  cursor: pointer;
+}
+
+.job-info {
+  display: flex;
+  align-items: center;
+}
+
+.job-info__icon {
+  background-color: #26bcca;
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* .job-info__title h3, 
+.job-info__title p {
+  margin: 0;
+} */
+
+.job-info__title h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #7656e6;
+}
+
+.job-info__title p {
+  opacity: 0.5;
+  font-size: 12px;
+  color: #000000;
+}
+
+.job-info__earning {
+  margin-left: auto;
+}
+
+.job-info__earning h4,
+.job-info__earning p {
+  /* margin: 0; */
+  font-size: 12px;
+  color: #00000080
+}
+
+.job-info__earning span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin-right: 4px;
+}
+
+.job-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.job-bullets__item {
+  display: inline-block;
+  margin-right: 12%;
+}
+
+.job-bullets__item p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.bullet-cap {
+  font-weight: normal;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #00000080;
+  text-transform: uppercase;
+}
+
+.job-cta {
+  display: flex;
+  align-items: center;
+}
+
+.job-cta__stats {
+  margin-right: 4%;
+}
+
+.job-cta__stats img,
+.job-cta__stats p {
+  display: inline-block;
+}
+
+.job-cta__stats img {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+}
+
+.job-cta__stats p,
+.job-body__footer p {
+  font-size: 12px;
+  color: #00000080;
+}
+
+.job-cta__btn {
+  margin-left: auto;
+}
+
+.jobs-list__body {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 4%;
+}
+
+.job-body__requirements {
+  padding: 0;
+  list-style: none;
+}
+
+.job-body__item {
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 148px auto;
+}
+
+.job-body__btn {
+  width: 160px;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+}
+
+.social-links__item {
+  display: inline-block;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.footer-link {
+  font-weight: 600;
+}
+
+.bgc--red {
+  background-color: #ff0030;
+}
+
+.bgc--cyan {
+  background-color: #26bcca;
+}
+
+.bgc--yellow {
+  background-color: #df8b32;
 }

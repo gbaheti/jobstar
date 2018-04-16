@@ -13,7 +13,7 @@ import check from '../../assets/icon_check_green.svg';
 function PerksItem(props) {
   return (
     <li className="perks__item">
-      <img src={check}/>
+      <img src={check} alt="" />
       <span>{props.text}</span>
     </li>
   );
@@ -29,7 +29,7 @@ class Navbar extends Component {
       <nav className="navbar">
         <div className="navbar__content flex">
           <div className="navbar-brand flex">
-            <img className="logo" src={logo} />
+            <img className="logo" src={logo} alt="jobstar-logo"/>
             <ul className="perks">
               <PerksItem text="Extra money" />
               <PerksItem text="Flexible work" />
