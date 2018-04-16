@@ -19,7 +19,7 @@
 
 .main__content {
   display: grid;
-  grid-template-columns: 30% 70%;
-  grid-column-gap: 80px;
+  grid-template-columns: 30% calc(70% - 60px);
+  grid-column-gap: 60px;
   margin: 4% 0;
 }
