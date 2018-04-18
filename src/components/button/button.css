@@ -1,4 +1,6 @@
 .btn {
+	display: flex;
+	align-items: center;
 	border-radius: 6px;
 	border: none;
   cursor: pointer;
@@ -7,6 +9,11 @@
 	letter-spacing: 0.8px;
 	padding: 10px 20px;
 	text-transform: uppercase;
+}
+
+.btn__icn {
+	padding: 4px 0;
+	margin-left: 8px;
 }
 
 .btn--primary {

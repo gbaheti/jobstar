@@ -24,6 +24,10 @@ function PerksItem(props) {
 *********************************************************************/
 
 class Navbar extends Component {
+  handleClick = () => {
+    this.props.onUserRegister();
+  }
+
   render() {
     return (
       <nav className="navbar">
@@ -37,7 +41,7 @@ class Navbar extends Component {
             </ul>
           </div>
           <div className="navbar-link">
-            <Button text="join now" type="primary" />
+            <Button text="join now" type="primary" clickHandler={this.handleClick} />
           </div>
         </div>
       </nav>

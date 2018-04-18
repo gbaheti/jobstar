@@ -7,8 +7,12 @@ class Button extends Component {
     const classes = 'btn ' + (this.props.type === 'secondary' ? 'btn--secondary ' : 'btn--primary ') + this.props.className;
 
     return (
-      <button className={classes}>
+      <button className={classes} onClick={this.props.clickHandler}>
         {this.props.text}
+        {
+          this.props.icon ? 
+            <img className="btn__icn" src={this.props.icon} alt="" /> : null
+        }
       </button>
     );
   }

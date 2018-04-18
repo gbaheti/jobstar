@@ -13,6 +13,10 @@ import facebook from '../../assets/facebook.svg';
 import twitter from '../../assets/twitter.svg';
 import linkedin from '../../assets/linkedin.svg';
 
+/*********************************************************************
+ Sub-components
+*********************************************************************/
+
 function JobBody(props) {
   const { min_age, max_age, languages, benefits, skills, description } = props;
 
@@ -159,6 +163,10 @@ function JobsList(props) {
     </Accordion>
   );
 }
+
+/*********************************************************************
+ Main component
+*********************************************************************/
 
 class JobsListView extends Component {
   state = {
