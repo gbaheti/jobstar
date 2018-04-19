@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Navbar from './components/navbar/navbar';
 import Main from './components/main/main';
-import Footer from './components/footer/footer';
+// import Footer from './components/footer/footer';
 import RegisterFlow from './components/registerFlow/registerFlow';
 
 import './App.css';
@@ -31,7 +31,7 @@ class App extends Component {
         <div className="app">
           <Navbar onUserRegister={this.onUserRegister} />
           <Main />
-          <Footer />
+          {/* <Footer /> */}
           {
             this.state.showRegisteration ?
               <RegisterFlow onExit={this.exitRegistration} /> 

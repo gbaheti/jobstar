@@ -8,7 +8,7 @@ const profiles = ['Delivery / Pickup Driver', 'Cleaner / Helper', 'BPO / Data En
 const companies = ['Reliance Retail', 'Spars Studio', 'Tata Group', 'Future Retail', 'Paytm', 'Aditya Birla Fashion & Retail', 'Provogue', 'V-Mart'];
 const shifts = ['Morning', 'Evening', 'Night'];
 
-for(let i=0; i < 22; ++i) {
+for(let i=0; i < 5; ++i) {
   data.jobs.push({
     id: Math.round(Math.random()*10000),
     profile: profiles[Math.floor(Math.random()*profiles.length)],
