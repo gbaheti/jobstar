@@ -16,7 +16,9 @@ const App = (props) => {
     <div className="app">
       <Navbar />
       <Main />
-      <RegisterFlow isOpen={isRegistrationModalOpen} />
+      {
+        isRegistrationModalOpen && <RegisterFlow />
+      }
       <Footer />
     </div>
   );
