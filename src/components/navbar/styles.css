@@ -10,3 +10,28 @@
   max-width: 900px;
   margin: 0 auto;
 }
+
+.navbar-profile {
+  cursor: pointer;
+}
+
+.navbar-profile p {
+  color: #FFFFFF;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #313131;
+  position: relative;
+  margin: 0 8px;
+  justify-content: center;
+}
+
+.navbar-profile::after {
+  content: '▾';
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-profile:hover::after {
+  opacity: 0.5;
+}

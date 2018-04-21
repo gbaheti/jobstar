@@ -9,4 +9,9 @@
 	font-size: 14px;
   line-height: 1.93;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sidebar__footer a:hover {
+  color: #00000077;
 }
