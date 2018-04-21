@@ -18,11 +18,14 @@
   margin-right: 4px;
 }
 
-.job-cta__stats p {
+.job-cta__stats p,
+.job-cta__date {
+  margin: 0;
   font-size: 12px;
   color: #00000080;
 }
 
-.job-cta__btn {
+.job-cta__btn,
+.job-cta__date {
   margin-left: auto;
 }

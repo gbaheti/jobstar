@@ -29,41 +29,6 @@
   border: 1px solid #00000019;
 }
 
-/* .post {
-  height: 180px;
-  overflow: hidden;
-  position: relative;
+.job-alert__input--invalid:invalid {
+  box-shadow: 0 1px 1px 0px red;
 }
-
-.post__media {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.post__content {
-  cursor: pointer;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 12px;
-  background-color: #FFFFFF;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.post__content p {
-  margin: 0;
-  font-size: 12px;
-	font-weight: 600;
-	line-height: 1.5;
-  margin-right: 16px;
-}
-
-.post__content img {
-  width: 20px;
-  height: 20px;
-  opacity: 0.4;
-} */

@@ -10,7 +10,12 @@
   padding: 10px 20px;
   justify-content: center;
 	text-transform: uppercase;
-	transition: all 0.2s ease;
+	transition: all 0.2s cubic-bezier(.77,0,.18,1);
+}
+
+.btn--disabled {
+	opacity: 0.5;
+	pointer-events: none;
 }
 
 .btn__icn {

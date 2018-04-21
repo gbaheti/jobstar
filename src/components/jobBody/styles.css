@@ -9,6 +9,11 @@
   grid-template-columns: 148px auto;
 }
 
+.job-body__item h4,
+.job-body__item p {
+  margin: 0;
+}
+
 .job-body__btn {
   width: 160px;
 }

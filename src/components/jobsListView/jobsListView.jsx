@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import './styles.css';
 
 import Filter from '../filter';
 import JobsList from '../jobsList';
-import { openRegistrationModal } from '../../actions';
 
 const JobsListView = (props) => {
   const { jobs, registerUser } = props;
@@ -21,16 +19,4 @@ const JobsListView = (props) => {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    jobs: state.jobs.data
-  }
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    registerUser: () => dispatch(openRegistrationModal())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(JobsListView);
+export default JobsListView;

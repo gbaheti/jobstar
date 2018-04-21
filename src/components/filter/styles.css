@@ -4,20 +4,20 @@
   height: 52px;
 }
 
-.Select {
+.filter .Select {
   display: inline-block;
 }
 
-.Select:last-child {
+.filter .Select:last-child {
   float: right;
 }
 
-.Select-control {
+.filter .Select-control {
   border: none;
   width: 120px;
   background: transparent;
 }
 
-.Select-control:hover {
+.filter .Select-control:hover {
   box-shadow: none;
 }

@@ -9,7 +9,12 @@
   margin-right: 8%;
 }
 
+.job-bullets__item h4 {
+  margin: 0;
+}
+
 .job-bullets__item p {
+  margin: 0;
   font-size: 16px;
   font-weight: 600;
   color: #000000;

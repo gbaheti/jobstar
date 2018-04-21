@@ -1,0 +1,89 @@
+.edit-profile {
+  padding: 4% 5%;
+}
+
+.edit-profile h4 {
+  margin: 0;
+  margin-bottom: 6%;
+}
+
+.edit-profile__input-grp {
+  display: grid;
+  grid-template-columns: 30% auto;
+  margin: 4% 0;
+}
+
+.edit-profile__input-grp label {
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.edit-profile__field > input,
+.edit-profile__field > textarea,
+.edit-profile__field .Select-control {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 7px;
+  border: 1px solid #00000033;
+  font-size: 12px;
+}
+
+.edit-profile__field .Select-control {
+  padding: 4px 6px;
+}
+
+.edit-profile__field > input::placeholder,
+.edit-profile__field > textarea::placeholder {
+  font-size: 14px;
+  color: #00000088;
+  font-family: Source Sans Pro, sans-serif;
+}
+
+.edit-profile__field .Select-placeholder {
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  color: #00000055;
+}
+
+.edit-profile__field input[type="radio"] {
+  margin: 4px 12px;
+}
+
+.edit-profile__filed--radio {
+  display: flex;
+  align-items: center;
+}
+
+.radio-grp {
+  margin-right: 16px;
+}
+
+.file-input {
+  overflow: hidden;
+  border-radius: 4px;
+  width: 260px;
+  padding: 4px 0;
+  position: relative;
+  border-radius: 7px;
+  background-color: #f4f4f4;
+  border: dotted 2px #6e6e6e;
+}
+
+.file-input input {
+  border: none;
+  cursor: pointer;
+  padding: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.file-input__label {
+  text-align: center;
+  margin: -10px 0;
+  padding: 20px 0;
+}

@@ -5,7 +5,7 @@ import Button from '../button/button';
 import './styles.css';
 import whatsappLogo from '../../assets/whatsapp-logo.png';
 
-const whatsappJobAlert = () => {
+const WhatsappJobAlert = () => {
   return (
     <div className="job-alert card">
       <img className="job-alert__logo img-responsive" src={whatsappLogo} alt="whatsapp-logo" />
@@ -18,4 +18,4 @@ const whatsappJobAlert = () => {
   );
 }
 
-export default whatsappJobAlert;
+export default WhatsappJobAlert;
