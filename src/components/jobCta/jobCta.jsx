@@ -12,7 +12,7 @@ const JobCta = (props) => {
   return (
     <div className="job-cta">
       {
-        applicants &&       
+        applicants > 0 &&       
           <div className="job-cta__stats">
             <img src={flame} alt="" />
             <p>{applicants} applicants last week</p>

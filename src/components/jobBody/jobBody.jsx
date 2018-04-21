@@ -9,14 +9,20 @@ import linkedin from '../../assets/linkedin.svg';
 import Button from '../button/button';
 
 const JobBody = (props) => {
-  const { min_age, max_age, languages, benefits, skills, description } = props;
+  const { ageLimit, minAge, maxAge, languages, identity, benefits, skills, description, onUserRegister } = props;
 
   return (
     <div className="job-body">
       <ul className="job-body__requirements">
         <li className="job-body__item">
           <h4 className="bullet-cap">age limit</h4>
-          <p>{min_age} to {max_age}</p>
+          <p>
+            {
+              ageLimit ? (
+                `${minAge} to ${maxAge}` 
+              ) : 'None'
+            }
+          </p>
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">languages known</h4>
@@ -24,11 +30,11 @@ const JobBody = (props) => {
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">identity required</h4>
-          <p>Not required</p>
+          <p>{identity}</p>
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">job benefits</h4>
-          <p>{benefits.join(', ')}</p>
+          <p>{benefits}</p>
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">skills needed</h4>
@@ -40,7 +46,7 @@ const JobBody = (props) => {
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">employer contact</h4>
-          <Button className="job-body__btn" text="login to view" type="secondary" />
+          <Button className="job-body__btn" text="login to view" type="secondary" clickHandler={onUserRegister}/>
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">share this job</h4>

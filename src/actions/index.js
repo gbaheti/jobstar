@@ -5,7 +5,7 @@ export const fetchJobs = () => {
   return (dispatch) => {
     return jobsApi.getAllJobs()
       .then(jobs => {
-        dispatch(fetchJobsSuccess(jobs.default));
+        dispatch(fetchJobsSuccess(jobs));
       })
       .catch(err => {
         throw(err);

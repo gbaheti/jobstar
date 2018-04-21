@@ -10,9 +10,9 @@ export default (state = initialState, action) => {
   switch(action.type) {
     case types.FETCH_JOBS_SUCCESS:
       return {
-        count: action.jobs.count,
-        location: action.jobs.location,
-        data: action.jobs.data
+        count: action.jobs.total_count,
+        location: action.jobs.searched_location,
+        data: action.jobs.results
       }
     default:
       return state;

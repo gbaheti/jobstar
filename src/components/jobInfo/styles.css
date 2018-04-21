@@ -30,6 +30,10 @@
   margin-left: auto;
 }
 
+.job-info__earning h4 {
+  text-align: right;
+}
+
 .job-info__earning h4,
 .job-info__earning p {
   margin: 0;

@@ -10,7 +10,6 @@ import JobsListView from '../jobsListView';
 import Applications from '../applications';
 import EditProfile from '../editProfile';
 import Profile from '../profile';
-import { openRegistrationModal } from '../../actions';
 
 const Main = (props) => {
   const { jobs, jobCount, jobLocation, applications, appliedCount, registerUser, user } = props;
@@ -43,10 +42,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    registerUser: () => dispatch(openRegistrationModal())
-  }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default withRouter(connect(mapStateToProps)(Main));

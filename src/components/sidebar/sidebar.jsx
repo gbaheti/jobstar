@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -57,4 +58,4 @@ const mapStateToProps = (state) => ({
   appliedCount: state.profile.profileData ? state.profile.profileData.appliedCount : null
 });
 
-export default connect(mapStateToProps)(Sidebar);
+export default withRouter(connect(mapStateToProps)(Sidebar));

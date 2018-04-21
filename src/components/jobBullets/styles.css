@@ -2,11 +2,8 @@
   list-style: none;
   padding: 0;
   margin: 16px 0;
-}
-
-.job-bullets__item {
-  display: inline-block;
-  margin-right: 8%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
 
 .job-bullets__item h4 {
