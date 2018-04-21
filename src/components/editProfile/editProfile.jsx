@@ -98,7 +98,7 @@ class EditProfile extends Component {
               </div>
             </div>
           </div>
-          <Button type="primary" text="submit" />
+          <Button type="primary" text="save profile" />
         </div>
       </div>
     );

@@ -20,6 +20,13 @@ const Header = (props) => {
           <p>You have applied for {props.appliedCount} jobs.</p>
         </div>
       );
+    case 'profile':
+      return (
+        <div className="header">
+          <h2>Hi {props.user}</h2>
+          <p>Here’s how your profile looks.</p>
+        </div>
+      );      
     case 'profile/edit':
       return (
         <div className="header">

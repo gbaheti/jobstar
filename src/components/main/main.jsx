@@ -9,20 +9,21 @@ import Sidebar from '../sidebar';
 import JobsListView from '../jobsListView';
 import Applications from '../applications';
 import EditProfile from '../editProfile';
+import Profile from '../profile';
 import { openRegistrationModal } from '../../actions';
 
 const Main = (props) => {
-  const { jobs, jobCount, jobLocation, applications, appliedCount, registerUser } = props;
+  const { jobs, jobCount, jobLocation, applications, appliedCount, registerUser, user } = props;
 
   return (
     <div className="main">
-      <Header jobCount={jobCount} jobLocation={jobLocation} appliedCount={appliedCount} />
+      <Header jobCount={jobCount} jobLocation={jobLocation} appliedCount={appliedCount} user={user}/>
       <div className="main__content">
         <Sidebar />
         <Switch>
           <Route path="/jobs" render={() => <JobsListView jobs={jobs} registerUser={registerUser} />}/>
           <Route path="/applied" render={() => <Applications applications={applications} />} />
-          {/* <Route exact path="/profile" render={() => <EditProfile />} /> */}
+          <Route exact path="/profile" render={() => <Profile />} />
           <Route path="/profile/edit" render={() => <EditProfile />} />
           <Redirect to="/jobs" />
         </Switch>
@@ -33,6 +34,7 @@ const Main = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.profile.profileData ? state.profile.profileData.name : null,
     jobs: state.jobs.data,
     jobCount: state.jobs.count,
     jobLocation: state.jobs.location,
