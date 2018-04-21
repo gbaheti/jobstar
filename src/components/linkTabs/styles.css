@@ -1,0 +1,30 @@
+.link-tabs {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link-tabs__item {
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.link-tabs__item:last-child {
+  border-bottom: none;
+}
+
+.link-tabs__link {
+  display: block;
+  cursor: pointer;
+  color: #000000;
+  padding: 16px 12px;
+  text-decoration: none;
+}
+
+.link-tabs__link--active {
+  background-color: #f3f3f3; 
+}
+
+.link-tabs__link:hover {
+  background-color: #f3f3f3;
+}

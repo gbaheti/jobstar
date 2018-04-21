@@ -1,0 +1,24 @@
+.jobs-list h4,
+.jobs-list h3,
+.jobs-list p {
+  margin: 0;
+}
+
+.jobs-list,
+.jobs-list__item {
+  margin-top: 16px;
+}
+
+.jobs-list__item {
+  padding: 20px;
+}
+
+.jobs-list__head {
+  outline: none;
+  cursor: pointer;
+}
+
+.jobs-list__body {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 4%;
+}

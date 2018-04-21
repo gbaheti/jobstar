@@ -1,0 +1,16 @@
+.perks {
+  list-style: none;
+  display: inline-block;
+  padding: 0 12px;
+}
+
+.perks__item {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.perks__item img {
+  margin: 0 4px;
+  height: 100%;
+  width: auto;
+}

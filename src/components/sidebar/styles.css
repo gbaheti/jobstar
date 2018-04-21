@@ -1,0 +1,12 @@
+.sidebar__footer {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar__footer a {
+  color: #00000066;
+	font-size: 14px;
+  line-height: 1.93;
+  text-decoration: none;
+}
