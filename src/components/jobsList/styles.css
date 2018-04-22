@@ -5,14 +5,47 @@
 
 .jobs-list__item {
   padding: 20px;
+  backface-visibility: hidden;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  transform: translateZ(0);
 }
 
 .jobs-list__head {
   outline: none;
   cursor: pointer;
+  user-select: none;
 }
 
 .jobs-list__body {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 4%;
+  max-height: 10000px;
+  transition: all 0.3s ease;
+  opacity: 1;
+  visibility: visible;
 }
+
+.jobs-list__body.accordion__body--hidden {
+  display: block;
+  opacity: 0.01;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  margin: 0;
+}
+
+.tr-job-item-enter,
+.tr-job-item-appear {
+  opacity: 0.01;
+  transform: translateX(20%);
+}
+
+.tr-job-item-enter-active,
+.tr-job-item-appear-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+

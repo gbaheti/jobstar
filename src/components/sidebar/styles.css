@@ -9,9 +9,9 @@
 	font-size: 14px;
   line-height: 1.93;
   text-decoration: none;
-  transition: color 0.2s cubic-bezier(.77,0,.18,1);
+  transition: color 0.3s ease;
 }
 
 .sidebar__footer a:hover {
-  color: #00000077;
+  color: #00000088;
 }

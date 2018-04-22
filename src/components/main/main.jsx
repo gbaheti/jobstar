@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
-import './styles.css';
-
 import Header from '../header';
 import Sidebar from '../sidebar';
 import JobsListView from '../jobsListView';
 import Applications from '../applications';
 import EditProfile from '../editProfile';
 import Profile from '../profile';
+
+import './styles.css';
 
 const Main = (props) => {
   const { jobs, jobCount, jobLocation, applications, appliedCount, registerUser, user } = props;

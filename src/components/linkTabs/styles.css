@@ -20,7 +20,7 @@
   color: #000000;
   padding: 16px 12px;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(.77,0,.18,1);
+  transition: all 0.3s ease;
 }
 
 .link-tabs__link--active {

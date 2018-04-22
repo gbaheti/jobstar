@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import './index.css';
-
 import App from "./components/app/";
 import configureStore from './store/configureStore';
+
+import './index.css';
 
 import registerServiceWorker from './registerServiceWorker';
 

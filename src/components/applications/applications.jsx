@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
-import './styles.css';
-
 import JobInfo from '../jobInfo';
 import JobBullets from '../jobBullets';
 import JobCta from '../jobCta';
 import Button from '../button';
+
+import './styles.css';
 
 class Applications extends Component {
   state = {

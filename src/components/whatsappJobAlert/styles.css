@@ -6,6 +6,7 @@
 
 .job-alert__logo {
   width: 60px;
+  height: auto;
 }
 
 .job-alert__title {

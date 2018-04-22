@@ -1,12 +1,12 @@
 import React from 'react';
 
+import Button from '../button/button';
+
 import './styles.css';
 import whatsapp from '../../assets/icon-whatsapp.svg';
 import facebook from '../../assets/facebook.svg';
 import twitter from '../../assets/twitter.svg';
 import linkedin from '../../assets/linkedin.svg';
-
-import Button from '../button/button';
 
 const JobBody = (props) => {
   const { ageLimit, minAge, maxAge, languages, identity, benefits, skills, description, onUserRegister } = props;

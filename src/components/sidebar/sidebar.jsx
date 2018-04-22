@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import './styles.css';
-import postBg from '../../assets/postBg.png';
-
 import LinkTabs from '../linkTabs';
 import WhatsappJobAlert from '../whatsappJobAlert';
 import PromotionalPost from '../promotionalPost';
+
+import './styles.css';
+import postBg from '../../assets/postBg.png';
 
 const Sidebar = (props) => {
   const { isLoggedIn, appliedCount } = props;

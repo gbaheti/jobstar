@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import './styles.css';
+import { CSSTransition } from 'react-transition-group';
 
 import Register from '../register';
 import Modal from '../modal';
@@ -10,11 +9,27 @@ import ProfileDetails from '../profileDetails';
 import Success from '../success';
 import { sendOtp, confirmOtp, saveProfile, closeRegistrationModal } from '../../actions';
 
+import './styles.css';
+
 
 class RegisterFlow extends Component {
   state = {
     phoneNumber: null,
-    otp: null
+    otp: null,
+    error: null
+  }
+
+  validatePhoneNumber = () => {
+    const phoneRegex = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/);
+    const isValid = phoneRegex.test(this.state.phoneNumber);
+
+    return isValid;
+  }
+
+  validateOtp = () => {
+    const isValid = this.state.otp && this.state.otp.length === 4;
+
+    return isValid;
   }
 
   onEnterPhoneNumber = (e) => {
@@ -24,7 +39,12 @@ class RegisterFlow extends Component {
   }
 
   onPhoneNumberSubmit = () => {
-    this.props.sendOtp(this.state.phoneNumber);
+    if(this.validatePhoneNumber()) {
+      this.setState({error: null});
+      this.props.sendOtp(this.state.phoneNumber);
+    } else {
+      this.setState({error: 'Please check the phone number. 🤔'});
+    }
   }
 
   onEnterOtp = (e) => {
@@ -34,7 +54,12 @@ class RegisterFlow extends Component {
   }
 
   onOtpSubmit = () => {
-    this.props.confirmOtp(this.state.otp);
+    if(this.validatePhoneNumber() && this.validateOtp()) {
+      this.setState({error: null});
+      this.props.confirmOtp(this.state.phoneNumber, this.state.otp);
+    } else {
+      this.setState({error: 'Please check the otp. 🤔'});
+    }
   }
 
   onProfileSubmit = () => {
@@ -44,52 +69,62 @@ class RegisterFlow extends Component {
   onClose = () => {
     this.setState({
       phoneNumber: null,
-      otp: null
+      otp: null,
+      error: null
     });
 
     this.props.closeRegistrationModal();
   }
 
   render() {
-    const { currentState } = this.props;
+    const { currentState, isOpen } = this.props;
 
-    switch(currentState) {
-      case 'register':  
-        return (
-          <Modal heading="Register" btnText="continue" onSubmit={this.onPhoneNumberSubmit} onClose={this.onClose} component={
-            <Register handlePhoneInput={this.onEnterPhoneNumber}/>
-          } />
-        );
+    return (
+      <CSSTransition in={isOpen} timeout={300} classNames="tr-modal-overlay">
+        {
+          state => {
+            switch(currentState) {
+              case 'register':  
+                return (
+                  <Modal heading="Register" btnText="continue" onSubmit={this.onPhoneNumberSubmit} onClose={this.onClose} component={
+                    <Register handlePhoneInput={this.onEnterPhoneNumber} error={this.state.error}/>
+                  } />
+                );
 
-      case 'confirmation':
-        return (
-          <Modal heading="Confirmation" btnText="done" onSubmit={this.onOtpSubmit} component={
-            <Confirmation handleOTPInput={this.onEnterOtp}/>
-          } />
-        );
+              case 'confirmation':
+                return (
+                  <Modal heading="Confirmation" btnText="done" onSubmit={this.onOtpSubmit} component={
+                    <Confirmation handleOTPInput={this.onEnterOtp} resendOtp={this.onPhoneNumberSubmit} error={this.state.error}/>
+                  } />
+                );
 
-      case 'profileDetails':
-        return (
-          <Modal heading="Final details..." btnText="done" onSubmit={this.onProfileSubmit} onClose={this.onClose} component={
-            <ProfileDetails />
-          } />
-        );
+              case 'profileDetails':
+                return (
+                  <Modal heading="Final details..." btnText="done" onSubmit={this.onProfileSubmit} onClose={this.onClose} component={
+                    <ProfileDetails />
+                  } />
+                );
 
-      case 'success':
-        return (
-          <Modal heading="Congratulations!." btnText="next" onSubmit={this.onClose} onClose={this.onClose} component={
-            <Success />
-          } />
-        );
-  
-      default:
-        return null;
-    }
+              case 'success':
+                return (
+                  <Modal heading="Congratulations!." btnText="next" onSubmit={this.onClose} onClose={this.onClose} component={
+                    <Success />
+                  } />
+                );
+
+              default:
+                return <div></div>;
+            }
+          }
+        }
+      </CSSTransition>
+    )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
+    isOpen: state.registration.isOpen,
     currentState: state.registration.currentState
   };
 };

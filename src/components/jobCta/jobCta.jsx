@@ -1,10 +1,10 @@
 import React from 'react';
 
+import Button from '../button/button';
+
 import './styles.css';
 import flame from '../../assets/flame.svg';
 import checked from '../../assets/checked.svg';
-
-import Button from '../button/button';
 
 const JobCta = (props) => {
   const { applicants, onUserApply, appliedOn } = props;

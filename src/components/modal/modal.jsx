@@ -1,10 +1,10 @@
 import React from 'react';
 
+import Button from '../button';
+
 import './styles.css';
 import arrowRight from '../../assets/arrow-right.svg';
 import cross from '../../assets/cross.svg';
-
-import Button from '../button';
 
 const Modal = (props) => {
   const { heading, onClose, component, btnText, onSubmit } = props;

@@ -6,7 +6,7 @@ const Button = (props) => {
   const classes = 'btn ' + (props.type === 'secondary' ? 'btn--secondary ' : 'btn--primary ') + props.className;
 
   return (
-    <button className={classes} onClick={props.clickHandler}>
+    <button className={classes} onClick={(e) => {e.stopPropagation(); props.clickHandler(e)}}>
       {props.text}
       {
         props.icon ? 

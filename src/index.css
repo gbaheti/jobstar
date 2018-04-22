@@ -12,6 +12,10 @@ body {
   font-family: sans-serif;
 }
 
+input:focus {
+  outline: none;
+}
+
 /********************************************* 
  Utility
 ********************************************/
@@ -31,4 +35,15 @@ body {
 .img-responsive {
   width: 100%;
   height: auto;
+}
+
+.input--error {
+  border: solid 1px #ff1616;
+}
+
+p.text--error {
+  margin: 8px 0;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #ff1616;
 }

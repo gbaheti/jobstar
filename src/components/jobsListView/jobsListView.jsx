@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './styles.css';
-
 import Filter from '../filter';
 import JobsList from '../jobsList';
 import { openRegistrationModal } from '../../actions';
 import { fetchJobs } from '../../actions'; 
 
+import './styles.css';
 
 class JobsListView extends Component {
   componentDidMount() {
@@ -26,10 +25,7 @@ class JobsListView extends Component {
     return (
       <div className="jobs">
         <Filter />
-        {
-          jobs.length > 0 ?
-            <JobsList jobs={jobs} onUserApply={this.handleApply} onUserRegister={registerUser}/> : null
-        }
+        <JobsList jobs={jobs} onUserApply={this.handleApply} onUserRegister={registerUser}/>
       </div>
     );
   }

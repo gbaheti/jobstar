@@ -28,9 +28,15 @@ export const openRegistrationModal = () => {
 
 export const sendOtp = (phoneNumber) => {
   return (dispatch) => {
-    console.log('Sending OTP to : ', phoneNumber);
-
-    return dispatch(sendOtpSuccess());
+    return jobsApi.generateOtp(phoneNumber)
+      .then(res => {
+        console.log(res);
+        
+        dispatch(sendOtpSuccess());
+      })
+      .catch(err => {
+        throw(err);
+      });
   }
 };
 

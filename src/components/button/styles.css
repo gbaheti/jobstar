@@ -10,7 +10,7 @@
   padding: 10px 20px;
   justify-content: center;
 	text-transform: uppercase;
-	transition: all 0.2s cubic-bezier(.77,0,.18,1);
+	transition: all 0.2s ease;
 }
 
 .btn--disabled {
