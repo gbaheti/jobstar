@@ -132,7 +132,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     sendOtp: (phoneNumber) => dispatch(sendOtp(phoneNumber)),
-    confirmOtp: (otp) => dispatch(confirmOtp(otp)),
+    confirmOtp: (phoneNumber, otp) => dispatch(confirmOtp(phoneNumber, otp)),
     saveProfile: () => dispatch(saveProfile()),
     closeRegistrationModal: () => dispatch(closeRegistrationModal())
   }

@@ -46,11 +46,17 @@ export const sendOtpSuccess = () => {
   }
 }
 
-export const confirmOtp = (otp) => {
+export const confirmOtp = (phoneNumber, otp) => {
   return (dispatch) => {
-    console.log('Recieved OTP : ', otp);
-
-    dispatch(confirmOtpSuccess());
+    return jobsApi.login(phoneNumber, otp)
+    .then(res => {
+      console.log(res);
+      
+      dispatch(confirmOtpSuccess());
+    })
+    .catch(err => {
+      throw(err);
+    });
   }
 }
 

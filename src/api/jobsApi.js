@@ -1,5 +1,5 @@
 const BASE_URI = 'https://jobstar-mercury.herokuapp.com/api/stars';
-const TOKEN = 'Y29uc3VtZXJfYW5kcm9pZF9rZXk6Y29uc3VtZXJfYW5kcm9pZF9zZWNyZXQ6UUg5WGZ1cWp0LV9TcTJCTzNJRXVUUTpzdW1pdEBzcGFycy5pbg==';
+const TOKEN = 'Y29uc3VtZXJfYW5kcm9pZF9rZXk6Y29uc3VtZXJfYW5kcm9pZF9zZWNyZXQ6UUg5WGZ1cWp0LV9TcTJCTzNJRXVUUQ==';
 
 const promisifiedGET = (endPoint) => {
   return new Promise((resolve, reject) => {
@@ -51,6 +51,11 @@ const jobsApi = {
     const otpUri = '/users/generate_login_otp';
 
     return promisifiedPOST(otpUri, {phone: phoneNumber});
+  },
+  login: (phoneNumber, otp) => {
+    const loginUri = '/users/login';
+
+    return promisifiedPOST(loginUri, {phone: phoneNumber, otp: otp})
   }
 };
 
