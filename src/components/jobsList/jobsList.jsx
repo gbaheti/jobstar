@@ -28,7 +28,7 @@ const JobsList = (props) => {
                   <AccordionItemTitle className="jobs-list__head">
                     <JobInfo profile={data.category} salary={data.salary} paidBy={data.salaryType}/>
                     <JobBullets employer={data.employer} shift={data.timings} area={data.location} type={data.channel} />
-                    <JobCta applicants={data.applicants} onUserApply={onUserApply} />
+                    <JobCta applicants={data.applicants} onUserApply={onUserApply} jobIds={data.ids}/>
                   </AccordionItemTitle>  
                   <AccordionItemBody className="jobs-list__body"> 
                     <JobBody ageLimit={data.ageLimit} minAge={data.minAge} maxAge={data.maxAge} languages={data.languages} identity={data.identity} benefits={data.benefits} skills={data.skills} description={data.description} onUserRegister={onUserRegister}/>  

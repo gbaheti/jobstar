@@ -23,6 +23,7 @@
   background-color: #313131;
   position: relative;
   margin: 0 8px;
+  text-transform: uppercase;
   justify-content: center;
 }
 

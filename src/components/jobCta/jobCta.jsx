@@ -7,7 +7,7 @@ import flame from '../../assets/flame.svg';
 import checked from '../../assets/checked.svg';
 
 const JobCta = (props) => {
-  const { applicants, onUserApply, appliedOn } = props;
+  const { applicants, onUserApply, appliedOn, jobIds } = props;
   
   return (
     <div className="job-cta">
@@ -25,7 +25,7 @@ const JobCta = (props) => {
       {
         appliedOn ? 
           <p className="job-cta__date">Applied on {appliedOn}</p> :
-          <Button className="job-cta__btn" text="apply now" type="primary" clickHandler={onUserApply}/>
+          <Button className="job-cta__btn" text="apply now" type="primary" clickHandler={() => onUserApply(jobIds)}/>
       }
     </div>
   );

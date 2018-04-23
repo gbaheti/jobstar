@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
 import jobs from './jobs.reducer';
-import profile from './profile.reducer';
+import user from './user.reducer';
 import registration from './registration.reducer';
 
 const rootReducer = combineReducers({
   jobs,
-  profile,
+  user,
   registration
 });
 

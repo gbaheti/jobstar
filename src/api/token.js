@@ -2,6 +2,10 @@ const localStorage = window.localStorage;
 
 const TOKEN = {
   key: 'jobsar_access_token',
+
+  getDefault() {
+    return btoa('consumer_android_key:consumer_android_secret');
+  },
   
   get() {
     const token = localStorage.getItem(this.key);

@@ -3,7 +3,7 @@ import * as types from '../actions/actionTypes';
 const initialState = {
   isOpen: false,
   currentState: null,
-  isLogin: false
+  isLoginFlow: false
 };
 
 export default (state = initialState, action) => {
@@ -17,13 +17,20 @@ export default (state = initialState, action) => {
     case types.SEND_OTP_SUCCESS: 
       return Object.assign({}, state, {
         currentState: 'confirmation',
-        isLogin: action.isLogin
+        isLoginFlow: action.isLoginFlow
       });
     
     case types.CONFIRM_OTP_SUCCESS:
-      return Object.assign({}, state, {
-        currentState: 'profileDetails'
-      });
+      if(state.isLoginFlow) {
+        return Object.assign({}, state, {
+          isOpen: false,
+          currentState: null
+        });
+      } else {
+        return Object.assign({}, state, {
+          currentState: 'profileDetails'
+        });
+      }
 
     case types.SAVE_PROFILE_SUCCESS:
       return Object.assign({}, state, {

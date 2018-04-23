@@ -21,8 +21,8 @@ const Main = (props) => {
       <div className="main__content">
         <Sidebar />
         <Switch>
-          <Route path="/jobs" render={() => <JobsListView jobs={jobs} registerUser={registerUser} />}/>
-          <Route path="/applied" render={() => <Applications applications={applications} />} />
+          <Route path="/jobs" render={() => <JobsListView registerUser={registerUser} />}/>
+          <Route path="/applied" render={() => <Applications applications={applications} authenticated={authenticated} />} />
           <PrivateRoute exact authenticated={authenticated} path="/profile" component={Profile} />
           <PrivateRoute authenticated={authenticated} path="/profile/edit" component={EditProfile} />
           <Redirect to="/jobs" />
@@ -34,13 +34,12 @@ const Main = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    authenticated: state.profile.isLoggedIn,
-    user: state.profile.profileData ? state.profile.profileData.name : null,
-    jobs: state.jobs.data,
+    authenticated: state.user.isLoggedIn,
+    user: state.user.profile ? state.user.profile.first_name : null,
     jobCount: state.jobs.count,
     jobLocation: state.jobs.location,
-    applications: state.profile.profileData ? state.profile.profileData.data : null,
-    appliedCount: state.profile.profileData ? state.profile.profileData.appliedCount : null
+    applications: state.user.appliedJobs,
+    appliedCount: state.user.appliedJobs ? state.user.appliedJobs.length : null
   }
 }
 

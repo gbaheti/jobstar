@@ -35,9 +35,9 @@ class Navbar extends Component {
             }
           </div>
           {
-            isUserLoggedIn && profile ?
+            isUserLoggedIn && profile && profile.first_name ?
               <div className="navbar-profile flex">
-                <p className="flex">{profile.name[0]}</p>
+                <p className="flex">{profile.first_name[0]}</p>
               </div> :
               <div className="navbar-link">
                 <Button text="post a job" type="primary" clickHandler={this.onClick}/>
@@ -51,8 +51,8 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isUserLoggedIn: state.profile.isLoggedIn,
-    profile: state.profile.profileData
+    isUserLoggedIn: state.user.isLoggedIn,
+    profile: state.user.profile
   };
 }
 

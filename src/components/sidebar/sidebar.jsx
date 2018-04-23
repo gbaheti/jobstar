@@ -54,8 +54,8 @@ const Sidebar = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.profile.isLoggedIn,
-  appliedCount: state.profile.profileData ? state.profile.profileData.appliedCount : null
+  isLoggedIn: state.user.isLoggedIn,
+  appliedCount: state.user.appliedJobs ? state.user.appliedJobs.length : null
 });
 
 export default withRouter(connect(mapStateToProps)(Sidebar));
