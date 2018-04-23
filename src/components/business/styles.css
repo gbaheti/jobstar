@@ -1,0 +1,234 @@
+.business {
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #FFFFFF;
+}
+
+.business-link {
+  font-size: 14px;
+  color: #7656e6;
+  text-decoration: none;
+}
+
+.limit-width {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.business-nav {
+  padding: 16px 0;
+}
+
+.business-nav__brand>img {
+  margin-right: 8px;
+}
+
+.business-nav__brand>p {
+  margin: 0;
+  color: #868686;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.business-nav__brand>p>span {
+  margin-right: 4px;
+}
+
+.business-home {
+  margin-top: 8%;
+  margin-bottom: 4%;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.business-home__content>h1,
+.business-home__content>p {
+  margin: 0;
+}
+
+.business-home__content>h1 {
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 1.36;
+}
+
+.business-home__content>p {
+  margin-top: 4%;
+  opacity: 0.5;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #000000;
+}
+
+.business-cta {
+  margin-top: 8%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.business-cta__btn {
+  padding: 14px 22px;
+}
+
+.business-cta__note {
+  color: #f74e4e;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.business-home__content>a {
+  margin-top: 12%;
+  display: block;
+}
+
+.business-about {
+  padding: 4% 0;
+  background-color: rgba(118, 86, 230, 0.02);
+  border: solid 1px #e4d6ff;
+}
+
+.business-about__description>h2,
+.business-about__content>h2,
+.business-about__description>p {
+  margin: 0;
+}
+
+.business-about__description>h2,
+.business-about__content>h2 {
+  opacity: 0.5;
+  font-size: 28px;
+  line-height: 1.36;
+  color: #181849;
+}
+
+.business-about__description>p {
+  margin-top: 12px;
+  line-height: 1.57;
+  font-size: 15px;
+}
+
+.business-about__content {
+  padding-right: 20%;
+}
+
+.business-about__advantages {
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.advantages-list {
+  padding: 0;
+  list-style: none;
+}
+
+.advantages-list__item {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 2%;
+  margin-top: 2%;
+}
+
+.advantages-list__item>img {
+  margin-top: 6px;
+}
+
+.advantages-list__item>p {
+  margin: 0;
+  line-height: 1.57;
+  font-size: 15px;
+}
+
+.business-about__shape {
+  padding: 4% 0;
+}
+
+.business-jobs {
+  padding: 4% 0;
+}
+
+.business-jobs>h2 {
+  font-size: 28px;
+  line-height: 1.36;
+  margin: 0;
+}
+
+.business-jobs__onsite,
+.business-jobs__remote {
+  margin-top: 8%;
+}
+
+.business-jobs__heading {
+  display: flex;
+  align-items: center;
+}
+
+.business-jobs__heading>h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 1.9;
+  letter-spacing: 2.3px;
+  font-weight: normal;
+  margin: 0;
+  margin-right: 4%;
+}
+
+.business-jobs__heading>hr {
+  flex: 1;
+  border: 1px solid #979797;
+  opacity: 0.4;
+}
+
+.business-jobs__list {
+  padding: 0;
+  margin: 4% 0;
+  list-style: none;
+}
+
+.business-jobs__category {
+  width: 280px;
+}
+
+.business-jobs__category > h4,
+.business-jobs__category > p {
+  margin: 0;
+}
+
+.business-jobs__category > h4 {
+  line-height: 1.22;
+  margin-top: 8px;
+}
+
+.business-jobs__category > p {
+  opacity: 0.5;
+  font-size: 14px;
+  line-height: 1.57;
+  margin-top: 4px;
+}
+
+.business-jobs__category>button {
+  margin-top: 12px;
+}
+
+.business-jobs__list--expanded {
+  margin-left: -130px;
+  margin-right: -130px;
+}
+
+.business-stats {
+  padding: 4% 0;
+  background-color: rgba(118, 86, 230, 0.02);
+  border: solid 1px #e4d6ff;
+}
+
+.text--highlighted {
+  padding: 2px 4px;
+  background-color: rgba(255, 210, 151, 0.38);
+}

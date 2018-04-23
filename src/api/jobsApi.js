@@ -1,5 +1,6 @@
+import TOKEN from './token';
+
 const BASE_URI = 'https://jobstar-mercury.herokuapp.com/api/stars';
-const TOKEN = 'Y29uc3VtZXJfYW5kcm9pZF9rZXk6Y29uc3VtZXJfYW5kcm9pZF9zZWNyZXQ6UUg5WGZ1cWp0LV9TcTJCTzNJRXVUUQ==';
 
 const promisifiedGET = (endPoint) => {
   return new Promise((resolve, reject) => {
@@ -15,7 +16,7 @@ const promisifiedGET = (endPoint) => {
     xhr.open('GET', url);
     
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('access_token', TOKEN);
+    xhr.setRequestHeader('access_token', TOKEN.get());
     
     xhr.send();
   });
@@ -35,7 +36,7 @@ const promisifiedPOST = (endPoint, params) => {
     xhr.open('POST', url);
     
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('access_token', TOKEN);
+    xhr.setRequestHeader('access_token', TOKEN.get());
     
     xhr.send(JSON.stringify(params));
   });
@@ -55,7 +56,12 @@ const jobsApi = {
   login: (phoneNumber, otp) => {
     const loginUri = '/users/login';
 
-    return promisifiedPOST(loginUri, {phone: phoneNumber, otp: otp})
+    return promisifiedPOST(loginUri, {phone: phoneNumber, otp: otp, name: 'spars'})
+  },
+  saveProfile: (profile) => {
+    const profileUri = '/users';
+
+    return promisifiedPOST(profileUri, profile);
   }
 };
 

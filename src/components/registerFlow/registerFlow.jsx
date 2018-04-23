@@ -16,6 +16,11 @@ class RegisterFlow extends Component {
   state = {
     phoneNumber: null,
     otp: null,
+    name: null,
+    city: null,
+    dobDate: null,
+    dobMonth: null,
+    dobYear: null,
     error: null
   }
 
@@ -28,6 +33,13 @@ class RegisterFlow extends Component {
 
   validateOtp = () => {
     const isValid = this.state.otp && this.state.otp.length === 4;
+
+    return isValid;
+  }
+
+  validateProfile = () => {
+    const isValidDate = !isNaN(Date.parse(`${this.state.dobYear}-${this.state.dobMonth}-${this.state.dobDate}`));
+    const isValid = this.state.name && this.state.city && isValidDate;
 
     return isValid;
   }
@@ -62,8 +74,47 @@ class RegisterFlow extends Component {
     }
   }
 
+  onEnterName = (e) => {
+    this.setState({
+      name: e.target.value
+    });
+  }
+
+  onEnterDate = (e) => {
+    this.setState({
+      dobDate: e.target.value
+    });
+  }
+
+  onEnterMonth = (e) => {
+    this.setState({
+      dobMonth: e.target.value
+    });
+  }
+
+  onEnterYear = (e) => {
+    this.setState({
+      dobYear: e.target.value
+    });
+  }
+
+  onEnterCity = (e) => {
+    this.setState({
+      city: e.target.value
+    });
+  }
+
   onProfileSubmit = () => {
-    this.props.saveProfile();
+    if(this.validateProfile()) {
+      this.setState({error: null});
+      this.props.saveProfile({
+        name: this.state.name,
+        city: this.state.city,
+        dob: `${this.state.dobDate}/${this.state.dobMonth}/${this.state.dobYear}`
+      });
+    } else {
+      this.setState({error: 'Please check your details. 🤔'});
+    }
   }
 
   onClose = () => {
@@ -101,7 +152,7 @@ class RegisterFlow extends Component {
               case 'profileDetails':
                 return (
                   <Modal heading="Final details..." btnText="done" onSubmit={this.onProfileSubmit} onClose={this.onClose} component={
-                    <ProfileDetails />
+                    <ProfileDetails handleNameInput={this.onEnterName} handleDateInput={this.onEnterDate} handleMonthInput={this.onEnterMonth} handleYearInput={this.onEnterYear} handleCityInput={this.onEnterCity} error={this.state.error}/>
                   } />
                 );
 
@@ -133,7 +184,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     sendOtp: (phoneNumber) => dispatch(sendOtp(phoneNumber)),
     confirmOtp: (phoneNumber, otp) => dispatch(confirmOtp(phoneNumber, otp)),
-    saveProfile: () => dispatch(saveProfile()),
+    saveProfile: (profile) => dispatch(saveProfile(profile)),
     closeRegistrationModal: () => dispatch(closeRegistrationModal())
   }
 }

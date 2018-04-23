@@ -1,5 +1,6 @@
 import * as types from './actionTypes.js';
 import jobsApi from '../api/jobsApi';
+import TOKEN from '../api/token';
 
 export const fetchJobs = () => {
   return (dispatch) => {
@@ -32,7 +33,7 @@ export const sendOtp = (phoneNumber) => {
       .then(res => {
         console.log(res);
         
-        dispatch(sendOtpSuccess());
+        dispatch(sendOtpSuccess(res.is_user_exist));
       })
       .catch(err => {
         throw(err);
@@ -40,9 +41,10 @@ export const sendOtp = (phoneNumber) => {
   }
 };
 
-export const sendOtpSuccess = () => {
+export const sendOtpSuccess = (isLogin) => {
   return {
-    type: types.SEND_OTP_SUCCESS
+    type: types.SEND_OTP_SUCCESS,
+    isLogin
   }
 }
 
@@ -52,6 +54,8 @@ export const confirmOtp = (phoneNumber, otp) => {
     .then(res => {
       console.log(res);
       
+      TOKEN.update(res.access_token);
+
       dispatch(confirmOtpSuccess());
     })
     .catch(err => {
@@ -66,9 +70,21 @@ export const confirmOtpSuccess = () => {
   }
 }
 
-// TODO - add api to save profile
+export const saveProfile = (profile) => {
+  return (dispatch) => {
+    return jobsApi.saveProfile(profile)
+    .then(res => {
+      console.log(res);
+      
+      dispatch(saveProfileSuccess());
+    })
+    .catch(err => {
+      throw(err);
+    });
+  }
+}
 
-export const saveProfile = () => {
+export const saveProfileSuccess = () => {
   return {
     type: types.SAVE_PROFILE_SUCCESS
   }

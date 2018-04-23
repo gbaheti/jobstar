@@ -47,3 +47,7 @@ p.text--error {
   margin-top: 8px;
   color: #ff1616;
 }
+
+.text--bold {
+  font-weight: bold;
+}

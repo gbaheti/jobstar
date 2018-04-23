@@ -1,26 +1,29 @@
 import React from 'react';
 
-const ProfileDetails = () => {
+const ProfileDetails = (props) => {
+  const { handleNameInput, handleDateInput, handleMonthInput, handleYearInput, handleCityInput, error } = props;
+
   return (
     <div className="profile">
       <div className="profile__form-grp">
         <label>What’s your name?</label>
-        <input type="text" name="name" placeholder="Enter name" />
+        <input type="text" name="name" placeholder="Enter name" onChange={handleNameInput} />
       </div>
       <div className="profile__form-grp">
         <label>Date of Birth</label>
         <div className="profile__input-grp">
-          <input type="text" name="date" placeholder="DD" />
+          <input type="text" name="date" placeholder="DD" onChange={handleDateInput} />
           <span>/</span>
-          <input type="text" name="month" placeholder="MM" />
+          <input type="text" name="month" placeholder="MM" onChange={handleMonthInput} />
           <span>/</span>
-          <input type="text" name="year" placeholder="YYYY" />
+          <input type="text" name="year" placeholder="YYYY" onChange={handleYearInput} />
         </div>
       </div>
       <div className="profile__form-grp">
         <label>Select city</label>
-        <input type="text" name="city" placeholder="Enter city name" />
+        <input type="text" name="city" placeholder="Enter city name" onChange={handleCityInput} />
       </div>
+      { error && <p className="text--error">{error}</p> }
     </div>
   );
 }

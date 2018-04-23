@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="334px" height="224px" viewBox="0 0 334 224" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>jobs-tasks</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-55.7%" y="-117.9%" width="211.3%" height="467.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="32" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="27" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.356862745   0 0 0 0 0.568627451  0 0 0 0.235252491 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="221" height="67" rx="5"></rect>
+        <filter x="-19.7%" y="-47.0%" width="139.4%" height="229.9%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="12" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.175186821 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="website-v2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="business-1" transform="translate(-758.000000, -186.000000)">
+            <g id="Group-5" transform="translate(402.000000, 173.000000)">
+                <g id="jobs-tasks" transform="translate(410.000000, 15.000000)">
+                    <g id="intro_piggy" transform="translate(115.500000, 83.500000) scale(-1, 1) translate(-115.500000, -83.500000) translate(21.000000, 3.000000)">
+                        <ellipse id="Oval-4" stroke="#000000" cx="185.715495" cy="2.65021258" rx="2.54368865" ry="2.65021258"></ellipse>
+                        <ellipse id="Oval-4-Copy-2" stroke="#000000" cx="5.87408512" cy="155.308244" rx="2.54368865" ry="2.65021258"></ellipse>
+                        <ellipse id="Oval-4-Copy" fill="#000000" cx="3.17961081" cy="6.64955329" rx="3.17961081" ry="3.31276573"></ellipse>
+                        <ellipse id="Oval-4-Copy-3" fill="#000000" cx="184.686219" cy="157.639191" rx="3.17961081" ry="3.31276573"></ellipse>
+                    </g>
+                    <ellipse id="Oval" stroke="#000000" stroke-width="3" fill-opacity="0.199999988" fill="#FFFFFF" cx="115.5" cy="81" rx="80.5" ry="81"></ellipse>
+                    <g id="Group-4" transform="translate(64.000000, 1.000000)" stroke="#4E4A89" stroke-width="2" fill="#8CFF6F">
+                        <ellipse id="Oval-Copy-2" cx="9.95121951" cy="150" rx="9.95121951" ry="10"></ellipse>
+                        <ellipse id="Oval-Copy-5" cx="9.95121951" cy="10" rx="9.95121951" ry="10"></ellipse>
+                        <ellipse id="Oval-Copy-4" cx="92.0487805" cy="150" rx="9.95121951" ry="10"></ellipse>
+                        <ellipse id="Oval-Copy-6" cx="92.0487805" cy="10" rx="9.95121951" ry="10"></ellipse>
+                    </g>
+                    <g id="Group-3" filter="url(#filter-1)" transform="translate(113.500000, 80.500000) rotate(6.000000) translate(-113.500000, -80.500000) translate(3.000000, 47.000000)">
+                        <g id="Rectangle-3">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                            <use stroke="#890A0A" stroke-width="3" fill="#FF5B91" fill-rule="evenodd" xlink:href="#path-2"></use>
+                        </g>
+                        <text id="JOBS-AND-TASKS" font-family="Rubik-Bold, Rubik" font-size="14" font-weight="bold" line-spacing="26" letter-spacing="2.96333385" fill="#FFFFFF">
+                            <tspan x="31.0693752" y="32.752079">JOBS AND TASKS</tspan>
+                        </text>
+                    </g>
+                    <path d="M123.633669,29 L106,29" id="Line" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                    <path d="M123.633669,137 L106,137" id="Line-Copy" stroke="#000000" stroke-width="3" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

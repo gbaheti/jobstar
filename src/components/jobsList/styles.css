@@ -39,13 +39,13 @@
 .tr-job-item-enter,
 .tr-job-item-appear {
   opacity: 0.01;
-  transform: translateX(20%);
+  transform: translateY(50%);
 }
 
 .tr-job-item-enter-active,
 .tr-job-item-appear-active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
   transition: all 0.3s ease;
 }
 
