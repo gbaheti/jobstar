@@ -13,7 +13,7 @@ import PrivateRoute from '../privateRoute';
 import './styles.css';
 
 const Main = (props) => {
-  const { authenticated, jobs, jobCount, jobLocation, applications, appliedCount, registerUser, user } = props;
+  const { authenticated, user, jobCount, jobLocation, applications, appliedCount, registerUser } = props;
 
   return (
     <div className="main">

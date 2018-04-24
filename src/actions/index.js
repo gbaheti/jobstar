@@ -18,10 +18,12 @@ export const restoreSession = () => {
   }
 }
 
-export const fetchJobs = () => {
+export const fetchJobs = (isLoggedIn = false) => {
   return (dispatch) => {
-    return jobsApi.getAllJobs()
+    return jobsApi.getAllJobs(isLoggedIn)
       .then(res => {
+        console.log(res);
+
         dispatch(fetchJobsSuccess(res));
       })
       .catch(err => {
@@ -41,7 +43,7 @@ export const fetchAppliedJobs = () => {
   return (dispatch) => {
     return jobsApi.getAppliedJobs()
       .then(res => {
-        console.log(res)
+        console.log(res);
 
         const jobs = Object.keys(res).length > 0 ? res : [];
          
@@ -97,6 +99,7 @@ export const confirmOtp = (phoneNumber, otp) => {
       localStorage.setItem('jobstar_user_profile', JSON.stringify(res.user));
 
       dispatch(confirmOtpSuccess(res.user));
+      dispatch(fetchJobs(true));
       dispatch(fetchAppliedJobs());
     })
     .catch(err => {
@@ -165,10 +168,6 @@ export const applyForJobSuccess = (res) => {
 export const logoutUser = () => {
   localStorage.removeItem('jobstar_user_profile');
   localStorage.removeItem('jobsar_access_token');
-
-  // return {
-  //   type: types.LOGOUT_USER_SUCCESS
-  // };
 
   window.location.reload();
 };

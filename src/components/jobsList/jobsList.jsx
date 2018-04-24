@@ -35,7 +35,7 @@ const JobsList = (props) => {
                   </AccordionItemBody>
                 </AccordionItem>
               </CSSTransition>
-            )
+            );
           })
         }
         </TransitionGroup>

@@ -9,7 +9,7 @@ import './styles.css';
 
 class JobsListView extends Component {
   componentDidMount() {
-    this.props.fetchJobs();
+    this.props.fetchJobs(this.props.userLoggedIn);
   }
 
   handleApply = (ids) => {
@@ -21,7 +21,7 @@ class JobsListView extends Component {
   }
 
   render() {
-    const { jobs, registerUser, applyForJob } = this.props;
+    const { jobs, registerUser } = this.props;
     
     return (
       <div className="jobs">
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchWithProps = (dispatch) => {
   return {
-    fetchJobs: () => dispatch(fetchJobs()),
+    fetchJobs: (isLoggedIn) => dispatch(fetchJobs(isLoggedIn)),
     registerUser: () => dispatch(openRegistrationModal()),
     applyForJob: (ids) => dispatch(applyForJob(ids))
   }

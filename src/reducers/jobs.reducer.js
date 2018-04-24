@@ -14,6 +14,7 @@ export default (state = initialState, action) => {
         location: action.jobs.searched_location,
         data: action.jobs.results
       }
+
     default:
       return state;
   }

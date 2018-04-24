@@ -28,12 +28,14 @@ const promisifiedXHR = (endPoint, type, params = null, headers) => {
 }
 
 const jobsApi = {
-  getAllJobs: () => {
+  getAllJobs: (isLoggedIn) => {
     const jobsUri = '/search/jobs/?latitude=28.442232&longitude=77.0359379&start_date=01/04/2018&end_date=30/04/2018&&location_name=Delhi';
     const headers = {
       'Content-Type': 'application/json',
-      'access_token': TOKEN.getDefault()
+      'access_token': isLoggedIn ? TOKEN.get() : TOKEN.getDefault()
     };
+
+    console.log(isLoggedIn);
 
     return promisifiedXHR(jobsUri, 'GET', null, headers);
   },
