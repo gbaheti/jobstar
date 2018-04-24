@@ -7,6 +7,7 @@ import logo from '../../assets/logo.svg';
 
 import PerksList from '../perksList';
 import Button from '../button';
+import { logoutUser } from '../../actions'; 
 
 class Navbar extends Component {
   state = {
@@ -18,7 +19,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isUserLoggedIn, profile } = this.props;
+    const { isUserLoggedIn, profile, logoutUser } = this.props;
     const jobstarPerks = ['Extra money', 'Flexible work', 'Skill up'];
 
     if(this.state.redirectToBusiness) {
@@ -38,6 +39,9 @@ class Navbar extends Component {
             isUserLoggedIn && profile && profile.first_name ?
               <div className="navbar-profile flex">
                 <p className="flex">{profile.first_name[0]}</p>
+                <ul className="navbar-profile__menu">
+                  <li onClick={logoutUser}>Logout</li>
+                </ul>
               </div> :
               <div className="navbar-link">
                 <Button text="post a job" type="primary" clickHandler={this.onClick}/>
@@ -56,4 +60,10 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logoutUser: () => dispatch(logoutUser())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

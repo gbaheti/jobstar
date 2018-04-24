@@ -46,6 +46,7 @@ p.text--error {
   font-size: 14px;
   margin-top: 8px;
   color: #ff1616;
+  transition: all 0.3s ease;
 }
 
 .text--bold {

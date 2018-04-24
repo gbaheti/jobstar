@@ -161,3 +161,14 @@ export const applyForJobSuccess = (res) => {
     type: types.APPLY_JOB_SUCCESS
   };
 };
+
+export const logoutUser = () => {
+  localStorage.removeItem('jobstar_user_profile');
+  localStorage.removeItem('jobsar_access_token');
+
+  // return {
+  //   type: types.LOGOUT_USER_SUCCESS
+  // };
+
+  window.location.reload();
+};
