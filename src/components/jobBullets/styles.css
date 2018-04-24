@@ -24,3 +24,12 @@
   color: #00000080;
   text-transform: uppercase;
 }
+
+@media only screen and (max-width: 480px) {
+  .bullet-cap {
+    font-size: 10px;
+  }
+  .job-bullets__item p {
+    font-size: 12px;
+  }
+}

@@ -29,3 +29,13 @@
 .job-cta__date {
   margin-left: auto;
 }
+
+@media only screen and (max-width: 480px) {
+  .job-cta__stats {
+    margin-right: 2%;
+    display: flex;
+  }
+  .job-cta__stats p {
+    font-size: 10px;
+  }
+}

@@ -29,6 +29,9 @@ class Navbar extends Component {
     return (
       <nav className="navbar">
         <div className="navbar__content flex">
+          {/* <div className="navbar-menu">
+
+          </div> */}
           <div className="navbar-brand flex">
             <img className="logo" src={logo} alt="jobstar-logo"/>
             {

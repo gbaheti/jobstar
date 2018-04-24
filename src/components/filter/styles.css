@@ -18,10 +18,23 @@
   background: transparent;
 }
 
-.filter .Select:nth-child(2) > .Select-control {
+.filter .Select:nth-child(2)>.Select-control {
   min-width: 140px
 }
 
 .filter .Select-control:hover {
   box-shadow: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .filter {
+    height: auto;
+  }
+  .filter .Select {
+    display: block;
+    margin: 8px 0;
+  }
+  .filter .Select:last-child {
+    float: none;
+  }
 }

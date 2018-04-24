@@ -82,3 +82,9 @@
 .navbar-profile__menu:hover {
   background-color: #eee;
 }
+
+@media only screen and (max-width: 480px) {
+  .navbar__content {
+    padding: 0 2%;
+  }
+}

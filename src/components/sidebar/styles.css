@@ -6,7 +6,7 @@
 
 .sidebar__footer a {
   color: #00000066;
-	font-size: 14px;
+  font-size: 14px;
   line-height: 1.93;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -14,4 +14,17 @@
 
 .sidebar__footer a:hover {
   color: #00000088;
+}
+
+@media only screen and (max-width: 480px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: #eee;
+    padding: 2%;
+  }
 }
