@@ -9,6 +9,10 @@ import check from '../../assets/icon_check_green.svg';
 import jobTasks from '../../assets/jobs-tasks.svg';
 import currency from '../../assets/currency.svg';
 
+const openTypeform = (e) => {
+  window.location.href = 'https://goo.gl/forms/vdGECQfcv22ovOcM2';
+}
+
 const Business = () => {
   return (
     <div className="business">
@@ -27,7 +31,7 @@ const Business = () => {
           <h1>Easiest way to find verified <span className="text--highlighted text--bold">part-time workers.</span></h1>
           <p>We enable thousands of Indians to make money via part-time work online or offline.</p>
           <div className="business-cta">
-            <Button className="business-cta__btn" type="primary" text="post a free job" icon={arrowRight} />
+            <Button className="business-cta__btn" type="primary" text="post a free job" icon={arrowRight} clickHandler={openTypeform}/>
             <p className="business-cta__note">limited time only</p>
           </div>
           <a className='business-link' href='#'>Learn More</a>
@@ -114,34 +118,67 @@ const Business = () => {
         </div>
       </div>
       <div className="business-stats">
-        <ul className="business-stats__list">
-          <li className="business-stats__item">
-            <span>👫</span>
-            <p>7560</p>
-            <h4>Verified Workers</h4>
-          </li>
-          <li className="business-stats__item">
-            <span>🏡</span>
-            <p>12</p>
-            <h4>Cities in India</h4>
-          </li>
-          <li className="business-stats__item">
-            <span>⚡️</span>
-            <p>10,000+</p>
-            <h4>Jobs/Tasks Done</h4>
-          </li>
-        </ul>
-        <h3>What our clients say...</h3>
-        <div className="business-stats__reviews">
-          <div className="review-card">
-            <p>Jobstar has been a great resource to help us meet spikes in our demand during Maha Bachat sales — a previously unavailable solution that has allowed us a lot of flexibility in managing the headcount in our stores.</p>
-            <h4>future group</h4>
-          </div>
-          <div className="review-card">
-            <p>“Jobstar has helped us find the best users to figure out what our customers need and we’re now building products around that.”</p>
-            <h4>spars studio</h4>
+        <div className="limit-width">
+          <ul className="business-stats__list flex">
+            <li className="business-stats__item">
+              <span role="image">👫</span>
+              <p>7560</p>
+              <h4>Verified Workers</h4>
+            </li>
+            <li className="business-stats__item">
+              <span role="image">🏡</span>
+              <p>12</p>
+              <h4>Cities in India</h4>
+            </li>
+            <li className="business-stats__item">
+              <span role="image">⚡️</span>
+              <p>10,000+</p>
+              <h4>Jobs/Tasks Done</h4>
+            </li>
+          </ul>
+          <h3>What our clients say...</h3>
+          <div className="business-stats__reviews flex limit-width">
+            <div className="review-card">
+              <p>Jobstar has been a great resource to help us meet spikes in our demand during Maha Bachat sales — a previously unavailable solution that has allowed us a lot of flexibility in managing the headcount in our stores.</p>
+              <h4>future group</h4>
+            </div>
+            <div className="review-card">
+              <p>“Jobstar has helped us find the best users to figure out what our customers need and we’re now building products around that.”</p>
+              <h4>spars studio</h4>
+            </div>
           </div>
         </div>
+      </div>
+      <div className="business-contact">
+        <div className="business-contact--limit">
+          <h2 className="business-contact__head">Want to <span className="text--bold">know more?</span></h2>
+          <p className="business-contact__desc">Call us at <span className="text--bold">8178818406</span> or email at <span className="text--bold">hey@jobstar.in</span></p>
+          <div className="business-contact__seperator">
+            <hr />
+            <span>OR</span>
+            <hr />
+          </div>
+          <p className="business-contact__details">Please leave your contact details, we’ll be in touch within 24 hours.</p>
+        </div>
+        <div className="business-contact__form">
+          <div className="business-contact__input-grp">
+            <label>Your name</label>
+            <input type="text" placeholder="Enter name" />
+          </div>
+          <div className="business-contact__input-grp">
+            <label>Company name</label>
+            <input type="text" placeholder="Firm name" />
+          </div>
+          <div className="business-contact__input-grp">
+            <label>Email</label>
+            <input type="text" placeholder="bruce@wayne.com" />
+          </div>
+          <div className="business-contact__input-grp">
+            <label>Phone number</label>
+            <input type="text" placeholder="+91" />
+          </div>
+        </div>
+        <Button type="primary" text="request a callback" className="business-contact__cta" />
       </div>
     </div>
   );

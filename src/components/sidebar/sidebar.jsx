@@ -40,7 +40,7 @@ const Sidebar = (props) => {
       <PromotionalPost media={postBg} text="Here’s how Aman made an extra ₹5000 while studying."/>
       <ul className="sidebar__footer">
         <li className="sidebar__link">
-          <Link to="/">Post a job</Link>
+          <Link to="/business">Post a job</Link>
         </li>
         <li className="sidebar__link">
           <Link to="/">Send feedback</Link>

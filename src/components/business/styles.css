@@ -53,14 +53,14 @@
 
 .business-home__content>h1 {
   font-weight: normal;
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1.36;
 }
 
 .business-home__content>p {
   margin-top: 4%;
   opacity: 0.5;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.57;
   color: #000000;
 }
@@ -103,7 +103,7 @@
 .business-about__description>h2,
 .business-about__content>h2 {
   opacity: 0.5;
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1.36;
   color: #181849;
 }
@@ -111,7 +111,7 @@
 .business-about__description>p {
   margin-top: 12px;
   line-height: 1.57;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .business-about__content {
@@ -143,7 +143,7 @@
 .advantages-list__item>p {
   margin: 0;
   line-height: 1.57;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .business-about__shape {
@@ -155,7 +155,7 @@
 }
 
 .business-jobs>h2 {
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1.36;
   margin: 0;
 }
@@ -196,19 +196,19 @@
   width: 280px;
 }
 
-.business-jobs__category > h4,
-.business-jobs__category > p {
+.business-jobs__category>h4,
+.business-jobs__category>p {
   margin: 0;
 }
 
-.business-jobs__category > h4 {
+.business-jobs__category>h4 {
   line-height: 1.22;
   margin-top: 8px;
 }
 
-.business-jobs__category > p {
+.business-jobs__category>p {
   opacity: 0.5;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.57;
   margin-top: 4px;
 }
@@ -226,6 +226,157 @@
   padding: 4% 0;
   background-color: rgba(118, 86, 230, 0.02);
   border: solid 1px #e4d6ff;
+  position: relative;
+  padding-bottom: 250px;
+}
+
+.business-stats__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.business-stats__item>span {
+  font-size: 40px;
+}
+
+.business-stats__item>p {
+  margin: 0;
+  margin-top: 4px;
+  font-size: 28px;
+  line-height: 1.36;
+}
+
+.business-stats__item>h4 {
+  margin: 0;
+  margin-top: 8px;
+  font-size: 20px;
+  opacity: 0.5;
+  line-height: 1.9;
+}
+
+.business-stats h3 {
+  line-height: 1.36;
+  font-size: 30px;
+  margin: 0;
+  opacity: 0.5;
+  margin-top: 8%;
+}
+
+.business-stats__reviews {
+  margin-top: 16px;
+  position: absolute;
+}
+
+.review-card {
+  border-radius: 4px;
+  height: 300px;
+  margin: 12px 8px;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.review-card>p {
+  font-size: 16px;
+  line-height: 1.59;
+  text-align: left;
+  color: #ffffff;
+  margin: 0;
+}
+
+.review-card>h4 {
+  opacity: 0.5;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.review-card:nth-child(1) {
+  background-color: #8a593d;
+  box-shadow: 0 22px 24px 0 rgba(0, 0, 0, 0.1);
+}
+
+.review-card:nth-child(2) {
+  background-color: #7a3939;
+  box-shadow: 0 22px 24px 0 rgba(0, 0, 0, 0.1);
+}
+
+.business-contact {
+  text-align: center;
+  padding-top: calc(4% + 120px);
+  padding-bottom: 2%;
+}
+
+.business-contact--limit {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.business-contact__head {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.36;
+}
+
+.business-contact__desc {
+  margin: 8px 0;
+  line-height: 2.38;
+}
+
+.business-contact__seperator {
+  display: flex;
+  align-items: center;
+}
+
+.business-contact__seperator > hr {
+  flex: 1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.business-contact__seperator > span {
+  font-weight: bold;
+  margin: 0 12px;
+}
+
+.business-contact__details {
+  line-height: 1.75;
+  padding: 0 20%;
+}
+
+.business-contact__cta {
+  margin: 4% auto;
+  padding: 20px;
+}
+
+.business-contact__form {
+  margin: 2% 0;
+}
+
+.business-contact__input-grp {
+  text-align: left;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.business-contact__input-grp > label {
+  opacity: 0.5;
+  line-height: 1.5;
+}
+
+.business-contact__input-grp > input {
+  border: 1px solid #00000033;
+  border-radius: 7px;
+  padding: 12px 16px;
+  display: block;
+  margin: 8px 0;
 }
 
 .text--highlighted {
