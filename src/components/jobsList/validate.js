@@ -4,7 +4,7 @@ const validate = (job) => {
   const template = job.job_template;
   const details = template.other_details;
 
-  if(!details.Role || !details.Income || !template.company || !details.Timings || !details.location || !details.Channel || !details['Age Limit'] || !details['Languages known'] || !details['Job Benefits'] || !details.Skills || !Array.isArray(details.Skills))
+  if(!details.Role || !details.Income || !template.tags || !details.Timings || !details.location || !details.Channel || !details['Age Limit'] || !details['Languages known'] || !details['Job Benefits'] || !details.Skills || !Array.isArray(details.Skills))
     return null;
 
   const data = {
@@ -12,7 +12,7 @@ const validate = (job) => {
     category: details.Role,
     salary: details.Income.salary,
     salaryType: details.Income.type,
-    employer: template.company.name,
+    employer: template.tags[0],
     timings: details.Timings,
     location: details.location,
     channel: details.Channel,
