@@ -166,6 +166,7 @@ export const applyForJobSuccess = (res) => {
 };
 
 export const logoutUser = () => {
+  // TODO - return an action and set user state to initial value
   localStorage.removeItem('jobstar_user_profile');
   localStorage.removeItem('jobsar_access_token');
 

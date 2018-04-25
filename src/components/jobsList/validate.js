@@ -9,6 +9,7 @@ const validate = (job) => {
 
   const data = {
     ids: job.ids,
+    applied: job.applied,
     category: details.Role,
     salary: details.Income.salary,
     salaryType: details.Income.type,

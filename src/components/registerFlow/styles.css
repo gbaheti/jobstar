@@ -166,21 +166,3 @@ p.input-desc {
 	line-height: 1.2;
 	letter-spacing: 8.6px;
 }
-
-.tr-modal-overlay-enter {
-  opacity: 0.01;
-}
-
-.tr-modal-overlay-enter-active {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.tr-modal-overlay-exit {
-  opacity: 1;
-}
-
-.tr-modal-overlay-exit-active {
-  opacity: 0.01;
-  transition: opacity 0.3s ease;
-}

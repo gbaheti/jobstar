@@ -24,6 +24,54 @@ class RegisterFlow extends Component {
     error: null
   }
 
+  getModalProps = () => {
+    switch(this.props.currentState) {
+      case 'register':
+        return {
+          heading: 'Register',
+          btnText: 'continue',
+          onSubmit: this.onPhoneNumberSubmit,
+          onClose: this.onClose,
+          component: <Register handlePhoneInput={this.onEnterPhoneNumber} error={this.state.error}/>
+        };
+
+      case 'confirmation':
+        return {
+          heading: 'Confirmation',
+          btnText: 'done',
+          onSubmit: this.onOtpSubmit,
+          component: <Confirmation handleOTPInput={this.onEnterOtp} resendOtp={this.onPhoneNumberSubmit} error={this.state.error}/>
+        };
+
+      case 'profileDetails':
+        return {
+          heading: 'Final details...',
+          btnText: 'done',
+          onSubmit: this.onProfileSubmit,
+          onClose: this.onClose,
+          component: <ProfileDetails handleNameInput={this.onEnterName} handleDateInput={this.onEnterDate} handleMonthInput={this.onEnterMonth} handleYearInput={this.onEnterYear} handleCityInput={this.onEnterCity} error={this.state.error}/>
+        };
+
+      case 'success':
+        return {
+          heading: 'Congratulations!',
+          btnText: 'next',
+          onSubmit: this.onClose,
+          onClose: this.onClose,
+          component: <Success />
+        };
+
+      default: 
+        return {
+          heading: null,
+          btnText: null,
+          onSubmit: null,
+          onClose: null,
+          component: <div style={{padding: '20%'}}></div>
+        };
+    }
+  }
+
   validatePhoneNumber = () => {
     const phoneRegex = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/);
     const isValid = phoneRegex.test(this.state.phoneNumber);
@@ -128,50 +176,14 @@ class RegisterFlow extends Component {
   }
 
   render() {
-    const { currentState, isOpen } = this.props;
+    const { isOpen } = this.props;
+    const modalProps = this.getModalProps();
 
     return (
-      <CSSTransition in={isOpen} timeout={300} classNames="tr-modal-overlay">
-        {
-          state => {
-            switch(currentState) {
-              case 'register':  
-                return (
-                  <Modal heading="Register" btnText="continue" onSubmit={this.onPhoneNumberSubmit} onClose={this.onClose} component={
-                    <Register handlePhoneInput={this.onEnterPhoneNumber} error={this.state.error}/>
-                  } />
-                );
-
-              case 'confirmation':
-                return (
-                  <Modal heading="Confirmation" btnText="done" onSubmit={this.onOtpSubmit} component={
-                    <Confirmation handleOTPInput={this.onEnterOtp} resendOtp={this.onPhoneNumberSubmit} error={this.state.error}/>
-                  } />
-                );
-
-              case 'profileDetails':
-                return (
-                  <Modal heading="Final details..." btnText="done" onSubmit={this.onProfileSubmit} onClose={this.onClose} component={
-                    <ProfileDetails handleNameInput={this.onEnterName} handleDateInput={this.onEnterDate} handleMonthInput={this.onEnterMonth} handleYearInput={this.onEnterYear} handleCityInput={this.onEnterCity} error={this.state.error}/>
-                  } />
-                );
-
-              case 'success':
-                return (
-                  <Modal heading="Congratulations!." btnText="next" onSubmit={this.onClose} onClose={this.onClose} component={
-                    <Success />
-                  } />
-                );
-
-              default:
-                return <div></div>;
-            }
-          }
-        }
-      </CSSTransition>
-    )
+      <Modal isOpen={isOpen} {...modalProps} />
+    );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {

@@ -20,6 +20,8 @@ const JobsList = (props) => {
         <TransitionGroup className="sama">
         {
           filteredJobs.map((j, idx) => {
+            if(j.applied) return <h1>Applied</h1>
+            
             const data = validate(j);
 
             return (

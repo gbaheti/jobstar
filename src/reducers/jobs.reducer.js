@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
       return {
         count: action.jobs.total_count,
         location: action.jobs.searched_location,
-        data: action.jobs.results
+        data: action.jobs.results.map(j => Object.assign({}, j, { applied: false }))
       }
 
     default:
