@@ -128,24 +128,24 @@ p.input-desc {
 	color: #000000;
 }
 
-.profile {
+.profile-details {
   margin: 0 auto;
   max-width: 300px;
 }
 
-.profile__form-grp {
+.profile-details__form-grp {
   display: flex;
   flex-direction: column;
   margin: 4% 0;
 }
 
-.profile__form-grp label {
+.profile-details__form-grp label {
   opacity: 0.5;
 	font-size: 16px;
 	line-height: 1.5;
 }
 
-.profile__form-grp input {
+.profile-details__form-grp input {
   margin: 4px 0;
   font-size: 14px;
   width: 100%;
@@ -154,13 +154,13 @@ p.input-desc {
 	border: solid 1px #00000019;
 }
 
-.profile__input-grp input {
+.profile-details__input-grp input {
   width: 22%;
   text-align: center;
   margin-right: 8px;
 }
 
-.profile__form-grp span {
+.profile-details__form-grp span {
   opacity: 0.5;
 	font-size: 20px;
 	line-height: 1.2;

@@ -20,7 +20,8 @@ input:focus {
  Utility
 ********************************************/
 
-.flex {
+.flex,
+.flex--lg {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +38,8 @@ input:focus {
   height: auto;
 }
 
-.input--error {
+input.input--error,
+div.input--error {
   border: solid 1px #ff1616;
   animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);
@@ -74,5 +76,11 @@ p.text--error {
   40%,
   60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .flex--lg {
+    display: block;
   }
 }

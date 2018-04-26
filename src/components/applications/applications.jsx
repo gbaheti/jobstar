@@ -35,7 +35,7 @@ class Applications extends Component {
     if(!applications || !applications.length) {
       return (
         <div className="applications">
-          <h4>You have not applied for any jobs 😲</h4>
+          <h4>You have not applied for any jobs <span role="img" aria-label="surprised">😲</span></h4>
         </div>
       )
     }

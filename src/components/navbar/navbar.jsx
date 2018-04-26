@@ -43,7 +43,7 @@ class Navbar extends Component {
               <div className="navbar-profile flex">
                 <p className="flex">{profile.first_name[0]}</p>
                 <ul className="navbar-profile__menu">
-                  <li onClick={logoutUser}>Logout <span role="img">👋</span></li>
+                  <li onClick={logoutUser}>Logout <span role="img" aria-label="bye">👋</span></li>
                 </ul>
               </div> :
               <div className="navbar-link">

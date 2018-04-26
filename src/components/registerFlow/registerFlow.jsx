@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CSSTransition } from 'react-transition-group';
 
 import Register from '../register';
 import Modal from '../modal';
@@ -10,7 +9,6 @@ import Success from '../success';
 import { sendOtp, confirmOtp, saveProfile, closeRegistrationModal } from '../../actions';
 
 import './styles.css';
-
 
 class RegisterFlow extends Component {
   state = {
@@ -198,7 +196,7 @@ const mapDispatchToProps = (dispatch) => {
     confirmOtp: (phoneNumber, otp) => dispatch(confirmOtp(phoneNumber, otp)),
     saveProfile: (profile) => dispatch(saveProfile(profile)),
     closeRegistrationModal: () => dispatch(closeRegistrationModal())
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterFlow);

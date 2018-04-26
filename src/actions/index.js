@@ -166,6 +166,26 @@ export const applyForJobSuccess = (res, ids) => {
   };
 };
 
+export const sendJobAlerts = (phoneNumber) => {
+  return (dispatch) => {
+    return jobsApi.sendAlerts(phoneNumber)
+    .then(res => {
+      console.log(res);
+
+      dispatch(sendJobAlertsSuccess(res));
+    })
+    .catch(err => {
+      throw(err);
+    });
+  };
+};
+
+export const sendJobAlertsSuccess = (res) => {
+  return {
+    type: 'SEND_JOB_ALERT_SUCCESS'
+  };
+};
+
 export const logoutUser = () => {
   // TODO - return an action and set user state to initial value
   localStorage.removeItem('jobstar_user_profile');

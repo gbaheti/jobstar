@@ -7,7 +7,10 @@ import fbLogo from '../../assets/fb.png';
 import Button from '../button';
 
 class EditProfile extends Component {
-  
+  onProfileImageUpload = (e) => {
+    console.log(e);
+  }
+
   render() {
     return (
       <div className="edit-profile-wrapper">
@@ -28,7 +31,7 @@ class EditProfile extends Component {
               <div className="edit-profile__field">
                 <div className="file-input">
                   <p className="file-input__label">Click here to upload</p>
-                  <input type="file" name="photo" />
+                  <input type="file" name="profile-photo" onChange={this.onProfileImageUpload}/>
                 </div>
               </div>
             </div>
@@ -38,12 +41,12 @@ class EditProfile extends Component {
                 <input type="text" name="name" placeholder="Enter a name"/>
               </div>
             </div>
-            {/* <div className="edit-profile__input-grp">
+            <div className="edit-profile__input-grp">
               <label>DOB</label>
               <div className="edit-profile__field">
                 <input type="text" name="name" placeholder="Enter a name"/>
               </div>
-            </div> */}
+            </div>
             <div className="edit-profile__input-grp">
               <label>Email</label>
               <div className="edit-profile__field">
@@ -61,11 +64,11 @@ class EditProfile extends Component {
               <div className="edit-profile__field edit-profile__filed--radio">
                 <div className="radio-grp flex">
                   <input type="radio" name="gender" value="male" />
-                  <label for="male">Male</label>
+                  <label htmlFor="male">Male</label>
                 </div>
                 <div className="radio-grp flex">
                   <input type="radio" name="gender" value="female" />
-                  <label for="female">Female</label>
+                  <label htmlFor="female">Female</label>
                 </div>
               </div>
             </div>
