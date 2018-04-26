@@ -14,6 +14,19 @@ export default (state = initialState, action) => {
         location: action.jobs.searched_location,
         data: action.jobs.results.map(j => Object.assign({}, j, { applied: false }))
       }
+    
+    case types.APPLY_JOB_SUCCESS:
+      const jobs = state.data.map(j => {
+        if(j.ids[0] === action.ids[0]) {
+          j.applied = true;
+        }
+
+        return j;
+      });
+
+      return Object.assign({}, state, {
+        data: jobs
+      });
 
     default:
       return state;

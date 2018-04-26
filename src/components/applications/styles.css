@@ -33,3 +33,21 @@
 .applications__status-submit {
   margin-left: 12px;
 }
+
+/********************************************* 
+ Transition group classes
+********************************************/
+
+.tr-applications-item-enter,
+.tr-applications-item-appear {
+  opacity: 0.01;
+  transform: translateX(100%);
+}
+
+.tr-applications-item-enter-active,
+.tr-applications-item-appear-active {
+  opacity: 1;
+  transform: translateX(0);
+  will-change: opacity transform;
+  transition: all 0.3s ease;
+}

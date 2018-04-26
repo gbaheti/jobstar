@@ -12,6 +12,28 @@
   transform: translateZ(0);
 }
 
+.jobs-list__item--applied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 16px;
+  margin: 16px 0;
+  background: #e7fff6;
+  border: 2px solid #26c68c;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.jobs-list__item--applied>h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #26c68c;
+}
+
+.jobs-list__item--applied>img {
+  width: 30px;
+}
+
 .jobs-list__head {
   outline: none;
   cursor: pointer;
@@ -36,6 +58,16 @@
   margin: 0;
 }
 
+@media only screen and (max-width: 480px) {
+  .jobs-list__item {
+    padding: 12px;
+  }
+}
+
+/********************************************* 
+ Transition group classes
+********************************************/
+
 .tr-job-item-enter,
 .tr-job-item-appear {
   opacity: 0.01;
@@ -46,22 +78,32 @@
 .tr-job-item-appear-active {
   opacity: 1;
   transform: translateY(0);
+  will-change: opacity transform;
   transition: all 0.3s ease;
 }
 
-.tr-job-item-exit {
+.tr-applied-item-enter {
+  opacity: 0.01;
+  transform: translateX(-20%);
+  will-change: opacity transform;
+  transition: all 0.3s ease;
+}
+
+.tr-applied-item-enter-active {
   opacity: 1;
   transform: translateX(0);
 }
 
-.tr-job-item-exit-active {
-  opacity: 0;
-  transform: translateX(20%);
+.tr-job-item-exit,
+.tr-applied-item-exit {
+  opacity: 1;
+  transform: translateX(0);
+  will-change: opacity transform;
   transition: all 0.3s ease;
 }
 
-@media only screen and (max-width: 480px) {
-  .jobs-list__item {
-    padding: 12px;
-  }
+.tr-job-item-exit-active,
+.tr-applied-item-exit-active {
+  opacity: 0;
+  transform: translateX(20%);
 }

@@ -150,7 +150,7 @@ export const applyForJob = (ids) => {
     .then(res => {
       console.log(res);
 
-      dispatch(applyForJobSuccess(res));
+      dispatch(applyForJobSuccess(res, ids));
       dispatch(fetchAppliedJobs());
     })
     .catch(err => {
@@ -159,9 +159,10 @@ export const applyForJob = (ids) => {
   };
 };
 
-export const applyForJobSuccess = (res) => {
+export const applyForJobSuccess = (res, ids) => {
   return {
-    type: types.APPLY_JOB_SUCCESS
+    type: types.APPLY_JOB_SUCCESS,
+    ids
   };
 };
 
