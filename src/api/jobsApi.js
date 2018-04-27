@@ -29,15 +29,22 @@ const promisifiedXHR = (endPoint, type, params = null, headers) => {
 
 const jobsApi = {
   getAllJobs: (isLoggedIn) => {
-    const jobsUri = '/stars/search/jobs/?latitude=28.442232&longitude=77.0359379&start_date=01/04/2018&end_date=30/04/2018&&location_name=Delhi';
+    const jobsUri = '/stars/search/jobs/?latitude=28.442232&longitude=77.0359379&start_date=01/03/2018&end_date=30/05/2018&&location_name=Delhi';
     const headers = {
       'Content-Type': 'application/json',
       'access_token': isLoggedIn ? TOKEN.get() : TOKEN.getDefault()
     };
 
-    console.log(isLoggedIn);
-
     return promisifiedXHR(jobsUri, 'GET', null, headers);
+  },
+  getJob: (id) => {
+    const jobUri = '/stars/jobs/' + id;
+    const headers = {
+      'Content-Type': 'application/json',
+      'access_token': TOKEN.getDefault()
+    };
+
+    return promisifiedXHR(jobUri, 'GET', null, headers);
   },
   generateOtp: (phoneNumber) => {
     const otpUri = '/stars/users/generate_login_otp';

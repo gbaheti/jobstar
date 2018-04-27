@@ -4,14 +4,14 @@ import './styles.css';
 import bpo from '../../assets/bpo.svg';
 
 const JobInfo = (props) => {
-  let { profile, salary, paidBy } = props;
+  let { profile, salary, paidBy, onOpenJobDetail } = props;
 
   return (
     <div className="job-info">
       <img className="job-info__icon" src={bpo} alt="job-icon" />
       <div className="job-info__title">
-        <h3>{profile}</h3>
-        <p>Company posted 1 day ago</p>
+        <h3 onClick={onOpenJobDetail}>{profile}</h3>
+        <p>Posted 1 day ago</p>
       </div>
       {
         paidBy.length ? (

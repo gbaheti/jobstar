@@ -39,6 +39,27 @@ export const fetchJobsSuccess = (data) => {
   };  
 };
 
+export const fetchJobDetail = (id) => {
+  return (dispatch) => {
+    return jobsApi.getJob(id)
+      .then(res => {
+        console.log(res);
+
+        dispatch(fetchJobDetailSuccess(res));
+      })
+      .catch(err => {
+        throw(err);
+      });
+  };
+};
+
+export const fetchJobDetailSuccess = (data) => {
+  return {
+    type: types.FETCH_JOB_DETAIL_SUCCESS,
+    job: data
+  };  
+};
+
 export const fetchAppliedJobs = () => {
   return (dispatch) => {
     return jobsApi.getAppliedJobs()
