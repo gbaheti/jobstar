@@ -59,23 +59,22 @@ class JobsList extends Component {
                   </CSSTransition>
                 );
               }
+
   
               const data = validate(j);
   
-              return (
+              return data && (
                 <CSSTransition appear={true} timeout={300} classNames="tr-job-item" key={data.ids[0]*idx}>
-                  {
-                    <AccordionItem className="jobs-list__item card">
-                      <AccordionItemTitle className="jobs-list__head">
-                        <JobInfo profile={data.category} salary={data.salary} paidBy={data.salaryType} onOpenJobDetail={(e) => this.onOpenJobDetail(data)}/>
-                        <JobBullets employer={data.employer} shift={data.timings} area={data.location} type={data.channel} />
-                        <JobCta applicants={data.applicants} onUserApply={onUserApply} jobIds={data.ids}/>
-                      </AccordionItemTitle>  
-                      <AccordionItemBody className="jobs-list__body"> 
-                        <JobBody ageLimit={data.ageLimit} minAge={data.minAge} maxAge={data.maxAge} languages={data.languages} identity={data.identity} benefits={data.benefits} skills={data.skills} description={data.description} onUserRegister={onUserRegister}/>  
-                      </AccordionItemBody>
-                    </AccordionItem>
-                  }
+                  <AccordionItem className="jobs-list__item card">
+                    <AccordionItemTitle className="jobs-list__head">
+                      <JobInfo profile={data.category} salary={data.salary} paidBy={data.salaryType} onOpenJobDetail={(e) => this.onOpenJobDetail(data)}/>
+                      <JobBullets employer={data.employer} shift={data.timings} area={data.location} type={data.channel} />
+                      <JobCta applicants={data.applicants} onUserApply={onUserApply} jobIds={data.ids}/>
+                    </AccordionItemTitle>  
+                    <AccordionItemBody className="jobs-list__body"> 
+                      <JobBody ageLimit={data.ageLimit} minAge={data.minAge} maxAge={data.maxAge} languages={data.languages} identity={data.identity} benefits={data.benefits} skills={data.skills} description={data.description} onUserRegister={onUserRegister}/>  
+                    </AccordionItemBody>
+                  </AccordionItem>
                 </CSSTransition>
               );
             })
