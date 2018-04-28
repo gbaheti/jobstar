@@ -10,7 +10,7 @@ const JobBullets =(props) => {
   return (
     <ul className="job-bullets">
       <li className="job-bullets__item">
-        <h4 className="bullet-cap">who's hiring</h4>
+        <h4 className="bullet-cap">company</h4>
         <p>{employer}</p>
       </li>
       <li className="job-bullets__item">

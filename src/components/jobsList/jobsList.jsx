@@ -59,7 +59,6 @@ class JobsList extends Component {
                   </CSSTransition>
                 );
               }
-
   
               const data = validate(j);
   
