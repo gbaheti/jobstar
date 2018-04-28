@@ -8,6 +8,7 @@ import logo from '../../assets/logo-yellow.svg';
 import check from '../../assets/icon_check_green.svg';
 import jobTasks from '../../assets/jobs-tasks.svg';
 import currency from '../../assets/currency.svg';
+import sales from '../../assets/postBg.png';
 import dilevery from '../../assets/dilevery.jpg';
 import hospitality from '../../assets/hospitality.jpg';
 import mysteryAudit from '../../assets/mystery-audit.jpg';
@@ -81,7 +82,7 @@ const Business = () => {
           </div>
           <ul className="business-jobs__list flex--lg business-jobs__list--expanded">
             <li className="business-jobs__category">
-              <img className="img-responsive" src="http://via.placeholder.com/280x130" alt="sales-jobs" />
+              <img className="img-responsive" src={sales} alt="sales-jobs" />
               <h4>Sales / Marketing Job</h4>
               <p>Boost your customer outreach.</p>
               <Button type="primary" text="start hiring" />

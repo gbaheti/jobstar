@@ -47,7 +47,7 @@ class Navbar extends Component {
                 </ul>
               </div> :
               <div className="navbar-link">
-                <Button text="post a job" type="primary" clickHandler={this.onClick}/>
+                <Button text="for businesses" type="primary" clickHandler={this.onClick}/>
               </div>
           }
         </div>
