@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import PerksList from "../perksList";
 import Button from "../button";
+
 import { logoutUser } from "../../actions";
 
 import "./styles.css";
@@ -12,51 +13,58 @@ import logo from "../../assets/logo.svg";
 class Navbar extends Component {
   state = {
     redirectToBusiness: false,
+    jobPerks: ["Extra money", "Flexible work", "Skill up"],
   };
 
-  onClick = e => {
+  redirect = e => {
     this.setState({ redirectToBusiness: true });
   };
 
-  render() {
-    const { isUserLoggedIn, profile, logoutUser } = this.props;
-    const jobstarPerks = ["Extra money", "Flexible work", "Skill up"];
+  renderNavbarRight = () => {
+    const { isUserLoggedIn, profile, onUserLogout } = this.props;
 
+    if (isUserLoggedIn) {
+      return (
+        <div className="navbar-profile flex">
+          <p className="flex">{profile.first_name[0]}</p>
+          <ul className="navbar-profile__menu">
+            <li onClick={onUserLogout}>
+              Logout &nbsp;
+              <span role="img" aria-label="bye">
+                👋
+              </span>
+            </li>
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div className="navbar-link">
+          <Button
+            text="for businesses"
+            type="primary"
+            clickHandler={this.redirect}
+          />
+        </div>
+      );
+    }
+  };
+
+  render() {
     if (this.state.redirectToBusiness) {
       return <Redirect push to="/business" />;
     }
 
+    const { isUserLoggedIn } = this.props;
+
     return (
       <nav className="navbar">
         <div className="navbar__content flex">
-          {/* <div className="navbar-menu">
-
-          </div> */}
           <div className="navbar-brand flex">
             <img className="logo" src={logo} alt="jobstar-logo" />
-            {!isUserLoggedIn && <PerksList perks={jobstarPerks} />}
+            {!isUserLoggedIn && <PerksList perks={this.state.jobstarPerks} />}
           </div>
-          {isUserLoggedIn && profile && profile.first_name ? (
-            <div className="navbar-profile flex">
-              <p className="flex">{profile.first_name[0]}</p>
-              <ul className="navbar-profile__menu">
-                <li onClick={logoutUser}>
-                  Logout{" "}
-                  <span role="img" aria-label="bye">
-                    👋
-                  </span>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div className="navbar-link">
-              <Button
-                text="for businesses"
-                type="primary"
-                clickHandler={this.onClick}
-              />
-            </div>
-          )}
+          {this.renderNavbarRight()}
         </div>
       </nav>
     );
@@ -72,7 +80,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logoutUser: () => dispatch(logoutUser()),
+    onUserLogout: () => dispatch(logoutUser()),
   };
 };
 
