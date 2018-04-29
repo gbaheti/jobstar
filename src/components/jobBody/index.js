@@ -1,1 +1,1 @@
-export { default } from './jobBody';
+export { default } from "./jobBody";

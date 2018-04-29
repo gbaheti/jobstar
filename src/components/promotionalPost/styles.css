@@ -16,7 +16,7 @@
   bottom: 0;
   left: 0;
   padding: 12px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   z-index: 4;
   display: flex;
   justify-content: center;
@@ -30,8 +30,8 @@
 .post__content p {
   margin: 0;
   font-size: 12px;
-	font-weight: 600;
-	line-height: 1.5;
+  font-weight: 600;
+  line-height: 1.5;
   margin-right: 16px;
 }
 

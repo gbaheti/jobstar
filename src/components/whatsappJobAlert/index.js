@@ -1,1 +1,1 @@
-export { default } from './whatsappJobAlert';
+export { default } from "./whatsappJobAlert";

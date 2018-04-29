@@ -1,1 +1,1 @@
-export { default } from './perksList';
+export { default } from "./perksList";

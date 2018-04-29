@@ -1,23 +1,25 @@
-import * as types from '../actions/actionTypes';
+import * as types from "../actions/actionTypes";
 
 const initialState = {
   count: 0,
-  location: 'India',
-  data: []
+  location: "India",
+  data: [],
 };
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case types.FETCH_JOBS_SUCCESS:
       return {
         count: action.jobs.total_count,
         location: action.jobs.searched_location,
-        data: action.jobs.results.map(j => Object.assign({}, j, { applied: false }))
-      }
-    
+        data: action.jobs.results.map(j =>
+          Object.assign({}, j, { applied: false }),
+        ),
+      };
+
     case types.APPLY_JOB_SUCCESS:
       const jobs = state.data.map(j => {
-        if(j.ids[0] === action.ids[0]) {
+        if (j.ids[0] === action.ids[0]) {
           j.applied = true;
         }
 
@@ -25,10 +27,10 @@ export default (state = initialState, action) => {
       });
 
       return Object.assign({}, state, {
-        data: jobs
+        data: jobs,
       });
 
     default:
       return state;
   }
-}
+};

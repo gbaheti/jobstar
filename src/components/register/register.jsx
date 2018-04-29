@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import fbLogo from '../../assets/fb.png';
-import mobile from '../../assets/mobile.svg';
+import fbLogo from "../../assets/fb.png";
+import mobile from "../../assets/mobile.svg";
 
-const Register = (props) => {
+const Register = props => {
   const { handlePhoneInput, error } = props;
 
   return (
@@ -15,15 +15,23 @@ const Register = (props) => {
           continue with facebook
         </button>
         <p className="seperator">or</p>
-        <div className={"input-grp register__input" + (error ? " input--error" : "")}>
+        <div
+          className={
+            "input-grp register__input" + (error ? " input--error" : "")
+          }
+        >
           <img src={mobile} alt="phone-icon" />
-          <input type="tel" placeholder="Enter phone number" onChange={handlePhoneInput} />
+          <input
+            type="tel"
+            placeholder="Enter phone number"
+            onChange={handlePhoneInput}
+          />
         </div>
-        { error && <p className="text--error">{error}</p> }
+        {error && <p className="text--error">{error}</p>}
         <p className="input-desc">(We will send OTP for confirmation)</p>
       </div>
     </div>
   );
-}
+};
 
 export default Register;

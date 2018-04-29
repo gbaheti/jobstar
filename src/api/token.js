@@ -1,18 +1,18 @@
 const localStorage = window.localStorage;
 
 const TOKEN = {
-  key: 'jobsar_access_token',
+  key: "jobsar_access_token",
 
   getDefault() {
-    return btoa('consumer_android_key:consumer_android_secret');
+    return btoa("consumer_android_key:consumer_android_secret");
   },
-  
+
   get() {
     const token = localStorage.getItem(this.key);
 
-    if(token) return token;
+    if (token) return token;
 
-    return btoa('consumer_android_key:consumer_android_secret');
+    return btoa("consumer_android_key:consumer_android_secret");
   },
 
   set(token) {
@@ -20,10 +20,12 @@ const TOKEN = {
   },
 
   update(secret) {
-    const token = btoa('consumer_android_key:consumer_android_secret:' + secret);
+    const token = btoa(
+      "consumer_android_key:consumer_android_secret:" + secret,
+    );
 
     this.set(token);
-  }
-}
+  },
+};
 
 export default TOKEN;

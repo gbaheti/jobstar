@@ -1,26 +1,18 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Navbar from '../navbar';
-import Main from '../main';
-import RegisterFlow from '../registerFlow';
-import Footer from '../footer';
-import JobDetail from '../jobDetail';
+import Home from "../home";
+import Business from "../business";
 
-import './styles.css';
-
-const App = (props) => {
+const App = () => {
   return (
-    <div className="app">
-      <Navbar />
+    <Router>
       <Switch>
-        <Route exact path='/job/:detail' component={JobDetail} />
-        <Route path='/' component={Main} />
+        <Route exact path="/business" component={Business} />
+        <Route path="/" component={Home} />
       </Switch>
-      <RegisterFlow />
-      <Footer />
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;

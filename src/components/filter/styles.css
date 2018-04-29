@@ -18,8 +18,8 @@
   background: transparent;
 }
 
-.filter .Select:nth-child(2)>.Select-control {
-  min-width: 140px
+.filter .Select:nth-child(2) > .Select-control {
+  min-width: 140px;
 }
 
 .filter .Select-control:hover {

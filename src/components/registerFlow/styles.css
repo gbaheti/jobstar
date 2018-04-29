@@ -7,7 +7,7 @@
 .register h2,
 .register p,
 .confirmation h2,
-.success h2 ,
+.success h2,
 .success p {
   margin: 0;
 }
@@ -80,7 +80,7 @@ p.input-desc {
   margin-top: 8px;
   opacity: 0.5;
   font-size: 12px;
-  line-height: 2.0;
+  line-height: 2;
 }
 
 .confirmation {
@@ -96,7 +96,7 @@ p.input-desc {
   border-radius: 7px;
   padding: 16px;
   text-align: center;
-	border: solid 1px #00000019;
+  border: solid 1px #00000019;
 }
 
 .confirmation__resend {
@@ -123,9 +123,9 @@ p.input-desc {
 
 .success p {
   opacity: 0.5;
-	font-size: 18px;
-	line-height: 2.11;
-	color: #000000;
+  font-size: 18px;
+  line-height: 2.11;
+  color: #000000;
 }
 
 .profile-details {
@@ -141,8 +141,8 @@ p.input-desc {
 
 .profile-details__form-grp label {
   opacity: 0.5;
-	font-size: 16px;
-	line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .profile-details__form-grp input {
@@ -151,7 +151,7 @@ p.input-desc {
   width: 100%;
   border-radius: 7px;
   padding: 12px;
-	border: solid 1px #00000019;
+  border: solid 1px #00000019;
 }
 
 .profile-details__input-grp input {
@@ -162,7 +162,7 @@ p.input-desc {
 
 .profile-details__form-grp span {
   opacity: 0.5;
-	font-size: 20px;
-	line-height: 1.2;
-	letter-spacing: 8.6px;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 8.6px;
 }

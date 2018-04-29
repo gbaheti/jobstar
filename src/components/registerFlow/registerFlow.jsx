@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import Register from '../register';
-import Modal from '../modal';
-import Confirmation from '../confirmation';
-import ProfileDetails from '../profileDetails';
-import Success from '../success';
-import { sendOtp, confirmOtp, saveProfile, closeRegistrationModal } from '../../actions';
+import Register from "../register";
+import Modal from "../modal";
+import Confirmation from "../confirmation";
+import ProfileDetails from "../profileDetails";
+import Success from "../success";
+import {
+  sendOtp,
+  confirmOtp,
+  saveProfile,
+  closeRegistrationModal,
+} from "../../actions";
 
-import './styles.css';
+import "./styles.css";
 
 class RegisterFlow extends Component {
   state = {
@@ -19,183 +24,209 @@ class RegisterFlow extends Component {
     dobDate: null,
     dobMonth: null,
     dobYear: null,
-    error: null
-  }
+    error: null,
+  };
 
   getModalProps = () => {
-    switch(this.props.currentState) {
-      case 'register':
+    switch (this.props.currentState) {
+      case "register":
         return {
-          heading: 'Register',
-          btnText: 'continue',
+          heading: "Register",
+          btnText: "continue",
           onSubmit: this.onPhoneNumberSubmit,
           onClose: this.onClose,
-          component: <Register handlePhoneInput={this.onEnterPhoneNumber} error={this.state.error}/>
+          component: (
+            <Register
+              handlePhoneInput={this.onEnterPhoneNumber}
+              error={this.state.error}
+            />
+          ),
         };
 
-      case 'confirmation':
+      case "confirmation":
         return {
-          heading: 'Confirmation',
-          btnText: 'done',
+          heading: "Confirmation",
+          btnText: "done",
           onSubmit: this.onOtpSubmit,
-          component: <Confirmation handleOTPInput={this.onEnterOtp} resendOtp={this.onPhoneNumberSubmit} error={this.state.error}/>
+          component: (
+            <Confirmation
+              handleOTPInput={this.onEnterOtp}
+              resendOtp={this.onPhoneNumberSubmit}
+              error={this.state.error}
+            />
+          ),
         };
 
-      case 'profileDetails':
+      case "profileDetails":
         return {
-          heading: 'Final details...',
-          btnText: 'done',
+          heading: "Final details...",
+          btnText: "done",
           onSubmit: this.onProfileSubmit,
           onClose: this.onClose,
-          component: <ProfileDetails handleNameInput={this.onEnterName} handleDateInput={this.onEnterDate} handleMonthInput={this.onEnterMonth} handleYearInput={this.onEnterYear} handleCityInput={this.onEnterCity} error={this.state.error}/>
+          component: (
+            <ProfileDetails
+              handleNameInput={this.onEnterName}
+              handleDateInput={this.onEnterDate}
+              handleMonthInput={this.onEnterMonth}
+              handleYearInput={this.onEnterYear}
+              handleCityInput={this.onEnterCity}
+              error={this.state.error}
+            />
+          ),
         };
 
-      case 'success':
+      case "success":
         return {
-          heading: 'Congratulations!',
-          btnText: 'next',
+          heading: "Congratulations!",
+          btnText: "next",
           onSubmit: this.onClose,
           onClose: this.onClose,
-          component: <Success />
+          component: <Success />,
         };
 
-      default: 
+      default:
         return {
           heading: null,
           btnText: null,
           onSubmit: null,
           onClose: null,
-          component: <div style={{padding: '20%'}}></div>
+          component: <div style={{ padding: "20%" }} />,
         };
     }
-  }
+  };
 
   validatePhoneNumber = () => {
-    const phoneRegex = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/);
+    const phoneRegex = new RegExp(
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+    );
     const isValid = phoneRegex.test(this.state.phoneNumber);
 
     return isValid;
-  }
+  };
 
   validateOtp = () => {
     const isValid = this.state.otp && this.state.otp.length === 4;
 
     return isValid;
-  }
+  };
 
   validateProfile = () => {
-    const isValidDate = !isNaN(Date.parse(`${this.state.dobYear}-${this.state.dobMonth}-${this.state.dobDate}`));
+    const isValidDate = !isNaN(
+      Date.parse(
+        `${this.state.dobYear}-${this.state.dobMonth}-${this.state.dobDate}`,
+      ),
+    );
     const isValid = this.state.name && this.state.city && isValidDate;
 
     return isValid;
-  }
+  };
 
-  onEnterPhoneNumber = (e) => {
+  onEnterPhoneNumber = e => {
     this.setState({
-      phoneNumber: e.target.value
+      phoneNumber: e.target.value,
     });
-  }
+  };
 
   onPhoneNumberSubmit = () => {
-    if(this.validatePhoneNumber()) {
-      this.setState({error: null});
+    if (this.validatePhoneNumber()) {
+      this.setState({ error: null });
       this.props.sendOtp(this.state.phoneNumber);
     } else {
-      this.setState({error: 'Please check the phone number. 🤔'});
+      this.setState({ error: "Please check the phone number. 🤔" });
     }
-  }
+  };
 
-  onEnterOtp = (e) => {
+  onEnterOtp = e => {
     this.setState({
-      otp: e.target.value
+      otp: e.target.value,
     });
-  }
+  };
 
   onOtpSubmit = () => {
-    if(this.validatePhoneNumber() && this.validateOtp()) {
-      this.setState({error: null});
+    if (this.validatePhoneNumber() && this.validateOtp()) {
+      this.setState({ error: null });
       this.props.confirmOtp(this.state.phoneNumber, this.state.otp);
     } else {
-      this.setState({error: 'Please check the otp. 🤔'});
+      this.setState({ error: "Please check the otp. 🤔" });
     }
-  }
+  };
 
-  onEnterName = (e) => {
+  onEnterName = e => {
     this.setState({
-      name: e.target.value
+      name: e.target.value,
     });
-  }
+  };
 
-  onEnterDate = (e) => {
+  onEnterDate = e => {
     this.setState({
-      dobDate: e.target.value
+      dobDate: e.target.value,
     });
-  }
+  };
 
-  onEnterMonth = (e) => {
+  onEnterMonth = e => {
     this.setState({
-      dobMonth: e.target.value
+      dobMonth: e.target.value,
     });
-  }
+  };
 
-  onEnterYear = (e) => {
+  onEnterYear = e => {
     this.setState({
-      dobYear: e.target.value
+      dobYear: e.target.value,
     });
-  }
+  };
 
-  onEnterCity = (e) => {
+  onEnterCity = e => {
     this.setState({
-      city: e.target.value
+      city: e.target.value,
     });
-  }
+  };
 
   onProfileSubmit = () => {
-    if(this.validateProfile()) {
-      this.setState({error: null});
+    if (this.validateProfile()) {
+      this.setState({ error: null });
       this.props.saveProfile({
         name: this.state.name,
         city: this.state.city,
-        dob: `${this.state.dobDate}/${this.state.dobMonth}/${this.state.dobYear}`
+        dob: `${this.state.dobDate}/${this.state.dobMonth}/${
+          this.state.dobYear
+        }`,
       });
     } else {
-      this.setState({error: 'Please check your details. 🤔'});
+      this.setState({ error: "Please check your details. 🤔" });
     }
-  }
+  };
 
   onClose = () => {
     this.setState({
       phoneNumber: null,
       otp: null,
-      error: null
+      error: null,
     });
 
     this.props.closeRegistrationModal();
-  }
+  };
 
   render() {
     const { isOpen } = this.props;
     const modalProps = this.getModalProps();
 
-    return (
-      <Modal isOpen={isOpen} {...modalProps} />
-    );
+    return <Modal isOpen={isOpen} {...modalProps} />;
   }
-};
+}
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isOpen: state.registration.isOpen,
-    currentState: state.registration.currentState
+    currentState: state.registration.currentState,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    sendOtp: (phoneNumber) => dispatch(sendOtp(phoneNumber)),
+    sendOtp: phoneNumber => dispatch(sendOtp(phoneNumber)),
     confirmOtp: (phoneNumber, otp) => dispatch(confirmOtp(phoneNumber, otp)),
-    saveProfile: (profile) => dispatch(saveProfile(profile)),
-    closeRegistrationModal: () => dispatch(closeRegistrationModal())
+    saveProfile: profile => dispatch(saveProfile(profile)),
+    closeRegistrationModal: () => dispatch(closeRegistrationModal()),
   };
 };
 

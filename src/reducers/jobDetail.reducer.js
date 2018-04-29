@@ -1,14 +1,14 @@
-import * as types from '../actions/actionTypes';
+import * as types from "../actions/actionTypes";
 
 const initialState = {
-  data: null
+  data: null,
 };
 
 export default (state = initialState, action) => {
-  switch(action.type) {
-    case types.FETCH_JOB_DETAIL_SUCCESS: 
+  switch (action.type) {
+    case types.FETCH_JOB_DETAIL_SUCCESS:
       return {
-        data: action.job
+        data: action.job,
       };
 
     default:

@@ -1,46 +1,46 @@
-import * as types from '../actions/actionTypes';
+import * as types from "../actions/actionTypes";
 
 const initialState = {
   isOpen: false,
   currentState: null,
-  isLoginFlow: false
+  isLoginFlow: false,
 };
 
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case types.OPEN_REGISTRATION_MODAL:
       return Object.assign({}, state, {
         isOpen: true,
-        currentState: 'register'
+        currentState: "register",
       });
-      
-    case types.SEND_OTP_SUCCESS: 
+
+    case types.SEND_OTP_SUCCESS:
       return Object.assign({}, state, {
-        currentState: 'confirmation',
-        isLoginFlow: action.isLoginFlow
+        currentState: "confirmation",
+        isLoginFlow: action.isLoginFlow,
       });
-    
+
     case types.CONFIRM_OTP_SUCCESS:
-      if(state.isLoginFlow) {
+      if (state.isLoginFlow) {
         return Object.assign({}, state, {
           isOpen: false,
-          currentState: null
+          currentState: null,
         });
       } else {
         return Object.assign({}, state, {
-          currentState: 'profileDetails'
+          currentState: "profileDetails",
         });
       }
 
     case types.SAVE_PROFILE_SUCCESS:
       return Object.assign({}, state, {
-        currentState: 'success'
+        currentState: "success",
       });
 
     case types.CLOSE_REGISTRATION_MODAL:
       return initialState;
-    
+
     default:
       return state;
   }
-}
+};

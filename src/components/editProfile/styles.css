@@ -31,8 +31,22 @@
   font-size: 12px;
 }
 
+.edit-profile__field.edit-profile__field--dob > input {
+  width: 20%;
+  text-align: center;
+}
+
+.edit-profile__field.edit-profile__field--dob > input:last-child {
+  width: 30%;
+}
+
+.edit-profile__field.edit-profile__field--dob > span {
+  margin: 0 2%;
+  opacity: 0.5;
+}
+
 .edit-profile__field .Select-control {
-  padding: 4px 6px;
+  padding: 4.5px 6px;
 }
 
 .edit-profile__field > input::placeholder,

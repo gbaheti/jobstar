@@ -1,43 +1,52 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import LinkTabs from '../linkTabs';
-import WhatsappJobAlert from '../whatsappJobAlert';
-import PromotionalPost from '../promotionalPost';
+import LinkTabs from "../linkTabs";
+import WhatsappJobAlert from "../whatsappJobAlert";
+import PromotionalPost from "../promotionalPost";
 
-import './styles.css';
-import postBg from '../../assets/postBg.png';
+import "./styles.css";
+import postBg from "../../assets/postBg.png";
 
-const Sidebar = (props) => {
+const Sidebar = props => {
   const { isLoggedIn, appliedCount } = props;
 
-  const defaultTabs = [{
-    text: 'All Jobs',
-    href: '/jobs'
-  }, {
-    text: 'Your Applications',
-    href: '/applied',
-    count: appliedCount
-  }];
+  const defaultTabs = [
+    {
+      text: "All Jobs",
+      href: "/jobs",
+    },
+    {
+      text: "Your Applications",
+      href: "/applied",
+      count: appliedCount,
+    },
+  ];
 
-  const profileTabs = [{
-    emoji: '✍️',
-    text: 'Edit profile',
-    href: '/profile/edit'
-  }, {
-    emoji: '👀',
-    text: 'View profile',
-    href: '/profile'
-  }];
+  const profileTabs = [
+    {
+      emoji: "✍️",
+      text: "Edit profile",
+      href: "/profile/edit",
+    },
+    {
+      emoji: "👀",
+      text: "View profile",
+      href: "/profile",
+    },
+  ];
 
   return (
     <div className="sidebar">
       <LinkTabs tabs={defaultTabs} />
-      { isLoggedIn && <LinkTabs tabs={profileTabs} /> }
+      {isLoggedIn && <LinkTabs tabs={profileTabs} />}
       <WhatsappJobAlert />
-      <PromotionalPost media={postBg} text="Here’s how Aman made an extra ₹5000 while studying."/>
+      <PromotionalPost
+        media={postBg}
+        text="Here’s how Aman made an extra ₹5000 while studying."
+      />
       <ul className="sidebar__footer">
         <li className="sidebar__link">
           <Link to="/business">Post a job</Link>
@@ -51,11 +60,11 @@ const Sidebar = (props) => {
       </ul>
     </div>
   );
-}
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isLoggedIn: state.user.isLoggedIn,
-  appliedCount: state.user.appliedJobs ? state.user.appliedJobs.length : null
+  appliedCount: state.user.appliedJobs ? state.user.appliedJobs.length : null,
 });
 
 export default withRouter(connect(mapStateToProps)(Sidebar));

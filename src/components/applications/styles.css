@@ -8,7 +8,7 @@
   list-style: none;
 }
 
-.applications__list>li {
+.applications__list > li {
   margin-bottom: 16px;
 }
 
@@ -34,7 +34,7 @@
   margin-left: 12px;
 }
 
-/********************************************* 
+/*********************************************
  Transition group classes
 ********************************************/
 

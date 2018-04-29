@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
-const JobBullets =(props) => {
+const JobBullets = props => {
   let { employer, shift, area, type } = props;
-  
-  employer = employer.length > 16 ? (employer.slice(0, 13) + '...') : employer
+
+  employer = employer.length > 16 ? employer.slice(0, 13) + "..." : employer;
 
   return (
     <ul className="job-bullets">
@@ -27,6 +27,6 @@ const JobBullets =(props) => {
       </li>
     </ul>
   );
-}
+};
 
 export default JobBullets;

@@ -1,31 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
 import App from "./components/app/";
-import Business from './components/business';
-import configureStore from './store/configureStore';
-import { restoreSession } from './actions';
+import configureStore from "./store/configureStore";
+import { restoreSession } from "./actions";
+import registerServiceWorker from "./registerServiceWorker";
 
-import './index.css';
-
-import registerServiceWorker from './registerServiceWorker';
+import "./index.css";
 
 const store = configureStore();
-
+// Restore user details on app start
 store.dispatch(restoreSession());
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <Switch>
-        <Route exact path='/business' component={Business} />
-        <Route path='/' component={App} />
-      </Switch>
-    </Router>
-  </Provider> 
-  , document.getElementById('root')
+    <App />
+  </Provider>,
+  document.getElementById("root"),
 );
 
 registerServiceWorker();

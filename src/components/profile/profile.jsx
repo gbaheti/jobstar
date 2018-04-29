@@ -1,26 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import './styles.css';
-import checked from '../../assets/checked.svg';
+import normalizeProfile from "./normalizeProfile";
 
-const normalizeProfile = (profile) => {
-  const placeholder = '-';
+import "./styles.css";
+import checked from "../../assets/checked.svg";
 
-  return {
-    name: profile.first_name + ' ' + profile.last_name || placeholder,
-    phone: profile.phone || placeholder,
-    location: profile.city || placeholder,
-    dob: new Date(profile.dob).toLocaleDateString() || placeholder,
-    email: profile.email || placeholder,
-    lookingFor: placeholder,
-    gender: profile.gender || placeholder,
-    aadhaar: placeholder,
-    about: profile.bio || placeholder
-  };
-};
-
-const Profile = (props) => {
+const Profile = props => {
   const { profile } = props;
 
   console.log(profile);
@@ -77,9 +63,9 @@ const Profile = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    profile: state.user.profile
+    profile: state.user.profile,
   };
 };
 

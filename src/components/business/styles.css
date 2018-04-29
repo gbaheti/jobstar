@@ -1,10 +1,10 @@
 .business {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
   overflow-y: scroll;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .business-link {
@@ -23,11 +23,11 @@
   padding: 16px 0;
 }
 
-.business-nav__brand>img {
+.business-nav__brand > img {
   margin-right: 8px;
 }
 
-.business-nav__brand>p {
+.business-nav__brand > p {
   margin: 0;
   color: #868686;
   font-size: 12px;
@@ -35,7 +35,7 @@
   text-transform: uppercase;
 }
 
-.business-nav__brand>p>span {
+.business-nav__brand > p > span {
   margin-right: 4px;
 }
 
@@ -46,18 +46,18 @@
   grid-template-columns: auto auto;
 }
 
-.business-home__content>h1,
-.business-home__content>p {
+.business-home__content > h1,
+.business-home__content > p {
   margin: 0;
 }
 
-.business-home__content>h1 {
+.business-home__content > h1 {
   font-weight: normal;
   font-size: 30px;
   line-height: 1.36;
 }
 
-.business-home__content>p {
+.business-home__content > p {
   margin-top: 4%;
   opacity: 0.5;
   font-size: 16px;
@@ -83,7 +83,7 @@
   text-transform: uppercase;
 }
 
-.business-home__content>a {
+.business-home__content > a {
   margin-top: 12%;
   display: block;
 }
@@ -94,21 +94,21 @@
   border: solid 1px #e4d6ff;
 }
 
-.business-about__description>h2,
-.business-about__content>h2,
-.business-about__description>p {
+.business-about__description > h2,
+.business-about__content > h2,
+.business-about__description > p {
   margin: 0;
 }
 
-.business-about__description>h2,
-.business-about__content>h2 {
+.business-about__description > h2,
+.business-about__content > h2 {
   opacity: 0.5;
   font-size: 30px;
   line-height: 1.36;
   color: #181849;
 }
 
-.business-about__description>p {
+.business-about__description > p {
   margin-top: 12px;
   line-height: 1.57;
   font-size: 16px;
@@ -136,11 +136,11 @@
   margin-top: 2%;
 }
 
-.advantages-list__item>img {
+.advantages-list__item > img {
   margin-top: 6px;
 }
 
-.advantages-list__item>p {
+.advantages-list__item > p {
   margin: 0;
   line-height: 1.57;
   font-size: 16px;
@@ -154,7 +154,7 @@
   padding: 4% 0;
 }
 
-.business-jobs>h2 {
+.business-jobs > h2 {
   font-size: 30px;
   line-height: 1.36;
   margin: 0;
@@ -170,7 +170,7 @@
   align-items: center;
 }
 
-.business-jobs__heading>h3 {
+.business-jobs__heading > h3 {
   text-transform: uppercase;
   font-size: 20px;
   line-height: 1.9;
@@ -180,7 +180,7 @@
   margin-right: 4%;
 }
 
-.business-jobs__heading>hr {
+.business-jobs__heading > hr {
   flex: 1;
   border: 1px solid #979797;
   opacity: 0.4;
@@ -198,28 +198,28 @@
   width: 280px;
 }
 
-.business-jobs__category>img {
+.business-jobs__category > img {
   height: 150px;
 }
 
-.business-jobs__category>h4,
-.business-jobs__category>p {
+.business-jobs__category > h4,
+.business-jobs__category > p {
   margin: 0;
 }
 
-.business-jobs__category>h4 {
+.business-jobs__category > h4 {
   line-height: 1.22;
   margin-top: 8px;
 }
 
-.business-jobs__category>p {
+.business-jobs__category > p {
   opacity: 0.5;
   font-size: 16px;
   line-height: 1.57;
   margin-top: 4px;
 }
 
-.business-jobs__category>button {
+.business-jobs__category > button {
   margin-top: 12px;
 }
 
@@ -242,18 +242,18 @@
   list-style: none;
 }
 
-.business-stats__item>span {
+.business-stats__item > span {
   font-size: 40px;
 }
 
-.business-stats__item>p {
+.business-stats__item > p {
   margin: 0;
   margin-top: 4px;
   font-size: 28px;
   line-height: 1.36;
 }
 
-.business-stats__item>h4 {
+.business-stats__item > h4 {
   margin: 0;
   margin-top: 8px;
   font-size: 20px;
@@ -284,7 +284,7 @@
   flex-direction: column;
 }
 
-.review-card>p {
+.review-card > p {
   font-size: 16px;
   line-height: 1.59;
   text-align: left;
@@ -292,7 +292,7 @@
   margin: 0;
 }
 
-.review-card>h4 {
+.review-card > h4 {
   opacity: 0.5;
   font-size: 16px;
   line-height: 1.8;
@@ -342,12 +342,12 @@
   align-items: center;
 }
 
-.business-contact__seperator>hr {
+.business-contact__seperator > hr {
   flex: 1;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.business-contact__seperator>span {
+.business-contact__seperator > span {
   font-weight: bold;
   margin: 0 12px;
 }
@@ -372,12 +372,12 @@
   margin: 0 8px;
 }
 
-.business-contact__input-grp>label {
+.business-contact__input-grp > label {
   opacity: 0.5;
   line-height: 1.5;
 }
 
-.business-contact__input-grp>input {
+.business-contact__input-grp > input {
   border: 1px solid #00000033;
   border-radius: 7px;
   padding: 12px 16px;
@@ -411,7 +411,7 @@
   .business-about__advantages {
     margin-top: 8%;
   }
-  .business-about__description>p {
+  .business-about__description > p {
     margin-top: 2%;
   }
   .advantages-list {
@@ -431,19 +431,19 @@
     display: block;
     margin: 8% 0;
   }
-  .business-jobs__category>button {
+  .business-jobs__category > button {
     margin-top: 6px;
   }
   .business-stats {
     padding: 4% 20px;
   }
-  .business-stats__item>span {
+  .business-stats__item > span {
     font-size: 32px;
   }
-  .business-stats__item>p {
+  .business-stats__item > p {
     font-size: 24px;
   }
-  .business-stats__item>h4 {
+  .business-stats__item > h4 {
     font-size: 14px;
   }
   .business-stats__reviews {

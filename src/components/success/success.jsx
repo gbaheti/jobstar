@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import check from '../../assets/check.svg';
+import check from "../../assets/check.svg";
 
 const Success = () => {
   return (
@@ -11,6 +11,6 @@ const Success = () => {
       <p>Get more responses by completing your profile.</p>
     </div>
   );
-}
+};
 
 export default Success;

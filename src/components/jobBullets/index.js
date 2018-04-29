@@ -1,1 +1,1 @@
-export { default } from './jobBullet'; 
+export { default } from "./jobBullet";
