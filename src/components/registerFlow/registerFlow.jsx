@@ -6,12 +6,8 @@ import Modal from "../modal";
 import Confirmation from "../confirmation";
 import ProfileDetails from "../profileDetails";
 import Success from "../success";
-import {
-  sendOtp,
-  confirmOtp,
-  saveProfile,
-  closeRegistrationModal,
-} from "../../actions";
+
+import { sendOtp, confirmOtp, saveProfile, closeRegistrationModal } from "../../actions";
 
 import "./styles.css";
 
@@ -35,12 +31,7 @@ class RegisterFlow extends Component {
           btnText: "continue",
           onSubmit: this.onPhoneNumberSubmit,
           onClose: this.onClose,
-          component: (
-            <Register
-              handlePhoneInput={this.onEnterPhoneNumber}
-              error={this.state.error}
-            />
-          ),
+          component: <Register handlePhoneInput={this.onEnterPhoneNumber} error={this.state.error} />,
         };
 
       case "confirmation":
@@ -48,13 +39,7 @@ class RegisterFlow extends Component {
           heading: "Confirmation",
           btnText: "done",
           onSubmit: this.onOtpSubmit,
-          component: (
-            <Confirmation
-              handleOTPInput={this.onEnterOtp}
-              resendOtp={this.onPhoneNumberSubmit}
-              error={this.state.error}
-            />
-          ),
+          component: <Confirmation handleOTPInput={this.onEnterOtp} resendOtp={this.onPhoneNumberSubmit} error={this.state.error} />,
         };
 
       case "profileDetails":
@@ -96,27 +81,8 @@ class RegisterFlow extends Component {
   };
 
   validatePhoneNumber = () => {
-    const phoneRegex = new RegExp(
-      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
-    );
+    const phoneRegex = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/);
     const isValid = phoneRegex.test(this.state.phoneNumber);
-
-    return isValid;
-  };
-
-  validateOtp = () => {
-    const isValid = this.state.otp && this.state.otp.length === 4;
-
-    return isValid;
-  };
-
-  validateProfile = () => {
-    const isValidDate = !isNaN(
-      Date.parse(
-        `${this.state.dobYear}-${this.state.dobMonth}-${this.state.dobDate}`,
-      ),
-    );
-    const isValid = this.state.name && this.state.city && isValidDate;
 
     return isValid;
   };
@@ -136,6 +102,12 @@ class RegisterFlow extends Component {
     }
   };
 
+  validateOtp = () => {
+    const isValid = this.state.otp && this.state.otp.length === 4;
+
+    return isValid;
+  };
+
   onEnterOtp = e => {
     this.setState({
       otp: e.target.value,
@@ -149,6 +121,13 @@ class RegisterFlow extends Component {
     } else {
       this.setState({ error: "Please check the otp. 🤔" });
     }
+  };
+
+  validateProfile = () => {
+    const isValidDate = !isNaN(Date.parse(`${this.state.dobYear}-${this.state.dobMonth}-${this.state.dobDate}`));
+    const isValid = this.state.name && this.state.city && isValidDate;
+
+    return isValid;
   };
 
   onEnterName = e => {
@@ -187,9 +166,7 @@ class RegisterFlow extends Component {
       this.props.saveProfile({
         name: this.state.name,
         city: this.state.city,
-        dob: `${this.state.dobDate}/${this.state.dobMonth}/${
-          this.state.dobYear
-        }`,
+        dob: `${this.state.dobDate}/${this.state.dobMonth}/${this.state.dobYear}`,
       });
     } else {
       this.setState({ error: "Please check your details. 🤔" });

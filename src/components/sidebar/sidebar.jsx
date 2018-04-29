@@ -43,10 +43,7 @@ const Sidebar = props => {
       <LinkTabs tabs={defaultTabs} />
       {isLoggedIn && <LinkTabs tabs={profileTabs} />}
       <WhatsappJobAlert />
-      <PromotionalPost
-        media={postBg}
-        text="Here’s how Aman made an extra ₹5000 while studying."
-      />
+      <PromotionalPost media={postBg} text="Here’s how Aman made an extra ₹5000 while studying." />
       <ul className="sidebar__footer">
         <li className="sidebar__link">
           <Link to="/business">Post a job</Link>

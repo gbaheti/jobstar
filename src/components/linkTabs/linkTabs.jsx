@@ -10,16 +10,10 @@ const LinkTabs = props => {
     <ul className="link-tabs card">
       {tabs.map((t, idx) => (
         <li className="link-tabs__item" key={idx}>
-          <NavLink
-            exact
-            className="link-tabs__link"
-            to={t.href}
-            activeClassName="link-tabs__link--active">
+          <NavLink exact className="link-tabs__link" to={t.href} activeClassName="link-tabs__link--active">
             {t.emoji && <span className="link-tabs__emoji">{t.emoji}</span>}
             {t.text}
-            {t.count >= 0 && (
-              <span className="link-tabs__count">{t.count}</span>
-            )}
+            {t.count >= 0 && <span className="link-tabs__count">{t.count}</span>}
           </NavLink>
         </li>
       ))}

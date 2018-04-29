@@ -1,17 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import normalizeProfile from "./normalizeProfile";
+import { normalizeProfile } from "../../helpers";
 
 import "./styles.css";
 import checked from "../../assets/checked.svg";
 
 const Profile = props => {
-  const { profile } = props;
-
-  console.log(profile);
-
-  const user = normalizeProfile(profile);
+  const user = normalizeProfile(props.profile);
 
   return (
     <div className="profile-wrapper">

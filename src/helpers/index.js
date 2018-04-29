@@ -1,0 +1,71 @@
+import { replaceAll, titleize, humanize, capitalize, truncate, dasherize } from "underscore.string";
+
+export const generateShareableJobUrl = (id, category, location) => {
+  const hashText = id + category + location;
+  const hash = btoa(hashText.slice(0, 8));
+
+  return `job/${id}${dasherize(category)}${dasherize(location)}-${hash}`;
+};
+
+export const normalizeJob = job => {
+  const template = job.job_template;
+  const details = template.other_details;
+
+  if (
+    !details.Role ||
+    !details.Income ||
+    !template.tags ||
+    !details.Timings ||
+    !details.location ||
+    !details.Channel ||
+    !details["Age Limit"] ||
+    !details["Languages known"] ||
+    !details["Job Benefits"] ||
+    !details.Skills ||
+    !Array.isArray(details.Skills)
+  )
+    return null;
+
+  const data = {
+    ids: job.ids,
+    applied: job.applied,
+    category: details.Role,
+    salary: details.Income.salary,
+    salaryType: details.Income.type,
+    employer: template.tags[0],
+    timings: details.Timings,
+    location: details.location,
+    channel: details.Channel,
+    applicants: Math.floor(Math.random() * 10),
+    ageLimit: !(details["Age Limit"] === "Not required"),
+    minAge: 16,
+    maxAge: 60,
+    identity: details["Identity Proof"],
+    languages: details["Languages known"],
+    benefits: details["Job Benefits"],
+    skills: details.Skills,
+    description: template.description,
+  };
+
+  data.category = titleize(humanize(data.category));
+  data.salaryType = replaceAll(data.salaryType, "per_", "", true).toLowerCase();
+  data.timings = capitalize(data.timings);
+  data.location = truncate(titleize(data.location), 14);
+  data.channel = truncate(data.channel, 14);
+
+  return data;
+};
+
+export const normalizeProfile = (profile, placeholder = "-") => {
+  return {
+    name: profile.first_name + " " + profile.last_name || placeholder,
+    phone: profile.phone || placeholder,
+    location: profile.city || placeholder,
+    dob: new Date(profile.dob).toLocaleDateString() || placeholder,
+    email: profile.email || placeholder,
+    lookingFor: placeholder,
+    gender: profile.gender || placeholder,
+    aadhaar: placeholder,
+    about: profile.bio || placeholder,
+  };
+};

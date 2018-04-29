@@ -3,7 +3,7 @@ import React from "react";
 import "./styles.css";
 
 const Header = props => {
-  const path = window.location.pathname.slice(1);
+  const path = props.location.pathname.slice(1);
 
   switch (path) {
     case "jobs":

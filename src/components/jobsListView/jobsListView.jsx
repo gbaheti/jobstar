@@ -24,11 +24,7 @@ class JobsListView extends Component {
     return (
       <div className="jobs">
         <Filter />
-        <JobsList
-          jobs={jobs}
-          onUserApply={this.handleApply}
-          onUserRegister={registerUser}
-        />
+        <JobsList jobs={jobs} onUserApply={this.handleApply} onUserRegister={registerUser} />
       </div>
     );
   }

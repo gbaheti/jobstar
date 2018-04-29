@@ -24,12 +24,7 @@ const JobCta = props => {
       {appliedOn ? (
         <p className="job-cta__date">Applied on {appliedOn}</p>
       ) : (
-        <Button
-          className="job-cta__btn"
-          text="apply now"
-          type="primary"
-          clickHandler={() => onUserApply(jobIds)}
-        />
+        <Button className="job-cta__btn" text="apply now" type="primary" clickHandler={() => onUserApply(jobIds)} />
       )}
     </div>
   );

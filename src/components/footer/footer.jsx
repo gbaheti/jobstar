@@ -14,7 +14,7 @@ const Footer = () => {
           <Link to="/">Task based jobs</Link>
         </li>
         <li>
-          <Link to="/">Hire flexi workers</Link>
+          <Link to="/business">Hire flexi workers</Link>
         </li>
         <li>
           <Link to="/">Online jobs</Link>

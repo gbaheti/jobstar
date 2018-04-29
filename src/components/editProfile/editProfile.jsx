@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Select from "react-select";
 import "react-select/dist/react-select.css";
 
-import normalizeProfile from "../profile/normalizeProfile";
+import { normalizeProfile } from "../../helpers";
 
 import "./styles.css";
 import fbLogo from "../../assets/fb.png";
@@ -64,70 +64,36 @@ class EditProfile extends Component {
                 <div className="edit-profile__field">
                   <div className="file-input">
                     <p className="file-input__label">Click here to upload</p>
-                    <input
-                      type="file"
-                      name="profile-photo"
-                      onChange={this.onProfileImageUpload}
-                    />
+                    <input type="file" name="profile-photo" onChange={this.onProfileImageUpload} />
                   </div>
                 </div>
               </div>
               <div className="edit-profile__input-grp">
                 <label>Name</label>
                 <div className="edit-profile__field">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter a name"
-                    value={user.name}
-                  />
+                  <input type="text" name="name" placeholder="Enter a name" value={user.name} />
                 </div>
               </div>
               <div className="edit-profile__input-grp">
                 <label>DOB</label>
                 <div className="edit-profile__field edit-profile__field--dob">
-                  <input
-                    type="text"
-                    name="date"
-                    placeholder="DD"
-                    value={user.dobMonth}
-                  />
+                  <input type="text" name="date" placeholder="DD" value={user.dobMonth} />
                   <span>/</span>
-                  <input
-                    type="text"
-                    name="month"
-                    placeholder="MM"
-                    value={user.dobDate}
-                  />
+                  <input type="text" name="month" placeholder="MM" value={user.dobDate} />
                   <span>/</span>
-                  <input
-                    type="text"
-                    name="year"
-                    placeholder="YYYY"
-                    value={user.dobYear}
-                  />
+                  <input type="text" name="year" placeholder="YYYY" value={user.dobYear} />
                 </div>
               </div>
               <div className="edit-profile__input-grp">
                 <label>Email</label>
                 <div className="edit-profile__field">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="you@gmail.com"
-                    value={user.email}
-                  />
+                  <input type="email" name="email" placeholder="you@gmail.com" value={user.email} />
                 </div>
               </div>
               <div className="edit-profile__input-grp">
                 <label>Your City</label>
                 <div className="edit-profile__field">
-                  <input
-                    type="text"
-                    name="city"
-                    placeholder="Enter city name"
-                    value={user.location}
-                  />
+                  <input type="text" name="city" placeholder="Enter city name" value={user.location} />
                 </div>
               </div>
               <div className="edit-profile__input-grp">
@@ -149,10 +115,7 @@ class EditProfile extends Component {
                   <Select
                     name="job-type"
                     placeholder="Select job type"
-                    options={[
-                      { value: "yay", label: "Full time" },
-                      { value: "nay", label: "Internship" },
-                    ]}
+                    options={[{ value: "yay", label: "Full time" }, { value: "nay", label: "Internship" }]}
                   />
                 </div>
               </div>
@@ -168,10 +131,7 @@ class EditProfile extends Component {
               <div className="edit-profile__input-grp">
                 <label>About yourself</label>
                 <div className="edit-profile__field">
-                  <textarea
-                    placeholder="Why should someone hire you?"
-                    value={user.about}
-                  />
+                  <textarea placeholder="Why should someone hire you?" value={user.about} />
                 </div>
               </div>
             </div>

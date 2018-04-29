@@ -40,11 +40,7 @@ class Navbar extends Component {
     } else {
       return (
         <div className="navbar-link">
-          <Button
-            text="for businesses"
-            type="primary"
-            clickHandler={this.redirect}
-          />
+          <Button text="for businesses" type="primary" clickHandler={this.redirect} />
         </div>
       );
     }
@@ -62,7 +58,7 @@ class Navbar extends Component {
         <div className="navbar__content flex">
           <div className="navbar-brand flex">
             <img className="logo" src={logo} alt="jobstar-logo" />
-            {!isUserLoggedIn && <PerksList perks={this.state.jobstarPerks} />}
+            {!isUserLoggedIn && <PerksList perks={this.state.jobPerks} />}
           </div>
           {this.renderNavbarRight()}
         </div>

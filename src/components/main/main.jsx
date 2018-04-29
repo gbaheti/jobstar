@@ -13,51 +13,18 @@ import PrivateRoute from "../privateRoute";
 import "./styles.css";
 
 const Main = props => {
-  const {
-    authenticated,
-    user,
-    jobCount,
-    jobLocation,
-    applications,
-    appliedCount,
-    registerUser,
-  } = props;
+  const { authenticated, user, jobCount, jobLocation, applications, appliedCount, registerUser, location } = props;
 
   return (
     <div className="main">
-      <Header
-        jobCount={jobCount}
-        jobLocation={jobLocation}
-        appliedCount={appliedCount}
-        user={user}
-      />
+      <Header jobCount={jobCount} jobLocation={jobLocation} appliedCount={appliedCount} user={user} location={location} />
       <div className="main__content">
         <Sidebar />
         <Switch>
-          <Route
-            path="/jobs"
-            render={() => <JobsListView registerUser={registerUser} />}
-          />
-          <Route
-            path="/applied"
-            render={() => (
-              <Applications
-                applications={applications}
-                authenticated={authenticated}
-              />
-            )}
-          />
-          <PrivateRoute
-            exact
-            authenticated={authenticated}
-            path="/profile"
-            component={Profile}
-          />
-          <PrivateRoute
-            authenticated={authenticated}
-            path="/profile/edit"
-            component={EditProfile}
-          />
+          <Route path="/jobs" render={() => <JobsListView registerUser={registerUser} />} />
+          <Route path="/applied" render={() => <Applications applications={applications} authenticated={authenticated} />} />
+          <PrivateRoute exact authenticated={authenticated} path="/profile" component={Profile} />
+          <PrivateRoute authenticated={authenticated} path="/profile/edit" component={EditProfile} />
           <Redirect to="/jobs" />
         </Switch>
       </div>
@@ -72,7 +39,7 @@ const mapStateToProps = state => {
     jobCount: state.jobs.count,
     jobLocation: state.jobs.location,
     applications: state.user.appliedJobs,
-    appliedCount: state.user.appliedJobs ? state.user.appliedJobs.length : null,
+    appliedCount: state.user.appliedJobs ? state.user.appliedJobs.length : 0,
   };
 };
 
