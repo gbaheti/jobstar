@@ -2,8 +2,6 @@ import React from "react";
 
 import Button from "../button/button";
 
-import { generateShareableJobUrl } from "../../helpers";
-
 import "./styles.css";
 import whatsapp from "../../assets/icon-whatsapp.svg";
 import facebook from "../../assets/facebook.svg";

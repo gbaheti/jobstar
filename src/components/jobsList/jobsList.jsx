@@ -40,6 +40,9 @@ class JobsList extends Component {
       case "linkedin":
         shareLink = `https://www.linkedin.com/shareArticle?mini=true&url=${redirectUrl}&title=${redirectContent}&source=jobstar.in`;
         break;
+
+      default:
+        return;
     }
 
     window.open(shareLink, "_blank");

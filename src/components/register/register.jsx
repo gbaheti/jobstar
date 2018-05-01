@@ -5,7 +5,7 @@ import fbLogo from "../../assets/fb.png";
 import mobile from "../../assets/mobile.svg";
 
 const Register = props => {
-  const { handlePhoneInput, handleFbLogin, fbLoginCb, error } = props;
+  const { handlePhoneInput, fbLoginCb, error } = props;
 
   return (
     <div className="register">
