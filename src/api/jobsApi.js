@@ -63,12 +63,7 @@ const jobsApi = {
       access_token: TOKEN.getDefault(),
     };
 
-    return promisifiedXHR(
-      loginUri,
-      "POST",
-      { phone: phoneNumber, otp: otp },
-      headers,
-    );
+    return promisifiedXHR(loginUri, "POST", { phone: phoneNumber, otp: otp }, headers);
   },
   saveProfile: profile => {
     const profileUri = "/stars/users";
@@ -105,6 +100,23 @@ const jobsApi = {
     };
 
     return promisifiedXHR(whatsappUri, "POST", { phone: phoneNumber }, headers);
+  },
+  sendBusinessDetails: details => {
+    const businessUri = "/leads";
+    const headers = {
+      "Content-Type": "application/json",
+      access_token: TOKEN.getDefault(),
+    };
+    const data = {
+      phone: details.phone,
+      misc: {
+        name: details.name,
+        email: details.email,
+        company: details.company,
+      },
+    };
+
+    return promisifiedXHR(businessUri, "POST", data, headers);
   },
 };
 

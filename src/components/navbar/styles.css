@@ -1,5 +1,5 @@
 .navbar {
-  width: 100%; 
+  width: 100%;
   height: 8%;
   min-height: 60px;
   background-color: #ffda46;
@@ -9,6 +9,10 @@
   height: 100%;
   max-width: 900px;
   margin: 0 auto;
+}
+
+.navbar-brand > .logo {
+  cursor: pointer;
 }
 
 .navbar-profile {
@@ -21,11 +25,11 @@
 }
 
 .navbar-profile:hover {
-  background-color: rgba(0,0,0,0.04);
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .navbar-profile p {
-  color: #FFFFFF;
+  color: #ffffff;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -37,7 +41,7 @@
 }
 
 .navbar-profile::after {
-  content: '▾';
+  content: "▾";
   opacity: 0.3;
   transition: opacity 0.3s ease;
 }
@@ -57,7 +61,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 100%;
   box-shadow: 0 2px 4px #cecece;
   transition: opacity 0.3s ease;

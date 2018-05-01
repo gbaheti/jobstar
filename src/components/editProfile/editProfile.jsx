@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Select from "react-select";
+import FacebookLogin from "react-facebook-login";
 
 import { normalizeProfile } from "../../helpers";
 import { saveProfile } from "../../actions";
@@ -21,6 +22,10 @@ class EditProfile extends Component {
       user: normalizeProfile(this.props.profile, ""),
     });
   }
+
+  fbLoginCb = response => {
+    console.log(response);
+  };
 
   handleImageUpload = e => {
     const { name } = e.target;
@@ -88,10 +93,16 @@ class EditProfile extends Component {
               <div className="edit-profile__input-grp">
                 <label>Social Profiles</label>
                 <div className="edit-profile__field">
-                  <button className="input-grp register__fb">
-                    <img src={fbLogo} alt="fb-logo" />
-                    continue with facebook
-                  </button>
+                  <FacebookLogin
+                    appId="301866860346707"
+                    autoLoad={true}
+                    fields="name,email"
+                    callback={this.fbLoginCb}
+                    cssClass="input-grp register__fb"
+                    textButton="Continue with facebook"
+                    scope="public_profile,email"
+                    icon={<img src={fbLogo} alt="fb-logo" />}
+                  />
                 </div>
               </div>
               <div className="edit-profile__input-grp">

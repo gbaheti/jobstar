@@ -29,8 +29,8 @@ export const normalizeJob = job => {
     return null;
 
   const data = {
-    ids: job.ids,
-    applied: job.applied,
+    ids: job.ids || job.id,
+    applied: job.applied || false,
     category: details.Role,
     salary: details.Income.salary,
     salaryType: details.Income.type,
@@ -60,10 +60,11 @@ export const normalizeJob = job => {
 
 export const normalizeProfile = (profile, placeholder = "-") => {
   const dob = moment(profile.dob).format("DD/MM/YYYY");
+  const name = profile.last_name ? profile.first_name + " " + profile.last_name : profile.first_name;
 
   return {
     avatar: profile.avatar || placeholder,
-    name: profile.first_name + " " + profile.last_name || placeholder,
+    name: name || placeholder,
     phone: profile.phone || placeholder,
     city: profile.city || placeholder,
     dob: dob || placeholder,

@@ -31,7 +31,14 @@ class RegisterFlow extends Component {
           btnText: "continue",
           onSubmit: this.onPhoneNumberSubmit,
           onClose: this.onClose,
-          component: <Register handlePhoneInput={this.onEnterPhoneNumber} error={this.state.error} />,
+          component: (
+            <Register
+              handlePhoneInput={this.onEnterPhoneNumber}
+              handleFbLogin={this.onFbLogin}
+              fbLoginCb={this.onFbLoginResponse}
+              error={this.state.error}
+            />
+          ),
         };
 
       case "confirmation":
@@ -78,6 +85,12 @@ class RegisterFlow extends Component {
           component: <div style={{ padding: "20%" }} />,
         };
     }
+  };
+
+  onFbLogin = () => {};
+
+  onFbLoginResponse = res => {
+    console.log("CB:", res);
   };
 
   validatePhoneNumber = () => {

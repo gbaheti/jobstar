@@ -32,7 +32,7 @@ class JobDetail extends Component {
     if (!this.props.userLoggedIn) {
       this.props.registerUser();
     } else {
-      this.props.applyForJob(ids);
+      this.props.applyForJob([ids]);
     }
   };
 
@@ -72,6 +72,8 @@ class JobDetail extends Component {
       return this.renderJobDetailLoader();
     } else {
       const data = normalizeJob(job);
+
+      if (data) console.log(data);
 
       return (
         <div className="job-detail-view">

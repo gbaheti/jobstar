@@ -215,6 +215,19 @@ export const sendJobAlerts = phoneNumber => {
   };
 };
 
+export const submitBusinessForm = details => {
+  return dispatch => {
+    return jobsApi
+      .sendBusinessDetails(details)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        throw err;
+      });
+  };
+};
+
 export const sendJobAlertsSuccess = res => {
   return {
     type: "SEND_JOB_ALERT_SUCCESS",

@@ -57,7 +57,14 @@ class Navbar extends Component {
       <nav className="navbar">
         <div className="navbar__content flex">
           <div className="navbar-brand flex">
-            <img className="logo" src={logo} alt="jobstar-logo" />
+            <img
+              className="logo"
+              src={logo}
+              alt="jobstar-logo"
+              onClick={() => {
+                window.location.href = "/";
+              }}
+            />
             {!isUserLoggedIn && <PerksList perks={this.state.jobPerks} />}
           </div>
           {this.renderNavbarRight()}

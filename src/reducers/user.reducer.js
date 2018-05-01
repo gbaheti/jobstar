@@ -20,8 +20,10 @@ export default (state = initialState, action) => {
       });
 
     case types.FETCH_APPLIED_JOBS_SUCCESS:
+      const appliedJobs = [].concat(action.jobs.active || [], action.jobs.upcoming || [], action.jobs.previous || []);
+
       return Object.assign({}, state, {
-        appliedJobs: action.jobs.previous,
+        appliedJobs: appliedJobs,
       });
 
     case types.RESTORE_SESSION:
