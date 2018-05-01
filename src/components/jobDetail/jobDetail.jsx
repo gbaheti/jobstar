@@ -9,7 +9,7 @@ import JobBullets from "../jobBullets";
 import JobCta from "../jobCta";
 import JobBody from "../jobBody";
 
-import { normalizeJob } from "../../helpers";
+import { generateShareableJobUrl, normalizeJob } from "../../helpers";
 import { fetchJobDetail, openRegistrationModal, applyForJob, resetJobDetail } from "../../actions";
 
 import "./styles.css";
@@ -27,6 +27,30 @@ class JobDetail extends Component {
   componentWillUnmount() {
     this.props.resetJobDetail();
   }
+
+  shareJob = (e, data) => {
+    const platform = e.target.dataset.platform;
+    const redirectUrl = "http://jobstar.in/" + generateShareableJobUrl(data.ids, data.category, data.location);
+    const redirectContent = `Check out this awesome job @Jobstar - ${redirectUrl}`;
+
+    let shareLink;
+
+    switch (platform) {
+      case "facebook":
+        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${redirectUrl}`;
+        break;
+
+      case "linkedin":
+        shareLink = `https://twitter.com/home?status=${redirectContent}`;
+        break;
+
+      case "twitter":
+        shareLink = `https://www.linkedin.com/shareArticle?mini=true&url=${redirectUrl}&title=${redirectContent}&source=jobstar.in`;
+        break;
+    }
+
+    window.open(shareLink, "_blank");
+  };
 
   handleApply = ids => {
     if (!this.props.userLoggedIn) {
@@ -96,6 +120,7 @@ class JobDetail extends Component {
                         identity={data.identity}
                         benefits={data.benefits}
                         skills={data.skills}
+                        onShareJob={e => this.shareJob(e, data)}
                         description={data.description}
                         onUserRegister={registerUser}
                       />

@@ -17,23 +17,28 @@ import hospitality from "../../assets/hospitality.jpg";
 import mysteryAudit from "../../assets/mystery-audit.jpg";
 import onlineMarketing from "../../assets/online-marketing.png";
 
-const openTypeform = e => {
-  window.location.href = "https://goo.gl/forms/vdGECQfcv22ovOcM2";
-};
-
 class Business extends Component {
   state = {
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
+    error: null,
+    details: {
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+    },
+  };
+
+  openTypeform = e => {
+    window.location.href = "https://goo.gl/forms/vdGECQfcv22ovOcM2";
   };
 
   handleInput = e => {
     const { name, value } = e.target;
 
     this.setState({
-      [name]: value,
+      details: Object.assign({}, this.state.details, {
+        [name]: value,
+      }),
     });
   };
 
@@ -46,16 +51,34 @@ class Business extends Component {
 
   onBusinessFormSubmit = () => {
     if (this.validateBusinessForm()) {
-      this.props.submitBusinessForm(this.state);
+      this.props.submitBusinessForm(this.state.details);
+      this.setState({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+      });
+    } else {
+      this.setState({
+        error: "Please check the details. 🤔",
+      });
     }
   };
 
   render() {
+    const { error, details } = this.state;
+
     return (
       <div className="business">
         <nav className="business-nav flex limit-width">
           <div className="business-nav__brand flex">
-            <img src={logo} alt="jobstar-logo" />
+            <img
+              src={logo}
+              alt="jobstar-logo"
+              onClick={() => {
+                window.location.href = "/";
+              }}
+            />
             <p>
               <span role="img" aria-label="indian-flag">
                 🇮🇳
@@ -74,7 +97,13 @@ class Business extends Component {
             </h1>
             <p>We enable thousands of Indians to make money via part-time work online or offline.</p>
             <div className="business-cta">
-              <Button className="business-cta__btn" type="primary" text="post a free job" icon={arrowRight} clickHandler={openTypeform} />
+              <Button
+                className="business-cta__btn"
+                type="primary"
+                text="post a free job"
+                icon={arrowRight}
+                clickHandler={this.openTypeform}
+              />
               <p className="business-cta__note">limited time only</p>
             </div>
             <a className="business-link" href="#about">
@@ -141,19 +170,19 @@ class Business extends Component {
                 <img className="img-responsive" src={sales} alt="sales-jobs" />
                 <h4>Sales / Marketing Job</h4>
                 <p>Boost your customer outreach.</p>
-                <Button type="primary" text="start hiring" clickHandler={openTypeform} />
+                <Button type="primary" text="start hiring" clickHandler={this.openTypeform} />
               </li>
               <li className="business-jobs__category">
                 <img className="img-responsive" src={dilevery} alt="dilevery-jobs" />
                 <h4>Driver / Delivery Jobs</h4>
                 <p>Get things delivered when business spikes.</p>
-                <Button type="primary" text="start hiring" clickHandler={openTypeform} />
+                <Button type="primary" text="start hiring" clickHandler={this.openTypeform} />
               </li>
               <li className="business-jobs__category">
                 <img className="img-responsive" src={hospitality} alt="hospitality-jobs" />
                 <h4>Hospitality Jobs</h4>
                 <p>Easily fill shifts for your extra time.</p>
-                <Button type="primary" text="start hiring" clickHandler={openTypeform} />
+                <Button type="primary" text="start hiring" clickHandler={this.openTypeform} />
               </li>
             </ul>
           </div>
@@ -167,13 +196,13 @@ class Business extends Component {
                 <img className="img-responsive" src={mysteryAudit} alt="audit-jobs" />
                 <h4>Mystery / Non-mystery Audits</h4>
                 <p>Make sure you’re delivery the best quality.</p>
-                <Button type="primary" text="start hiring" clickHandler={openTypeform} />
+                <Button type="primary" text="start hiring" clickHandler={this.openTypeform} />
               </li>
               <li className="business-jobs__category">
                 <img className="img-responsive" src={onlineMarketing} alt="online-marketing-jobs" />
                 <h4>Online Marketing</h4>
                 <p>Boost your digital presence by our workers.</p>
-                <Button type="primary" text="start hiring" clickHandler={openTypeform} />
+                <Button type="primary" text="start hiring" clickHandler={this.openTypeform} />
               </li>
             </ul>
           </div>
@@ -240,20 +269,21 @@ class Business extends Component {
           <div className="business-contact__form">
             <div className="business-contact__input-grp">
               <label>Your name</label>
-              <input type="text" name="name" placeholder="Enter name" value={this.state.name} onChange={this.handleInput} />
+              <input type="text" name="name" placeholder="Enter name" value={details.name} onChange={this.handleInput} />
             </div>
             <div className="business-contact__input-grp">
               <label>Company name</label>
-              <input type="text" name="company" placeholder="Firm name" value={this.state.company} onChange={this.handleInput} />
+              <input type="text" name="company" placeholder="Firm name" value={details.company} onChange={this.handleInput} />
             </div>
             <div className="business-contact__input-grp">
               <label>Email</label>
-              <input type="text" name="email" placeholder="bruce@wayne.com" value={this.state.email} onChange={this.handleInput} />
+              <input type="text" name="email" placeholder="bruce@wayne.com" value={details.email} onChange={this.handleInput} />
             </div>
             <div className="business-contact__input-grp">
               <label>Phone number</label>
-              <input type="text" name="phone" placeholder="+91" value={this.state.phone} onChange={this.handleInput} />
+              <input type="text" name="phone" placeholder="+91" value={details.phone} onChange={this.handleInput} />
             </div>
+            {error && <p className="text--error">{error}</p>}
           </div>
           <Button type="primary" text="request a callback" className="business-contact__cta" clickHandler={this.onBusinessFormSubmit} />
         </div>

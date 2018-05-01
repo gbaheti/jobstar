@@ -221,6 +221,8 @@ export const submitBusinessForm = details => {
       .sendBusinessDetails(details)
       .then(res => {
         console.log(res);
+
+        dispatch(submitBusinessFormSuccess());
       })
       .catch(err => {
         throw err;
@@ -228,9 +230,15 @@ export const submitBusinessForm = details => {
   };
 };
 
+export const submitBusinessFormSuccess = () => {
+  return {
+    type: types.SUBMIT_BUSINESS_FORM_SUCCESS,
+  };
+};
+
 export const sendJobAlertsSuccess = res => {
   return {
-    type: "SEND_JOB_ALERT_SUCCESS",
+    type: types.SEND_JOB_ALERT_SUCCESS,
   };
 };
 

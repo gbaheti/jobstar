@@ -21,6 +21,30 @@ class JobsList extends Component {
     redirectToDetailPage: false,
   };
 
+  shareJob = (e, data) => {
+    const platform = e.target.dataset.platform;
+    const redirectUrl = "http://jobstar.in/" + generateShareableJobUrl(data.ids[0], data.category, data.location);
+    const redirectContent = `Check out this awesome job @Jobstar - ${redirectUrl}`;
+
+    let shareLink;
+
+    switch (platform) {
+      case "facebook":
+        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${redirectUrl}`;
+        break;
+
+      case "linkedin":
+        shareLink = `https://twitter.com/home?status=${redirectContent}`;
+        break;
+
+      case "twitter":
+        shareLink = `https://www.linkedin.com/shareArticle?mini=true&url=${redirectUrl}&title=${redirectContent}&source=jobstar.in`;
+        break;
+    }
+
+    window.open(shareLink, "_blank");
+  };
+
   onOpenJobDetail = data => {
     const redirectUrl = generateShareableJobUrl(data.ids[0], data.category, data.location);
 
@@ -104,6 +128,7 @@ class JobsList extends Component {
                           skills={data.skills}
                           description={data.description}
                           onUserRegister={onUserRegister}
+                          onShareJob={e => this.shareJob(e, data)}
                         />
                       </AccordionItemBody>
                     </AccordionItem>

@@ -35,6 +35,10 @@
   cursor: pointer;
 }
 
+.social-links__item--wa {
+  display: none;
+}
+
 .footer-link {
   font-weight: 600;
 }

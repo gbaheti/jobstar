@@ -2,6 +2,8 @@ import React from "react";
 
 import Button from "../button/button";
 
+import { generateShareableJobUrl } from "../../helpers";
+
 import "./styles.css";
 import whatsapp from "../../assets/icon-whatsapp.svg";
 import facebook from "../../assets/facebook.svg";
@@ -9,7 +11,7 @@ import twitter from "../../assets/twitter.svg";
 import linkedin from "../../assets/linkedin.svg";
 
 const JobBody = props => {
-  const { ageLimit, minAge, maxAge, languages, identity, benefits, skills, description, onUserRegister } = props;
+  const { ageLimit, minAge, maxAge, languages, identity, benefits, skills, description, onUserRegister, onShareJob } = props;
 
   return (
     <div className="job-body">
@@ -45,17 +47,17 @@ const JobBody = props => {
         <li className="job-body__item">
           <h4 className="bullet-cap">share this job</h4>
           <ul className="social-links">
-            <li className="social-links__item">
-              <img src={whatsapp} alt="whatsapp-logo" />
+            <li className="social-links__item social-links__item--wa">
+              <img src={whatsapp} data-platform="whatsapp" alt="whatsapp-logo" onClick={onShareJob} />
             </li>
             <li className="social-links__item">
-              <img src={facebook} alt="fb-logo" />
+              <img src={facebook} data-platform="facebook" alt="fb-logo" onClick={onShareJob} />
             </li>
             <li className="social-links__item">
-              <img src={linkedin} alt="linkedin-logo" />
+              <img src={linkedin} data-platform="linkedin" alt="linkedin-logo" onClick={onShareJob} />
             </li>
             <li className="social-links__item">
-              <img src={twitter} alt="twitter-logo" />
+              <img src={twitter} data-platform="twitter" alt="twitter-logo" onClick={onShareJob} />
             </li>
           </ul>
         </li>
