@@ -112,6 +112,7 @@ class JobsList extends Component {
                     <AccordionItem className="jobs-list__item card">
                       <AccordionItemTitle className="jobs-list__head">
                         <JobInfo
+                          type={data.type}
                           profile={data.category}
                           salary={data.salary}
                           paidBy={data.salaryType}

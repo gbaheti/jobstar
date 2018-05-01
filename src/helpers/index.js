@@ -24,12 +24,14 @@ export const normalizeJob = job => {
     !details["Languages known"] ||
     !details["Job Benefits"] ||
     !details.Skills ||
+    !template.category ||
     !Array.isArray(details.Skills)
   )
     return null;
 
   const data = {
     ids: job.ids || job.id,
+    type: template.category,
     applied: job.applied || false,
     category: details.Role,
     salary: details.Income.salary,
