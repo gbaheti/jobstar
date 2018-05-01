@@ -33,11 +33,11 @@ class JobsList extends Component {
         shareLink = `https://www.facebook.com/sharer/sharer.php?u=${redirectUrl}`;
         break;
 
-      case "linkedin":
+      case "twitter":
         shareLink = `https://twitter.com/home?status=${redirectContent}`;
         break;
 
-      case "twitter":
+      case "linkedin":
         shareLink = `https://www.linkedin.com/shareArticle?mini=true&url=${redirectUrl}&title=${redirectContent}&source=jobstar.in`;
         break;
     }
