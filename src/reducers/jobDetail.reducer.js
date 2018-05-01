@@ -10,6 +10,8 @@ export default (state = initialState, action) => {
       return {
         data: action.job,
       };
+    case types.RESET_JOB_DETAIL:
+      return initialState;
 
     default:
       return state;

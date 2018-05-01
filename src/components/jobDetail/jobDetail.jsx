@@ -10,7 +10,7 @@ import JobCta from "../jobCta";
 import JobBody from "../jobBody";
 
 import { normalizeJob } from "../../helpers";
-import { fetchJobDetail, openRegistrationModal, applyForJob } from "../../actions";
+import { fetchJobDetail, openRegistrationModal, applyForJob, resetJobDetail } from "../../actions";
 
 import "./styles.css";
 import "react-accessible-accordion/dist/minimal-example.css";
@@ -22,6 +22,10 @@ class JobDetail extends Component {
     const id = detail.split("-")[0];
 
     this.props.fetchJobDetail(id);
+  }
+
+  componentWillUnmount() {
+    this.props.resetJobDetail();
   }
 
   handleApply = ids => {
@@ -62,7 +66,7 @@ class JobDetail extends Component {
   };
 
   render() {
-    const { job, applyForJob, registerUser } = this.props;
+    const { job, registerUser } = this.props;
 
     if (!job) {
       return this.renderJobDetailLoader();
@@ -114,6 +118,7 @@ const mapStateToProps = state => {
 
 const mapDispatchWithProps = dispatch => {
   return {
+    resetJobDetail: () => dispatch(resetJobDetail()),
     fetchJobDetail: id => dispatch(fetchJobDetail(id)),
     registerUser: () => dispatch(openRegistrationModal()),
     applyForJob: ids => dispatch(applyForJob(ids)),

@@ -8,23 +8,21 @@ const TOKEN = {
   },
 
   get() {
-    const token = localStorage.getItem(this.key);
+    const token = localStorage.getItem(TOKEN.key);
 
     if (token) return token;
 
-    return btoa("consumer_android_key:consumer_android_secret");
+    return TOKEN.getDefault();
   },
 
   set(token) {
-    localStorage.setItem(this.key, token);
+    localStorage.setItem(TOKEN.key, token);
   },
 
   update(secret) {
-    const token = btoa(
-      "consumer_android_key:consumer_android_secret:" + secret,
-    );
+    const token = btoa("consumer_android_key:consumer_android_secret:" + secret);
 
-    this.set(token);
+    TOKEN.set(token);
   },
 };
 

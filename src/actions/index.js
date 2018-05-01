@@ -62,6 +62,12 @@ export const fetchJobDetailSuccess = data => {
   };
 };
 
+export const resetJobDetail = () => {
+  return {
+    type: types.RESET_JOB_DETAIL,
+  };
+};
+
 export const fetchAppliedJobs = () => {
   return dispatch => {
     return jobsApi

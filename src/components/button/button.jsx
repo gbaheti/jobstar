@@ -8,7 +8,7 @@ const Button = props => {
   const classes = ["btn", themeClass, props.className].join(" ");
 
   const handleClick = e => {
-    e.preventDefault();
+    e.stopPropagation();
 
     clickHandler(e);
   };

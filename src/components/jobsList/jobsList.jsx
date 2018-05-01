@@ -33,7 +33,7 @@ class JobsList extends Component {
   renderJobsLoader = () => {
     return (
       <div className="jobs-loader">
-        <ContentLoader height={160} width={400} speed={2} primaryColor="#ecebeb" secondaryColor="#f4f4f4">
+        <ContentLoader height={160} width={400} speed={1.2} primaryColor="#ecebeb" secondaryColor="#f9f9f9">
           <circle cx="25" cy="25" r="20" />
           <rect x="55" y="15" rx="4" ry="4" width="60" height="5" />
           <rect x="55" y="30" rx="4" ry="4" width="80" height="5" />

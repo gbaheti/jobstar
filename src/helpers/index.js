@@ -1,3 +1,4 @@
+import moment from "moment";
 import { replaceAll, titleize, humanize, capitalize, truncate, dasherize } from "underscore.string";
 
 export const generateShareableJobUrl = (id, category, location) => {
@@ -12,6 +13,7 @@ export const normalizeJob = job => {
   const details = template.other_details;
 
   if (
+    !details ||
     !details.Role ||
     !details.Income ||
     !template.tags ||
@@ -57,15 +59,21 @@ export const normalizeJob = job => {
 };
 
 export const normalizeProfile = (profile, placeholder = "-") => {
+  const dob = moment(profile.dob).format("DD/MM/YYYY");
+
   return {
+    avatar: profile.avatar || placeholder,
     name: profile.first_name + " " + profile.last_name || placeholder,
     phone: profile.phone || placeholder,
-    location: profile.city || placeholder,
-    dob: new Date(profile.dob).toLocaleDateString() || placeholder,
+    city: profile.city || placeholder,
+    dob: dob || placeholder,
+    dobDate: dob.split("/")[0] || placeholder,
+    dobMonth: dob.split("/")[1] || placeholder,
+    dobYear: dob.split("/")[2] || placeholder,
     email: profile.email || placeholder,
-    lookingFor: placeholder,
+    lookingFor: profile.lookingFor || placeholder,
     gender: profile.gender || placeholder,
-    aadhaar: placeholder,
-    about: profile.bio || placeholder,
+    aadhaar: profile.aadhaar || placeholder,
+    bio: profile.bio || placeholder,
   };
 };

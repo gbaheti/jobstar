@@ -28,7 +28,7 @@ const Profile = props => {
         </div>
         <div className="profile__detail">
           <label className="profile__label">location</label>
-          <p className="profile__value">{user.location}</p>
+          <p className="profile__value">{user.city}</p>
         </div>
         <div className="profile__detail">
           <label className="profile__label">date of birth</label>
@@ -52,7 +52,7 @@ const Profile = props => {
         </div>
         <div className="profile__detail">
           <label className="profile__label">about yourself</label>
-          <p className="profile__value">{user.about}</p>
+          <p className="profile__value">{user.bio}</p>
         </div>
       </div>
     </div>
