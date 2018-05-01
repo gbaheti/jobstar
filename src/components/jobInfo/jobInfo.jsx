@@ -4,11 +4,11 @@ import "./styles.css";
 import bpo from "../../assets/bpo.svg";
 import driver from "../../assets/driver.png";
 import sales from "../../assets/sales.png";
-import security from "../../assets/security.png";
-import writer from "../../assets/writer.png";
-import waiter from "../../assets/waiter.png";
-import teaching from "../../assets/teaching.png";
-import receptionist from "../../assets/receptionist.png";
+// import security from "../../assets/security.png";
+// import writer from "../../assets/writer.png";
+// import waiter from "../../assets/waiter.png";
+// import teaching from "../../assets/teaching.png";
+// import receptionist from "../../assets/receptionist.png";
 
 const JobInfo = props => {
   let { type, profile, salary, paidBy, onOpenJobDetail } = props;
