@@ -110,7 +110,7 @@ class JobDetail extends Component {
                 <Accordion>
                   <AccordionItem className="jobs-list__item card" expanded={true}>
                     <AccordionItemTitle className="jobs-list__head">
-                      <JobInfo profile={data.category} salary={data.salary} paidBy={data.salaryType} />
+                      <JobInfo profile={data.category} salary={data.salary} paidBy={data.salaryType} type={data.type} />
                       <JobBullets employer={data.employer} shift={data.timings} area={data.location} type={data.channel} />
                       <JobCta applicants={data.applicants} onUserApply={this.handleApply} jobIds={data.ids} />
                     </AccordionItemTitle>

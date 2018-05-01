@@ -57,7 +57,7 @@ class Applications extends Component {
                 <CSSTransition appear={true} timeout={300} classNames="tr-applications-item" key={data.ids[0] + idx}>
                   <li>
                     <div className="applications__item card">
-                      <JobInfo profile={data.category} salary={data.salary} paidBy={data.salaryType} />
+                      <JobInfo profile={data.category} salary={data.salary} paidBy={data.salaryType} type={data.type} />
                       <JobBullets employer={data.employer} shift={data.timings} area={data.location} type={data.channel} />
                       <JobCta appliedOn={"Unknown"} />
                       <p className="applications__status-text">What happened to this job?</p>
