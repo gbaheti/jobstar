@@ -5,8 +5,6 @@ import "./styles.css";
 const JobBullets = props => {
   let { employer, shift, area, type } = props;
 
-  employer = employer.length > 16 ? employer.slice(0, 13) + "..." : employer;
-
   return (
     <ul className="job-bullets">
       <li className="job-bullets__item">
