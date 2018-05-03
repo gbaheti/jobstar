@@ -25,6 +25,10 @@
   align-items: center;
 }
 
+.register__form > span {
+  transition: none;
+}
+
 .input-grp {
   width: 300px;
   cursor: pointer;

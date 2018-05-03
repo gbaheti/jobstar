@@ -53,10 +53,13 @@ class Business extends Component {
     if (this.validateBusinessForm()) {
       this.props.submitBusinessForm(this.state.details);
       this.setState({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
+        error: null,
+        details: {
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+        },
       });
     } else {
       this.setState({
@@ -86,7 +89,7 @@ class Business extends Component {
               made in india
             </p>
           </div>
-          <a className="business-link" href="https://medium.com/jobstarapp">
+          <a className="business-link" href="https://medium.com/jobstarapp" target="_blank" rel="noopener noreferrer">
             Read Blog
           </a>
         </nav>

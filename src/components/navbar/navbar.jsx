@@ -24,9 +24,11 @@ class Navbar extends Component {
     const { isUserLoggedIn, profile, onUserLogout } = this.props;
 
     if (isUserLoggedIn) {
+      const initial = profile.first_name ? profile.first_name[0] : "";
+
       return (
         <div className="navbar-profile flex">
-          <p className="flex">{profile.first_name[0]}</p>
+          <p className="flex">{initial}</p>
           <ul className="navbar-profile__menu">
             <li onClick={onUserLogout}>
               Logout &nbsp;

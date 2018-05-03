@@ -77,8 +77,7 @@ class EditProfile extends Component {
     delete profile.dobMonth;
     delete profile.dobYear;
 
-    console.log(profile);
-    // this.props.saveProfile(profile);
+    this.props.saveProfile(profile);
   };
 
   render() {
