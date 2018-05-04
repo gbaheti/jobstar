@@ -19,12 +19,12 @@ class JobsListView extends Component {
   };
 
   render() {
-    const { jobs, registerUser } = this.props;
+    const { jobs, registerUser, userLoggedIn } = this.props;
 
     return (
       <div className="jobs">
         <Filter />
-        <JobsList jobs={jobs} onUserApply={this.handleApply} onUserRegister={registerUser} />
+        <JobsList jobs={jobs} onUserApply={this.handleApply} onUserRegister={registerUser} isLoggedIn={userLoggedIn} />
       </div>
     );
   }

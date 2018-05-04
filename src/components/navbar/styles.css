@@ -90,5 +90,11 @@
 @media only screen and (max-width: 480px) {
   .navbar__content {
     padding: 0 2%;
+    justify-content: start;
+  }
+
+  .navbar-link,
+  .navbar-profile {
+    margin-left: auto;
   }
 }

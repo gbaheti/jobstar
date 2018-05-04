@@ -43,7 +43,7 @@ class Business extends Component {
   };
 
   validateBusinessForm = () => {
-    const { name, company, email, phone } = this.state;
+    const { name, company, email, phone } = this.state.details;
     const isValid = name && company && email && phone;
 
     return isValid;

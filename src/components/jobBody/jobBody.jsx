@@ -9,7 +9,7 @@ import twitter from "../../assets/twitter.svg";
 import linkedin from "../../assets/linkedin.svg";
 
 const JobBody = props => {
-  const { ageLimit, minAge, maxAge, languages, identity, benefits, skills, description, onUserRegister, onShareJob } = props;
+  const { ageLimit, minAge, maxAge, languages, identity, benefits, skills, description, onUserRegister, onShareJob, isLoggedIn } = props;
 
   return (
     <div className="job-body">
@@ -40,7 +40,11 @@ const JobBody = props => {
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">employer contact</h4>
-          <Button className="job-body__btn" text="login to view" type="secondary" clickHandler={onUserRegister} />
+          {!isLoggedIn ? (
+            <Button className="job-body__btn" text="login to view" type="secondary" clickHandler={onUserRegister} />
+          ) : (
+            <p>81788188406</p>
+          )}
         </li>
         <li className="job-body__item">
           <h4 className="bullet-cap">share this job</h4>

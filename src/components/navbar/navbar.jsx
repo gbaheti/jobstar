@@ -4,20 +4,34 @@ import { Redirect } from "react-router-dom";
 
 import PerksList from "../perksList";
 import Button from "../button";
+import Menu from "../menu";
 
-import { logoutUser } from "../../actions";
+import { logoutUser, toggleSidebar } from "../../actions";
+import { isMobile } from "../../utils";
 
 import "./styles.css";
 import logo from "../../assets/logo.svg";
 
 class Navbar extends Component {
   state = {
+    isMobileDevice: false,
     redirectToBusiness: false,
     jobPerks: ["Extra money", "Flexible work", "Skill up"],
   };
 
+  componentDidMount = () => {
+    this.setState({
+      isMobileDevice: isMobile(),
+    });
+  };
+
   redirect = e => {
     this.setState({ redirectToBusiness: true });
+  };
+
+  toggleSidebar = e => {
+    console.log("h");
+    this.props.toggleSidebar();
   };
 
   renderNavbarRight = () => {
@@ -53,11 +67,13 @@ class Navbar extends Component {
       return <Redirect push to="/business" />;
     }
 
-    const { isUserLoggedIn } = this.props;
+    const { isUserLoggedIn, isSidebarOpen } = this.props;
+    const { isMobileDevice } = this.state;
 
     return (
       <nav className="navbar">
         <div className="navbar__content flex">
+          {isMobileDevice && <Menu isOpen={isSidebarOpen} onToggle={this.toggleSidebar} />}
           <div className="navbar-brand flex">
             <img
               className="logo"
@@ -78,6 +94,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
+    isSidebarOpen: state.ui.isSidebarOpen,
     isUserLoggedIn: state.user.isLoggedIn,
     profile: state.user.profile,
   };
@@ -85,6 +102,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    toggleSidebar: () => dispatch(toggleSidebar()),
     onUserLogout: () => dispatch(logoutUser()),
   };
 };

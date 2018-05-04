@@ -249,3 +249,9 @@ export const logoutUser = () => {
 
   window.location.reload();
 };
+
+export const toggleSidebar = () => {
+  return {
+    type: types.TOGGLE_SIDEBAR,
+  };
+};

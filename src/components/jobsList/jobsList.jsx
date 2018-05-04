@@ -87,7 +87,7 @@ class JobsList extends Component {
   };
 
   render() {
-    const { jobs, onUserApply, onUserRegister } = this.props;
+    const { jobs, onUserApply, onUserRegister, isLoggedIn } = this.props;
 
     if (this.state.redirectToDetailPage) {
       return <Redirect push to={this.state.redirectUrl} />;
@@ -123,6 +123,7 @@ class JobsList extends Component {
                       </AccordionItemTitle>
                       <AccordionItemBody className="jobs-list__body">
                         <JobBody
+                          isLoggedIn={isLoggedIn}
                           ageLimit={data.ageLimit}
                           minAge={data.minAge}
                           maxAge={data.maxAge}
