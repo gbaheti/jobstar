@@ -2,7 +2,6 @@ import React from "react";
 import FacebookLogin from "react-facebook-login";
 
 import fbLogo from "../../assets/fb.png";
-import mobile from "../../assets/mobile.svg";
 
 const Register = props => {
   const { fbLoginCb, error } = props;
@@ -26,7 +25,7 @@ const Register = props => {
           <input type="tel" placeholder="Enter phone number" onChange={handlePhoneInput} />
         </div> */}
         {error && <p className="text--error">{error}</p>}
-        <p className="input-desc">(We will send OTP for confirmation)</p>
+        <p className="input-desc">(Register/Login using your facebook account)</p>
       </div>
     </div>
   );

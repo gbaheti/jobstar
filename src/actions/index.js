@@ -98,29 +98,8 @@ export const openRegistrationModal = () => {
   };
 };
 
-export const sendOtp = phoneNumber => {
-  return dispatch => {
-    return jobsApi
-      .generateOtp(phoneNumber)
-      .then(res => {
-        console.log(res);
-
-        dispatch(sendOtpSuccess(res.is_user_exist));
-      })
-      .catch(err => {
-        throw err;
-      });
-  };
-};
-
-export const sendOtpSuccess = isLoginFlow => {
-  return {
-    type: types.SEND_OTP_SUCCESS,
-    isLoginFlow,
-  };
-};
-
 export const facebookLogin = (details) => {
+  console.log(details);
   return dispatch => {
     return jobsApi
       .facebookLogin(details)
@@ -130,7 +109,7 @@ export const facebookLogin = (details) => {
         TOKEN.update(res.access_token);
         localStorage.setItem("jobstar_user_profile", JSON.stringify(res.user));
 
-        dispatch(confirmOtpSuccess(res.user));
+        dispatch(confirmFbLoginSuccess(res.user));
         dispatch(fetchJobs(true));
         dispatch(fetchAppliedJobs());
       })
@@ -140,29 +119,9 @@ export const facebookLogin = (details) => {
   };
 };
 
-export const confirmOtp = (phoneNumber, otp) => {
-  return dispatch => {
-    return jobsApi
-      .login(phoneNumber, otp)
-      .then(res => {
-        console.log(res);
-
-        TOKEN.update(res.access_token);
-        localStorage.setItem("jobstar_user_profile", JSON.stringify(res.user));
-
-        dispatch(confirmOtpSuccess(res.user));
-        dispatch(fetchJobs(true));
-        dispatch(fetchAppliedJobs());
-      })
-      .catch(err => {
-        throw err;
-      });
-  };
-};
-
-export const confirmOtpSuccess = profile => {
+export const confirmFbLoginSuccess = profile => {
   return {
-    type: types.CONFIRM_OTP_SUCCESS,
+    type: types.CONFIRM_LOGIN_SUCCESS,
     profile,
   };
 };
@@ -263,7 +222,6 @@ export const sendJobAlertsSuccess = res => {
 };
 
 export const logoutUser = () => {
-  // TODO - return an action and set user state to initial value
   return dispatch => {
     localStorage.removeItem("jobstar_user_profile");
     localStorage.removeItem("jobsar_access_token");
@@ -277,3 +235,45 @@ export const toggleSidebar = () => {
     type: types.TOGGLE_SIDEBAR,
   };
 };
+
+// export const sendOtp = phoneNumber => {
+//   return dispatch => {
+//     return jobsApi
+//       .generateOtp(phoneNumber)
+//       .then(res => {
+//         console.log(res);
+
+//         dispatch(sendOtpSuccess(res.is_user_exist));
+//       })
+//       .catch(err => {
+//         throw err;
+//       });
+//   };
+// };
+
+// export const sendOtpSuccess = isLoginFlow => {
+//   return {
+//     type: types.SEND_OTP_SUCCESS,
+//     isLoginFlow,
+//   };
+// };
+
+// export const confirmOtp = (phoneNumber, otp) => {
+//   return dispatch => {
+//     return jobsApi
+//       .login(phoneNumber, otp)
+//       .then(res => {
+//         console.log(res);
+
+//         TOKEN.update(res.access_token);
+//         localStorage.setItem("jobstar_user_profile", JSON.stringify(res.user));
+
+//         dispatch(confirmOtpSuccess(res.user));
+//         dispatch(fetchJobs(true));
+//         dispatch(fetchAppliedJobs());
+//       })
+//       .catch(err => {
+//         throw err;
+//       });
+//   };
+// };

@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 
 import Register from "../register";
 import Modal from "../modal";
-import Confirmation from "../confirmation";
 import ProfileDetails from "../profileDetails";
 import Success from "../success";
 
-import { sendOtp, confirmOtp, saveProfile, closeRegistrationModal, facebookLogin } from "../../actions";
+import { saveProfile, closeRegistrationModal, facebookLogin } from "../../actions";
 
 import "./styles.css";
 
@@ -38,13 +37,13 @@ class RegisterFlow extends Component {
           ),
         };
 
-      case "confirmation":
-        return {
-          heading: "Confirmation",
-          btnText: "done",
-          onSubmit: this.onOtpSubmit,
-          component: <Confirmation handleOTPInput={this.onEnterOtp} resendOtp={this.onPhoneNumberSubmit} error={this.state.error} />,
-        };
+      // case "confirmation":
+      //   return {
+      //     heading: "Confirmation",
+      //     btnText: "done",
+      //     onSubmit: this.onOtpSubmit,
+      //     component: <Confirmation handleOTPInput={this.onEnterOtp} resendOtp={this.onPhoneNumberSubmit} error={this.state.error} />,
+      //   };
 
       case "profileDetails":
         return {
@@ -201,8 +200,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendOtp: phoneNumber => dispatch(sendOtp(phoneNumber)),
-    confirmOtp: (phoneNumber, otp) => dispatch(confirmOtp(phoneNumber, otp)),
     facebookLogin: (details) => dispatch(facebookLogin(details)),
     saveProfile: profile => dispatch(saveProfile(profile)),
     closeRegistrationModal: () => dispatch(closeRegistrationModal()),

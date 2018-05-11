@@ -26,7 +26,9 @@ const JobInfo = props => {
 
   return (
     <div className="job-info">
-      <img className="job-info__icon" src={icon} alt="job-icon" />
+      <div className="job-info__icon flex">
+        <img className="img-responsive" src={icon} alt="job-icon" />
+      </div>
       <div className="job-info__title">
         <h3 onClick={onOpenJobDetail}>{profile}</h3>
         <p>Posted 1 day ago</p>

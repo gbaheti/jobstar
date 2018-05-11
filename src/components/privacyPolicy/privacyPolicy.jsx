@@ -1,8 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
 
 import Navbar from "../navbar";
-import Footer from "../footer";
 
 import "./styles.css";
 

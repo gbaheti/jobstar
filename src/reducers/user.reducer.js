@@ -8,7 +8,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.CONFIRM_OTP_SUCCESS:
+    case types.CONFIRM_LOGIN_SUCCESS:
       return Object.assign({}, state, {
         isLoggedIn: true,
         profile: action.profile,
