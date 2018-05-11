@@ -65,6 +65,22 @@ const jobsApi = {
 
     return promisifiedXHR(loginUri, "POST", { phone: phoneNumber, otp: otp }, headers);
   },
+  facebookLogin: (details) => {
+    const loginUri = "/stars/users/login";
+    const headers = {
+      "Content-Type": "application/json",
+      access_token: TOKEN.getDefault(),
+    };
+    const data = {
+      name: details.name,
+      email: details.email,
+      gender: details.gender,
+      fb_id: details.id,
+      fb_token: details.accessToken
+    };
+
+    return promisifiedXHR(loginUri, "POST", data, headers);
+  },
   saveProfile: profile => {
     const profileUri = "/stars/users";
     const headers = {

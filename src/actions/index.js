@@ -120,6 +120,26 @@ export const sendOtpSuccess = isLoginFlow => {
   };
 };
 
+export const facebookLogin = (details) => {
+  return dispatch => {
+    return jobsApi
+      .facebookLogin(details)
+      .then(res => {
+        console.log(res);
+
+        TOKEN.update(res.access_token);
+        localStorage.setItem("jobstar_user_profile", JSON.stringify(res.user));
+
+        dispatch(confirmOtpSuccess(res.user));
+        dispatch(fetchJobs(true));
+        dispatch(fetchAppliedJobs());
+      })
+      .catch(err => {
+        throw err;
+      });
+  };
+};
+
 export const confirmOtp = (phoneNumber, otp) => {
   return dispatch => {
     return jobsApi
@@ -244,10 +264,12 @@ export const sendJobAlertsSuccess = res => {
 
 export const logoutUser = () => {
   // TODO - return an action and set user state to initial value
-  localStorage.removeItem("jobstar_user_profile");
-  localStorage.removeItem("jobsar_access_token");
+  return dispatch => {
+    localStorage.removeItem("jobstar_user_profile");
+    localStorage.removeItem("jobsar_access_token");
 
-  window.location.reload();
+    window.location.reload();
+  }
 };
 
 export const toggleSidebar = () => {

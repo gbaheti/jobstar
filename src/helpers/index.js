@@ -61,7 +61,7 @@ export const normalizeJob = job => {
 };
 
 export const normalizeProfile = (profile, placeholder = "-") => {
-  const dob = moment(profile.dob).format("DD/MM/YYYY");
+  const dob = profile.dob ? moment(profile.dob).format("DD/MM/YYYY") : "//";
   const name = profile.last_name ? profile.first_name + " " + profile.last_name : profile.first_name;
 
   return {
@@ -69,7 +69,7 @@ export const normalizeProfile = (profile, placeholder = "-") => {
     name: name || placeholder,
     phone: profile.phone || placeholder,
     city: profile.city || placeholder,
-    dob: dob || placeholder,
+    dob: dob !== "//" ? dob : placeholder,
     dobDate: dob.split("/")[0] || placeholder,
     dobMonth: dob.split("/")[1] || placeholder,
     dobYear: dob.split("/")[2] || placeholder,

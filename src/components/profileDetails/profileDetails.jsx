@@ -2,7 +2,7 @@ import React from "react";
 
 const ProfileDetails = props => {
   const {
-    handleNameInput,
+    handlePhoneInput,
     handleDateInput,
     handleMonthInput,
     handleYearInput,
@@ -13,12 +13,12 @@ const ProfileDetails = props => {
   return (
     <div className="profile-details">
       <div className="profile-details__form-grp">
-        <label>What’s your name?</label>
+        <label>What’s your phone number?</label>
         <input
           type="text"
-          name="name"
-          placeholder="Enter name"
-          onChange={handleNameInput}
+          name="phone"
+          placeholder="Enter number"
+          onChange={handlePhoneInput}
         />
       </div>
       <div className="profile-details__form-grp">

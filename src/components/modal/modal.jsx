@@ -25,7 +25,7 @@ const Modal = props => {
             </div>
             <div className="modal__body">{component}</div>
             <div className="modal__footer">
-              <Button className="modal__btn" text={btnText} type="primary" icon={arrowRight} clickHandler={onSubmit} />
+              {btnText && <Button className="modal__btn" text={btnText} type="primary" icon={arrowRight} clickHandler={onSubmit} />}
             </div>
           </div>
         </CSSTransition>

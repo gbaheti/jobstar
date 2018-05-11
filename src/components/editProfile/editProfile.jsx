@@ -4,7 +4,7 @@ import Select from "react-select";
 import FacebookLogin from "react-facebook-login";
 
 import { normalizeProfile } from "../../helpers";
-import { saveProfile } from "../../actions";
+import { saveProfile, facebookLogin } from "../../actions";
 
 import "./styles.css";
 import "react-select/dist/react-select.css";
@@ -25,6 +25,14 @@ class EditProfile extends Component {
 
   fbLoginCb = response => {
     console.log(response);
+  };
+
+  onFbLoginResponse = res => {
+    if (res != null && res.name) {
+      console.log("CB:", res);
+
+      this.props.facebookLogin(res);
+    }
   };
 
   handleImageUpload = e => {
@@ -93,9 +101,8 @@ class EditProfile extends Component {
                 <label>Social Profiles</label>
                 <div className="edit-profile__field">
                   <FacebookLogin
-                    appId="301866860346707"
-                    autoLoad={true}
-                    fields="name,email"
+                    appId="164437664237055"
+                    fields="name,email,gender"
                     callback={this.fbLoginCb}
                     cssClass="input-grp register__fb"
                     textButton="Continue with facebook"
@@ -117,6 +124,12 @@ class EditProfile extends Component {
                 <label>Name</label>
                 <div className="edit-profile__field">
                   <input type="text" name="name" placeholder="Enter a name" value={user.name} onChange={this.handleTextInput} />
+                </div>
+              </div>
+              <div className="edit-profile__input-grp">
+                <label>Phone Number</label>
+                <div className="edit-profile__field">
+                  <input type="text" name="phone" placeholder="Enter phone number" value={user.phone} onChange={this.handleTextInput} />
                 </div>
               </div>
               <div className="edit-profile__input-grp">
@@ -155,19 +168,6 @@ class EditProfile extends Component {
                 </div>
               </div>
               <div className="edit-profile__input-grp">
-                <label>Job Type</label>
-                <div className="edit-profile__field">
-                  <Select
-                    name="lookingFor"
-                    placeholder="Select job type"
-                    value={user.lookingFor}
-                    searchable={false}
-                    options={this.state.jobTypes}
-                    onChange={this.handleSelectInput}
-                  />
-                </div>
-              </div>
-              <div className="edit-profile__input-grp">
                 <label>Aadhar ID</label>
                 <div className="edit-profile__field">
                   <div className="file-input">
@@ -199,6 +199,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    facebookLogin: (details) => dispatch(facebookLogin(details)),
     saveProfile: profile => dispatch(saveProfile(profile)),
   };
 };

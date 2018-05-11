@@ -45,6 +45,7 @@
 }
 
 .modal__footer {
+  min-height: 60px;
   justify-content: flex-end;
 }
 

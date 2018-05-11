@@ -7,7 +7,7 @@ import Confirmation from "../confirmation";
 import ProfileDetails from "../profileDetails";
 import Success from "../success";
 
-import { sendOtp, confirmOtp, saveProfile, closeRegistrationModal } from "../../actions";
+import { sendOtp, confirmOtp, saveProfile, closeRegistrationModal, facebookLogin } from "../../actions";
 
 import "./styles.css";
 
@@ -28,13 +28,10 @@ class RegisterFlow extends Component {
       case "register":
         return {
           heading: "Register",
-          btnText: "continue",
-          onSubmit: this.onPhoneNumberSubmit,
+          btnText: false,
           onClose: this.onClose,
           component: (
             <Register
-              handlePhoneInput={this.onEnterPhoneNumber}
-              handleFbLogin={this.onFbLogin}
               fbLoginCb={this.onFbLoginResponse}
               error={this.state.error}
             />
@@ -57,7 +54,7 @@ class RegisterFlow extends Component {
           onClose: this.onClose,
           component: (
             <ProfileDetails
-              handleNameInput={this.onEnterName}
+              handlePhoneInput={this.onEnterPhoneNumber}
               handleDateInput={this.onEnterDate}
               handleMonthInput={this.onEnterMonth}
               handleYearInput={this.onEnterYear}
@@ -87,10 +84,14 @@ class RegisterFlow extends Component {
     }
   };
 
-  onFbLogin = () => {};
-
   onFbLoginResponse = res => {
-    console.log("CB:", res);
+    if (res != null && res.name) {
+      console.log("CB:", res);
+
+      this.setState({ error: null });
+
+      this.props.facebookLogin(res);
+    }
   };
 
   validatePhoneNumber = () => {
@@ -98,21 +99,6 @@ class RegisterFlow extends Component {
     const isValid = phoneRegex.test(this.state.phoneNumber);
 
     return isValid;
-  };
-
-  onEnterPhoneNumber = e => {
-    this.setState({
-      phoneNumber: e.target.value,
-    });
-  };
-
-  onPhoneNumberSubmit = () => {
-    if (this.validatePhoneNumber()) {
-      this.setState({ error: null });
-      this.props.sendOtp(this.state.phoneNumber);
-    } else {
-      this.setState({ error: "Please check the phone number. 🤔" });
-    }
   };
 
   validateOtp = () => {
@@ -137,15 +123,17 @@ class RegisterFlow extends Component {
   };
 
   validateProfile = () => {
+    const phoneRegex = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/);
+    const isValidPhoneNumber = phoneRegex.test(this.state.phoneNumber);
     const isValidDate = !isNaN(Date.parse(`${this.state.dobYear}-${this.state.dobMonth}-${this.state.dobDate}`));
-    const isValid = this.state.name && this.state.city && isValidDate;
+    const isValid = isValidPhoneNumber && this.state.city && isValidDate;
 
     return isValid;
   };
 
-  onEnterName = e => {
+  onEnterPhoneNumber = e => {
     this.setState({
-      name: e.target.value,
+      phoneNumber: e.target.value,
     });
   };
 
@@ -177,7 +165,7 @@ class RegisterFlow extends Component {
     if (this.validateProfile()) {
       this.setState({ error: null });
       this.props.saveProfile({
-        name: this.state.name,
+        phone: this.state.phoneNumber,
         city: this.state.city,
         dob: `${this.state.dobDate}/${this.state.dobMonth}/${this.state.dobYear}`,
       });
@@ -215,6 +203,7 @@ const mapDispatchToProps = dispatch => {
   return {
     sendOtp: phoneNumber => dispatch(sendOtp(phoneNumber)),
     confirmOtp: (phoneNumber, otp) => dispatch(confirmOtp(phoneNumber, otp)),
+    facebookLogin: (details) => dispatch(facebookLogin(details)),
     saveProfile: profile => dispatch(saveProfile(profile)),
     closeRegistrationModal: () => dispatch(closeRegistrationModal()),
   };
