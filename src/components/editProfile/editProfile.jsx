@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import FacebookLogin from "react-facebook-login";
 
+import { isMobile } from "../../utils";
 import { normalizeProfile } from "../../helpers";
 import { saveProfile, facebookLogin } from "../../actions";
 
@@ -103,6 +104,8 @@ class EditProfile extends Component {
                     appId="164437664237055"
                     fields="name,email,gender"
                     callback={this.fbLoginCb}
+                    isMobile={isMobile()}
+                    disableMobileRedirect={true}
                     cssClass="input-grp register__fb"
                     textButton="Continue with facebook"
                     scope="public_profile,email"

@@ -1,11 +1,13 @@
 import React from "react";
 import FacebookLogin from "react-facebook-login";
 
+import { isMobile } from '../../utils';
+
 import fbLogo from "../../assets/fb.png";
 
 const Register = props => {
   const { fbLoginCb, error } = props;
-
+  console.log('ismobile', isMobile());
   return (
     <div className="register">
       <h2>Get instant access to 1000+ jobs</h2>
@@ -14,6 +16,8 @@ const Register = props => {
           appId="164437664237055"
           fields="name,email,gender"
           callback={fbLoginCb}
+          isMobile={isMobile()}
+          disableMobileRedirect={true}
           cssClass="input-grp register__fb"
           textButton="Continue with facebook"
           scope="public_profile,email"

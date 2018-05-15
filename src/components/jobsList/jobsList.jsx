@@ -106,8 +106,6 @@ class JobsList extends Component {
             } else {
               const data = normalizeJob(j);
 
-              console.log('DATA', data);
-
               return (
                 data && (
                   <CSSTransition appear={true} timeout={300} classNames="tr-job-item" key={data.ids[0] * idx}>
